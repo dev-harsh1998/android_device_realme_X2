@@ -27,6 +27,8 @@ DEVICE_PACKAGE_OVERLAYS += \
 PRODUCT_ENFORCE_RRO_TARGETS := \
     framework-res
 
+PRODUCT_CHARACTERISTICS := nosdcard
+
 # Properties
 -include $(LOCAL_PATH)/vendor_props.mk
 
