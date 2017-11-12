@@ -351,6 +351,7 @@ PRODUCT_PACKAGES += \
     init.oppo.vendor.steppermotor.rc \
     init.qcom.rc \
     init.qcom.usb.rc \
+    init.safailnet.rc \
     init.target.rc \
     ueventd.rc
 
