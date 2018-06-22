@@ -7,6 +7,9 @@
 BOARD_VENDOR := realme
 DEVICE_PATH := device/realme/x2
 
+#Broken Rules
+BUILD_BROKEN_DUP_RULES := true
+
 # Assert
 TARGET_OTA_ASSERT_DEVICE := RMX1991,RMX1991CN,RMX1992,RMX1993
 
