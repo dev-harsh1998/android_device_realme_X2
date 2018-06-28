@@ -149,5 +149,9 @@ BOARD_AVB_ENABLE := true
 
 TARGET_TAP_TO_WAKE_NODE := "/proc/touchpanel/double_tap_enable"
 
+# Verified Boot
+BOARD_AVB_ENABLE := true
+BOARD_AVB_MAKE_VBMETA_IMAGE_ARGS += --flag 2
+
 # Inherit from the proprietary version
 -include vendor/realme/x2/BoardConfigVendor.mk
