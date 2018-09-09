@@ -265,7 +265,7 @@ PRODUCT_PACKAGES += \
 
 # Power
 PRODUCT_PACKAGES += \
-    power.qcom:64
+    android.hardware.power@1.2-service.x2
 
 # QTI
 PRODUCT_COPY_FILES += \
