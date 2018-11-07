@@ -384,6 +384,10 @@ PRODUCT_PACKAGES += \
     android.hardware.thermal@1.0-service \
     thermal.sm6150
 
+# Touch
+PRODUCT_PACKAGES += \
+    lineage.touch@1.0-service.x2
+
 # Trust HAL
 PRODUCT_PACKAGES += \
     lineage.trust@1.0-service
@@ -419,14 +423,3 @@ PRODUCT_PACKAGES += \
 
 PRODUCT_BOOT_JARS += \
     WfdCommon
-
-# Touch
-PRODUCT_PACKAGES += \
-    lineage.touch@1.0-service.x2
-
-# Optimizations
-PRODUCT_DEXPREOPT_SPEED_APPS += SystemUI
-PRODUCT_DEX_PREOPT_DEFAULT_COMPILER_FILTER := speed-profile
-PRODUCT_ALWAYS_PREOPT_EXTRACTED_APK := true
-PRODUCT_MINIMIZE_JAVA_DEBUG_INFO := true
-PRODUCT_ART_TARGET_INCLUDE_DEBUG_BUILD := false
