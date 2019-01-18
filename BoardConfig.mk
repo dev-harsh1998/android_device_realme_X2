@@ -7,6 +7,9 @@
 BOARD_VENDOR := realme
 DEVICE_PATH := device/realme/x2
 
+# Display density
+TARGET_SCREEN_DENSITY := 480
+
 #Broken Rules
 BUILD_BROKEN_DUP_RULES := true
 
