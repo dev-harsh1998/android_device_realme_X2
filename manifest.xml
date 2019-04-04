@@ -768,16 +768,16 @@
             <instance>wifidisplaysession</instance>
         </interface>
         <interface>
+            <name>IWifiDisplaySessionVideoTrack</name>
+            <instance>wifidisplaysessionvideotrack</instance>
+        </interface>
+        <interface>
             <name>IWifiDisplaySessionAudioTrack</name>
             <instance>wifidisplaysessionaudiotrack</instance>
         </interface>
         <interface>
             <name>IWifiDisplaySessionImageTrack</name>
             <instance>wifidisplaysessionimagetrack</instance>
-        </interface>
-        <interface>
-            <name>IWifiDisplaySessionVideoTrack</name>
-            <instance>wifidisplaysessionvideotrack</instance>
         </interface>
     </hal>
     <hal format="hidl">
