@@ -148,8 +148,6 @@ PRODUCT_PACKAGES += \
     libtinyxml \
     libvulkan \
     memtrack.sm6150 \
-    vendor.display.config@1.7 \
-    vendor.display.config@1.7.vendor \
     vendor.qti.hardware.display.allocator@1.0-service
 
 # Doze
@@ -390,7 +388,6 @@ PRODUCT_COPY_FILES += \
 
 # WiFi Display
 PRODUCT_PACKAGES += \
-    libnl \
     libqdMetaData.system
 
 PRODUCT_BOOT_JARS += \
