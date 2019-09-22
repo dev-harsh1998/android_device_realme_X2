@@ -35,4 +35,7 @@
 
     <!-- After a CDMA conference call is merged, the swap button should be displayed. -->
     <bool name="support_swap_after_merge" translatable="false">false</bool>
+
+    <!-- The package name for the platform carrier config app, bundled with system image. -->
+    <string name="platform_carrier_config_package" translatable="false">com.google.android.carrier</string>
 </resources>
