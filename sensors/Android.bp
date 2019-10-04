@@ -1,5 +1,5 @@
 cc_library_shared {
-    name: "android.hardware.sensors@1.0-impl.realme_x2",
+    name: "android.hardware.sensors@1.0-impl.x2",
     defaults: ["hidl_defaults"],
     relative_install_path: "hw",
     srcs: ["Sensors.cpp"],

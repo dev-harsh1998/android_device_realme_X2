@@ -8,6 +8,10 @@ on init
     # HIDL Manifest
     mount none /system/etc/manifest.xml /vendor/etc/vintf/manifest.xml bind
 
+    # Hax to fix sensors
+    mount none /system/etc/placeholder /vendor/lib/hw/android.hardware.sensors@1.0-impl.so bind
+    mount none /system/etc/placeholder /vendor/lib64/hw/android.hardware.sensors@1.0-impl.so bind
+
     # Boot time FS tune
     write /sys/block/sda/queue/iostats 0
     write /sys/block/sda/queue/scheduler cfq
