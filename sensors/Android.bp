@@ -13,8 +13,31 @@ cc_library_shared {
     ],
     static_libs: [
         "android.hardware.sensors@1.0-convert",
-        "multihal",
+        "multihal_x2",
         "libbase",
         "libutils",
     ],
 }
+
+cc_library_static {
+    name: "multihal_x2",
+    srcs: [
+        "multihal.cpp",
+        "SensorEventQueue.cpp",
+    ],
+    header_libs: [
+        "libhardware_headers",
+    ],
+    shared_libs: [
+        "liblog",
+        "libcutils",
+        "libutils",
+        "libdl",
+    ],
+    export_include_dirs: ["."],
+    cflags: [
+        "-Wall",
+        "-Werror",
+    ],
+}
+
