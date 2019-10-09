@@ -86,10 +86,7 @@ PRODUCT_COPY_FILES += \
 
 # IMS
 PRODUCT_PACKAGES += \
-    ims-ext-common_system
-
-PRODUCT_BOOT_JARS += \
-    ims-ext-common_system
+    ims-ext-common
 
 # Input
 PRODUCT_COPY_FILES += \
