@@ -90,3 +90,11 @@ on post-fs-data
     mount none /system/etc/placeholder /vendor/overlay/TelephonyResCommon.apk bind
     mount none /system/lib/hw/android.hardware.sensors@1.0-impl.x2.so /vendor/lib/hw/android.hardware.sensors@1.0-impl.so bind
     mount none /system/lib64/hw/android.hardware.sensors@1.0-impl.x2.so /vendor/lib64/hw/android.hardware.sensors@1.0-impl.so bind
+
+service vendor.imsdatadaemon /vendor/bin/imsdatadaemon
+    override
+    class main
+    user radio
+    socket ims_datad stream 0660 system radio
+    group radio wifi inet vendor_qti_diag log
+    disabled
