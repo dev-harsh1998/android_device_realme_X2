@@ -125,6 +125,7 @@ SF_VSYNC_EVENT_PHASE_OFFSET_NS := 6000000
 DEVICE_MANIFEST_FILE := $(DEVICE_PATH)/manifest.xml
 DEVICE_FRAMEWORK_MANIFEST_FILE := $(DEVICE_PATH)/framework_manifest.xml
 DEVICE_MATRIX_FILE := $(DEVICE_PATH)/compatibility_matrix.xml
+PRODUCT_COPY_FILES += $(DEVICE_PATH)/manifest-qva.xml:$(TARGET_COPY_OUT_ODM)/etc/vintf/manifest.xml
 
 # Media
 TARGET_DISABLED_UBWC := true
