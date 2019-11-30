@@ -62,16 +62,9 @@ on property:vold.decrypt=trigger_restart_framework
 on post-fs-data
     #Hack until we build the vendor
     mount none /dev/null /vendor/lib/hw/lights.sm6150.so bind
-    mount none /dev/null /vendor/lib/hw/android.hardware.light@2.0-impl.so bind
     mount none /dev/null /vendor/lib64/hw/lights.sm6150.so bind
-    mount none /dev/null /vendor/lib64/hw/android.hardware.light@2.0-impl.so bind
     mount none /vendor/lost+found /vendor/overlay bind
     mount none /vendor/lost+found /vendor/euclid bind
-    mount none /system/bin/hw/hostapd /vendor/bin/hw/hostapd bind
-    mount none /system/etc/audio_policy_configuration.xml /vendor/etc/audio/audio_policy_configuration.xml bind
-    mount none /system/lib64/hw/power.qcom.so /vendor/lib64/hw/power.qcom.so bind
-    mount none /system/lib64/soundfx/libvolumelistener.so /vendor/lib64/soundfx/libvolumelistener.so bind
-    mount none /system/lib/soundfx/libvolumelistener.so /vendor/lib/soundfx/libvolumelistener.so bind
     mount none /system/lib/hw/android.hardware.sensors@1.0-impl.x2.so /vendor/lib/hw/android.hardware.sensors@1.0-impl.so bind
     mount none /system/lib64/hw/android.hardware.sensors@1.0-impl.x2.so /vendor/lib64/hw/android.hardware.sensors@1.0-impl.so bind
 
