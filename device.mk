@@ -120,10 +120,6 @@ PRODUCT_COPY_FILES += \
 PRODUCT_PACKAGES += \
     android.hardware.sensors@1.0-impl.x2
 
-# Temp Hack.
-PRODUCT_COPY_FILES += \
-    $(LOCAL_PATH)/placeholder:system/etc/placeholder
-
 # Sensors
 PRODUCT_COPY_FILES += \
     frameworks/native/data/etc/android.hardware.sensor.light.xml:system/etc/permissions/android.hardware.sensor.light.xml \

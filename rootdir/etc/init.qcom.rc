@@ -9,8 +9,8 @@ on init
     mount none /system/etc/manifest.xml /vendor/etc/vintf/manifest.xml bind
 
     # Hax to fix sensors
-    mount none /system/etc/placeholder /vendor/lib/hw/android.hardware.sensors@1.0-impl.so bind
-    mount none /system/etc/placeholder /vendor/lib64/hw/android.hardware.sensors@1.0-impl.so bind
+    mount none /system/lib/hw/android.hardware.sensors@1.0-impl.x2.so /vendor/lib/hw/android.hardware.sensors@1.0-impl.so bind
+    mount none /system/lib64/hw/android.hardware.sensors@1.0-impl.x2.so /vendor/lib64/hw/android.hardware.sensors@1.0-impl.so bind
 
     # Boot time FS tune
     write /sys/block/sda/queue/iostats 0
