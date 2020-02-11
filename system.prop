@@ -98,6 +98,7 @@ ro.lmk.log_stats=true
 # Media
 media.settings.xml=/system/etc/media_profiles_vendor.xml
 media.stagefright.thumbnail.prefer_hw_codecs=true
+ro.media.recorder-max-base-layer-fps=60
 persist.mm.enable.prefetch=true
 vendor.media.vpp.enable=true
 
