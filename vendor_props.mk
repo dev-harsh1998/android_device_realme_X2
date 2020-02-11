@@ -111,6 +111,7 @@ PRODUCT_PROPERTY_OVERRIDES += \
     media.settings.xml=/system/etc/media_profiles_vendor.xml \
     media.stagefright.thumbnail.prefer_hw_codecs=true \
     persist.mm.enable.prefetch=true \
+    ro.media.recorder-max-base-layer-fps=60 \
     vendor.media.vpp.enable=true
 
 # Memory optimizations
