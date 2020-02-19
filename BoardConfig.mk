@@ -156,9 +156,6 @@ BOARD_PLAT_PRIVATE_SEPOLICY_DIR += \
 # System-as-root
 BOARD_BUILD_SYSTEM_ROOT_IMAGE := true
 
-# Treble
-BOARD_VNDK_VERSION := current
-
 TARGET_TAP_TO_WAKE_NODE := "/proc/touchpanel/double_tap_enable"
 
 # Verified Boot
