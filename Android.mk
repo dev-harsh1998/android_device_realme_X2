@@ -12,6 +12,14 @@ include $(call all-makefiles-under,$(LOCAL_PATH))
 
 include $(CLEAR_VARS)
 
+LIBBLUETOOTH_QTI_SYMLINKS := $(TARGET_OUT)/lib64/libbluetooth_qti.so
+$(LIBBLUETOOTH_QTI_SYMLINKS): $(LOCAL_INSTALLED_MODULE)
+	@echo "Creating libbluetooth_qti symlink"
+	$(hide) mkdir -p $(dir $@)
+	$(hide) ln -sf /system/lib64/libbluetooth.so $@
+
+ALL_DEFAULT_INSTALLED_MODULES += $(LIBBLUETOOTH_QTI_SYMLINKS)
+
 # A/B builds require us to create the mount points at compile time.
 # Just creating it for all cases since it does not hurt.
 FIRMWARE_MOUNT_POINT := $(TARGET_OUT_VENDOR)/firmware_mnt
