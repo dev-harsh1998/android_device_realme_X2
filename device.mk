@@ -147,6 +147,11 @@ PRODUCT_BOOT_JARS += \
 PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/manifest.xml:system/etc/manifest.xml
 
+# Lights
+PRODUCT_PACKAGES += \
+    android.hardware.light@2.0-service.x2
+
+# Optimizations
 PRODUCT_DEXPREOPT_SPEED_APPS += SystemUI
 PRODUCT_DEX_PREOPT_DEFAULT_COMPILER_FILTER := speed-profile
 PRODUCT_ALWAYS_PREOPT_EXTRACTED_APK := true
