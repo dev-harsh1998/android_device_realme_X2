@@ -16,8 +16,8 @@
 cc_binary {
     relative_install_path: "hw",
     defaults: ["hidl_defaults"],
-    name: "lineage.biometrics.fingerprint.inscreen@1.0-service.RMX1931",
-    init_rc: ["lineage.biometrics.fingerprint.inscreen@1.0-service.RMX1931.rc"],
+    name: "lineage.biometrics.fingerprint.inscreen@1.0-service.x2",
+    init_rc: ["lineage.biometrics.fingerprint.inscreen@1.0-service.x2.rc"],
     srcs: [
 	"service.cpp",
         "FingerprintInscreen.cpp",
