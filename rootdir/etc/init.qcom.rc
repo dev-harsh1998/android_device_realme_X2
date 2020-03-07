@@ -138,3 +138,9 @@ on post-fs-data
     mkdir /mnt/vendor/persist/fingerprint/silead 0770 system system
 
     mkdir /data/vendor/egis   0770 system system
+
+    #Hack until we build the vendor
+    mount none /dev/null vendor/lib/hw/lights.sm6150.so bind
+    mount none /dev/null vendor/lib/hw/android.hardware.light@2.0-impl.so bind
+    mount none /dev/null vendor/lib64/hw/lights.sm6150.so bind
+    mount none /dev/null vendor/lib64/hw/android.hardware.light@2.0-impl.so bind
