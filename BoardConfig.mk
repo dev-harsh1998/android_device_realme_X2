@@ -79,8 +79,6 @@ WITH_DEXPREOPT_DEBUG_INFO := false
 
 # DRM
 TARGET_ENABLE_MEDIADRM_64 := true
-TARGET_HAS_HDR_DISPLAY := true
-TARGET_HAS_WIDE_COLOR_DISPLAY := true
 
 # Filesystem
 TARGET_FS_CONFIG_GEN := $(DEVICE_PATH)/config.fs
@@ -145,8 +143,9 @@ BOARD_VNDK_VERSION := current
 PRODUCT_FULL_TREBLE_OVERRIDE := true
 VENDOR_SECURITY_PATCH := 2020-01-05
 
-# Verified Boot
-BOARD_AVB_ENABLE := true
+# Lineage Hardware
+JAVA_SOURCE_OVERLAYS := \
+    org.lineageos.hardware|$(DEVICE_PATH)/lineagehw|**/*.java
 
 TARGET_TAP_TO_WAKE_NODE := "/proc/touchpanel/double_tap_enable"
 
