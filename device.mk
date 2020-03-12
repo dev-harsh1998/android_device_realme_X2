@@ -159,6 +159,10 @@ PRODUCT_BOOT_JARS += \
 PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/manifest.xml:system/etc/manifest.xml
 
+# Temp Hack.
+PRODUCT_COPY_FILES += \
+    $(LOCAL_PATH)/placeholder:system/etc/placeholder
+
 # Lights
 PRODUCT_PACKAGES += \
     android.hardware.light@2.0-service.x2
