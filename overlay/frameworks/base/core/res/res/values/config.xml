@@ -43,6 +43,8 @@
          Must be overridden in platform specific overlays -->
     <integer-array name="config_autoBrightnessLevels">
         <item>45</item>
+        <item>260</item>
+        <item>680</item>
         <item>862</item>
         <item>1025</item>
         <item>1480</item>
@@ -50,6 +52,7 @@
         <item>2250</item>
         <item>3300</item>
         <item>6200</item>
+        <item>8600</item>
         <item>10000</item>
     </integer-array>
 
@@ -79,6 +82,10 @@
         <item>78</item>
         <item>87</item>
         <item>128</item>
+        <item>148</item>
+        <item>162</item>
+        <item>174</item>
+        <item>191</item>
         <item>206</item>
         <item>231</item>
         <item>255</item>
