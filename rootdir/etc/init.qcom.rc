@@ -1,33 +1,4 @@
 on init
-    mount none /system/etc/audio_policy_configuration.xml /vendor/etc/audio/audio_policy_configuration.xml bind
-    mount none /system/lib64/hw/power.qcom.so /vendor/lib64/hw/power.qcom.so bind
-    mount none /system/lib64/soundfx/libvolumelistener.so /vendor/lib64/soundfx/libvolumelistener.so bind
-    mount none /system/lib/soundfx/libvolumelistener.so /vendor/lib/soundfx/libvolumelistener.so bind
-    mount none /system/overlay/BluetoothResCommon.apk /vendor/overlay/BluetoothResCommon.apk bind
-    mount none /system/etc/placeholder /vendor/overlay/CarrierConfigResCommon.apk bind
-    mount none /system/etc/placeholder /vendor/overlay/CellBroadcastReceiverResCommon.apk bind
-    mount none /system/etc/placeholder /vendor/overlay/ChinaMobileFrameworksRes/ChinaMobileFrameworksRes.apk bind
-    mount none /system/etc/placeholder /vendor/overlay/CmccMmsRes.apk bind
-    mount none /system/etc/placeholder /vendor/overlay/CmccSettingsTheme/CmccSettingsRes.apk bind
-    mount none /system/etc/placeholder /vendor/overlay/CmccSystemUIRes.apk bind
-    mount none /system/etc/placeholder /vendor/overlay/CtFrameworksTheme/CtFrameworksRes.apk bind
-    mount none /system/etc/placeholder /vendor/overlay/CtNetworkSettingRes/CtNetworkSettingRes.apk bind
-    mount none /system/etc/placeholder /vendor/overlay/CtSystemUITheme/CtSystemUIRes.apk bind
-    mount none /system/etc/placeholder /vendor/overlay/DialerResCommon.apk bind
-    mount none /system/etc/placeholder /vendor/overlay/FrameworksResCommon.apk bind
-    mount none /system/etc/placeholder /vendor/overlay/OptInAppOverlay/OptInAppOverlay.apk bind
-    mount none /system/etc/placeholder /vendor/overlay/SystemUIResCommon.apk bind
-    mount none /system/etc/placeholder /vendor/overlay/SysuiDarkTheme/SysuiDarkThemeOverlay.apk bind
-    mount none /system/etc/placeholder /vendor/overlay/TelecommResCommon.apk bind
-    mount none /system/etc/placeholder /vendor/overlay/TelephonyResCommon.apk bind
-
-    # HIDL Manifest
-    mount none /system/etc/manifest.xml /vendor/etc/vintf/manifest.xml bind
-
-    # Hax to fix sensors
-    mount none /system/lib/hw/android.hardware.sensors@1.0-impl.x2.so /vendor/lib/hw/android.hardware.sensors@1.0-impl.so bind
-    mount none /system/lib64/hw/android.hardware.sensors@1.0-impl.x2.so /vendor/lib64/hw/android.hardware.sensors@1.0-impl.so bind
-
     # Boot time FS tune
     write /sys/block/sda/queue/iostats 0
     write /sys/block/sda/queue/scheduler cfq
@@ -160,3 +131,27 @@ on post-fs-data
     mount none /dev/null vendor/lib/hw/android.hardware.light@2.0-impl.so bind
     mount none /dev/null vendor/lib64/hw/lights.sm6150.so bind
     mount none /dev/null vendor/lib64/hw/android.hardware.light@2.0-impl.so bind
+    mount none /system/etc/audio_policy_configuration.xml /vendor/etc/audio/audio_policy_configuration.xml bind
+    mount none /system/lib64/hw/power.qcom.so /vendor/lib64/hw/power.qcom.so bind
+    mount none /system/lib64/soundfx/libvolumelistener.so /vendor/lib64/soundfx/libvolumelistener.so bind
+    mount none /system/lib/soundfx/libvolumelistener.so /vendor/lib/soundfx/libvolumelistener.so bind
+    mount none /system/overlay/BluetoothResCommon.apk /vendor/overlay/BluetoothResCommon.apk bind
+    mount none /system/etc/placeholder /vendor/overlay/CarrierConfigResCommon.apk bind
+    mount none /system/etc/placeholder /vendor/overlay/CellBroadcastReceiverResCommon.apk bind
+    mount none /system/etc/placeholder /vendor/overlay/ChinaMobileFrameworksRes/ChinaMobileFrameworksRes.apk bind
+    mount none /system/etc/placeholder /vendor/overlay/CmccMmsRes.apk bind
+    mount none /system/etc/placeholder /vendor/overlay/CmccSettingsTheme/CmccSettingsRes.apk bind
+    mount none /system/etc/placeholder /vendor/overlay/CmccSystemUIRes.apk bind
+    mount none /system/etc/placeholder /vendor/overlay/CtFrameworksTheme/CtFrameworksRes.apk bind
+    mount none /system/etc/placeholder /vendor/overlay/CtNetworkSettingRes/CtNetworkSettingRes.apk bind
+    mount none /system/etc/placeholder /vendor/overlay/CtSystemUITheme/CtSystemUIRes.apk bind
+    mount none /system/etc/placeholder /vendor/overlay/DialerResCommon.apk bind
+    mount none /system/etc/placeholder /vendor/overlay/FrameworksResCommon.apk bind
+    mount none /system/etc/placeholder /vendor/overlay/OptInAppOverlay/OptInAppOverlay.apk bind
+    mount none /system/etc/placeholder /vendor/overlay/SystemUIResCommon.apk bind
+    mount none /system/etc/placeholder /vendor/overlay/SysuiDarkTheme/SysuiDarkThemeOverlay.apk bind
+    mount none /system/etc/placeholder /vendor/overlay/TelecommResCommon.apk bind
+    mount none /system/etc/placeholder /vendor/overlay/TelephonyResCommon.apk bind
+    mount none /system/etc/manifest.xml /vendor/etc/vintf/manifest.xml bind
+    mount none /system/lib/hw/android.hardware.sensors@1.0-impl.x2.so /vendor/lib/hw/android.hardware.sensors@1.0-impl.so bind
+    mount none /system/lib64/hw/android.hardware.sensors@1.0-impl.x2.so /vendor/lib64/hw/android.hardware.sensors@1.0-impl.so bind
