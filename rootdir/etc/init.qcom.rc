@@ -152,6 +152,5 @@ on post-fs-data
     mount none /system/etc/placeholder /vendor/overlay/SysuiDarkTheme/SysuiDarkThemeOverlay.apk bind
     mount none /system/etc/placeholder /vendor/overlay/TelecommResCommon.apk bind
     mount none /system/etc/placeholder /vendor/overlay/TelephonyResCommon.apk bind
-    mount none /system/etc/manifest.xml /vendor/etc/vintf/manifest.xml bind
     mount none /system/lib/hw/android.hardware.sensors@1.0-impl.x2.so /vendor/lib/hw/android.hardware.sensors@1.0-impl.so bind
     mount none /system/lib64/hw/android.hardware.sensors@1.0-impl.x2.so /vendor/lib64/hw/android.hardware.sensors@1.0-impl.so bind
