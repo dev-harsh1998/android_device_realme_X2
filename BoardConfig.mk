@@ -143,6 +143,7 @@ TARGET_RIL_VARIANT := caf
 BOARD_PLAT_PRIVATE_SEPOLICY_DIR += $(DEVICE_PATH)/sepolicy/private
 BOARD_PLAT_PRIVATE_SEPOLICY_DIR += device/qcom/sepolicy/private
 BOARD_PLAT_PUBLIC_SEPOLICY_DIR += device/qcom/sepolicy/public
+SELINUX_IGNORE_NEVERALLOWS := true
 
 # System-as-root
 BOARD_BUILD_SYSTEM_ROOT_IMAGE := true
