@@ -95,11 +95,6 @@ on boot
     chown system system /proc/touchpanel/up_arrow_enable
     chown system system /proc/touchpanel/up_swipe_enable
 
-service oppo_fingerprints_sh /vendor/bin/sh /vendor/bin/init.oppo.fingerprints.sh
-    class main
-    user root
-    oneshot
-
 on post-fs-data
     mkdir /data/gf_data 0700 system system
     mkdir /data/system/gf_data 0700 system system
