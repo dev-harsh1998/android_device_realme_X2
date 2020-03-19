@@ -22,7 +22,7 @@ namespace init {
 
 bool isCN(){
   // Get region
-  std::ifstream infile("/proc/oppoVersion/prjVersion"); std::string region;
+  std::ifstream infile("/proc/oppoVersion/region"); std::string region;
   bool ret = false;
   getline(infile, region);
   if(!region.compare("China"))
