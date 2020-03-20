@@ -152,10 +152,6 @@ PRODUCT_FULL_TREBLE_OVERRIDE := true
 VENDOR_SECURITY_PATCH := 2020-01-05
 PRODUCT_EXTRA_VNDK_VERSIONS := 28
 
-# Lineage Hardware
-JAVA_SOURCE_OVERLAYS := \
-    org.lineageos.hardware|$(DEVICE_PATH)/lineagehw|**/*.java
-
 TARGET_TAP_TO_WAKE_NODE := "/proc/touchpanel/double_tap_enable"
 
 # Verified Boot
