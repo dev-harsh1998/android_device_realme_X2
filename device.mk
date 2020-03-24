@@ -155,6 +155,10 @@ PRODUCT_COPY_FILES += \
 PRODUCT_PACKAGES += \
     android.hardware.light@2.0-service.x2
 
+# Touch
+PRODUCT_PACKAGES += \
+    lineage.touch@1.0-service.x2
+
 # Optimizations
 PRODUCT_DEXPREOPT_SPEED_APPS += SystemUI
 PRODUCT_DEX_PREOPT_DEFAULT_COMPILER_FILTER := speed-profile
