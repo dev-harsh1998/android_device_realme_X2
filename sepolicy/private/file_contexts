@@ -17,6 +17,3 @@
 
 # Power HAL
 /system/lib64/hw/power\.qcom\.so    u:object_r:vendor_file:s0
-
-# Manifest
-/system/etc/manifest\.xml    u:object_r:vendor_configs_file:s0
