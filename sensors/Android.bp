@@ -12,6 +12,8 @@ cc_library_shared {
         "libhidlbase",
         "libhidltransport",
         "android.hardware.sensors@1.0",
+        "libgui",
+        "libui",
     ],
     static_libs: [
         "android.hardware.sensors@1.0-convert",
@@ -24,6 +26,7 @@ cc_library_static {
     srcs: [
         "multihal.cpp",
         "SensorEventQueue.cpp",
+        "screenshot.cpp",
     ],
     header_libs: [
         "libhardware_headers",
@@ -33,6 +36,9 @@ cc_library_static {
         "libcutils",
         "libutils",
         "libdl",
+        "libhardware",
+        "libgui",
+        "libui",
     ],
     export_include_dirs: ["."],
     cflags: [

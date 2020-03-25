@@ -20,6 +20,7 @@
 #define LOG_NDEBUG 1
 #include <cutils/log.h>
 #include <cutils/atomic.h>
+#include <cutils/properties.h>
 #include <hardware/sensors.h>
 
 #include <vector>
@@ -37,7 +38,8 @@
 #include <pthread.h>
 #include <stdio.h>
 #include <stdlib.h>
-
+#include <unistd.h>
+#include "screenshot.h"
 
 static pthread_mutex_t init_modules_mutex = PTHREAD_MUTEX_INITIALIZER;
 static pthread_mutex_t init_sensors_mutex = PTHREAD_MUTEX_INITIALIZER;
@@ -358,6 +360,7 @@ void sensors_poll_context_t::copy_event_remap_handle(sensors_event_t* dest, sens
     }
 }
 
+void light_sensor_correction(sensors_event_t *ev);
 int sensors_poll_context_t::poll(sensors_event_t *data, int maxReads) {
     ALOGV("poll");
     int empties = 0;
@@ -375,6 +378,10 @@ int sensors_poll_context_t::poll(sensors_event_t *data, int maxReads) {
             } else {
                 empties = 0;
                 this->copy_event_remap_handle(&data[eventsRead], event, nextReadIndex);
+                if (data[eventsRead].type == SENSOR_TYPE_LIGHT) {
+                    ALOGV("Correcting value based on screen for SENSOR_TYPE_QTI_HARDWARE_LIGHT");
+                    light_sensor_correction(&data[eventsRead]);
+                }
                 if (data[eventsRead].sensor == SENSORS_HANDLE_BASE - 1) {
                     // Bad handle, do not pass corrupted event upstream !
                     ALOGW("Dropping bad local handle event packet on the floor");
@@ -624,6 +631,72 @@ static std::vector<std::string> get_so_paths() {
         so_paths.push_back(line);
     }
     return so_paths;
+}
+
+/*
+ * We use sRGB gamma to approximate the brightness of screen pixels
+ * This would not be accurate; an accurate algorithm must take the
+ * characteristics of both the screen and the light sensor into
+ * consideration. However, this should be good enough for its purpose.
+ * Source: <https://stackoverflow.com/a/13558570/4099197>
+ */
+// sRGB luminance(Y) values
+const double rY = 0.212655;
+const double gY = 0.715158;
+const double bY = 0.072187;
+
+double inv_gam_sRGB(int ic) {
+    double c = ic / 255.0;
+    if (c <= 0.04045)
+        return c / 12.92;
+    else
+        return pow(((c + 0.055) / (1.055)), 2.4);
+}
+
+int gam_sRGB(double v) {
+    if (v <= 0.0031308)
+        v *= 12.92;
+    else
+        v = 1.055 * pow(v, 1.0 / 2.4) - 0.055;
+    return int(v * 255 + 0.5);
+}
+
+int gray(int r, int g, int b) {
+    return gam_sRGB(
+            rY * inv_gam_sRGB(r) +
+            gY * inv_gam_sRGB(g) +
+            bY * inv_gam_sRGB(b)
+    );
+}
+
+template <typename T>
+static T get(const std::string& path, const T& def) {
+    std::ifstream file(path);
+    T result;
+
+    file >> result;
+    return file.fail() ? def : result;
+}
+
+int full_white_reading = 255;
+
+void light_sensor_correction(sensors_event_t *ev) {
+    uint8_t *buffer = NULL;
+    update_screen_buffer((void**) &buffer);
+    uint8_t r = buffer[0];
+    uint8_t g = buffer[1];
+    uint8_t b = buffer[2];
+    ALOGV("Screen Color Above Sensor: %d, %d, %d", r, g, b);
+    ALOGV("Original reading: %f", ev->light);
+    float brightness = ((float) gray(r, g, b)) / (255.0f / (float) full_white_reading);
+    ALOGV("Estimated brightness of color: %f", brightness);
+    int screen_brightness = get("/sys/class/backlight/panel0-backlight/brightness", 0);
+    float correction = brightness * ((float) screen_brightness) / 255.0f;
+    ALOGV("Final correction: %f", correction);
+    ev->light -= correction;
+    if (ev->light < 0)
+        ev->light = 0;
+    free_screen_buffer();
 }
 
 /*
