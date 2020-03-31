@@ -73,7 +73,7 @@ PRODUCT_PROPERTY_OVERRIDES += \
 PRODUCT_PROPERTY_OVERRIDES += \
     persist.dbg.volte_avail_ovr=1 \
     persist.dbg.vt_avail_ovr=1 \
-    persist.rcs.supported=0 \
+    persist.rcs.supported=1 \
     persist.vendor.ims.disableQXDMLogs=0 \
     persist.vendor.ims.disableADBLogs=0 \
     persist.vendor.ims.disableDebugLogs=0 \
@@ -87,12 +87,20 @@ PRODUCT_PROPERTY_OVERRIDES += \
     persist.vendor.radio.atfwd.start=true \
     persist.vendor.radio.lte_vrte_ltd=1 \
     persist.vendor.radio.cs_srv_type=1 \
-    persist.vendor.radio.relay_oprt_change=1 \
-    persist.vendor.radio.poweron_opt=1 \
     persist.vendor.radio.rat_on=combine \
     ril.subscription.types=NV,RUIM \
+    persist.radio.add_power_save=1 \
     ro.telephony.default_network=22,18 \
     telephony.lteOnCdmaDevice=1
+
+# Sensors
+PRODUCT_PROPERTY_OVERRIDES += \
+    ro.qti.sensors.wu=false
+
+# VoWIFI
+PRODUCT_PROPERTY_OVERRIDES += \
+    persist.data.iwlan.enable=true \
+    persist.data.iwlan.rekey=4294967295
 
 # SSR
 PRODUCT_PROPERTY_OVERRIDES += \
