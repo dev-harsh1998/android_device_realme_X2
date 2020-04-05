@@ -77,13 +77,6 @@ PRODUCT_COPY_FILES += \
 PRODUCT_PACKAGES += \
     Snap
 
-# Common init scripts
-PRODUCT_PACKAGES += \
-    init.qcom.rc
-
-PRODUCT_PACKAGES += \
-    fstab.qcom
-
 # Display
 PRODUCT_PACKAGES += \
     libvulkan \
@@ -138,6 +131,47 @@ PRODUCT_PACKAGES += \
 PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/configs/qti_whitelist.xml:system/etc/sysconfig/qti_whitelist.xml \
     $(LOCAL_PATH)/permissions/privapp-permissions-qti.xml:system/etc/permissions/privapp-permissions-qti.xml
+
+# Ramdisk
+PRODUCT_PACKAGES += \
+    init.class_late.sh \
+    init.class_main.sh \
+    init.crda.sh \
+    init.mdm.sh \
+    init.oppo.face.sh \
+    init.oppo.fingerprints.sh \
+    init.oppo.wifi.sh \
+    init.qcom.class_core.sh \
+    init.qcom.coex.sh \
+    init.qcom.crashdata.sh \
+    init.qcom.early_boot.sh \
+    init.qcom.efs.sync.sh \
+    init.qcom.post_boot.sh \
+    init.qcom.sdio.sh \
+    init.qcom.sensors.sh \
+    init.qcom.sh \
+    init.qcom.usb.sh \
+    init.qti.can.sh \
+    init.qti.charger.sh \
+    init.qti.fm.sh \
+    init.qti.ims.sh \
+    init.qti.manifest_sku.sh \
+    init.qti.qseecomd.sh \
+    fstab.qcom \
+    init.msm.usb.configfs.rc \
+    init.oppo.debug.diag.rc \
+    init.oppo.reserve.rc \
+    init.oppo.sensor.rc \
+    init.oppo.vendor.fingerprint.rc \
+    init.oppo.vendor.steppermotor.rc \
+    init.oppo.vendor.touchpress.rc \
+    init.qcom.factory.rc \
+    init.qcom.rc \
+    init.qcom.usb.rc \
+    init.target.rc \
+    init.wlan.qcom.rc \
+    init.wlan.target.rc \
+    ueventd.rc
 
 # Seccomp policy
 PRODUCT_COPY_FILES += \

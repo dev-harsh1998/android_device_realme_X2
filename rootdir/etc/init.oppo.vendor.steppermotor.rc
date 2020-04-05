@@ -1,0 +1,49 @@
+/************************************************************************************
+** Copyright (C), 2008-2018, OPPO Mobile Comm Corp., Ltd
+** vendor_EDIT
+** File: init.oppo.vendor.touchpress.rc
+**
+** Description:
+**	Definitions for init.oppo.vendor.touchpress.rc.
+**
+** Date created: 2019/05/20
+** Author: ZhongWenjie@PSW.BSP.TP
+** --------------------------- Revision History: ------------------------------------
+* <version>		<date>		<author>		<desc>
+**************************************************************************************/
+on boot
+    chown system system /sys/bus/platform/devices/vendor:motor_pl/direction
+    chown system system /sys/bus/platform/devices/vendor:motor_pl/enable
+    chown system system /sys/bus/platform/devices/vendor:motor_pl/mode
+    chown system system /sys/bus/platform/devices/vendor:motor_pl/speed
+    chown system system /sys/bus/platform/devices/vendor:motor_pl/hall_data
+    chown system system /sys/bus/platform/devices/vendor:motor_pl/hall_max_data
+    chown system system /sys/bus/platform/devices/vendor:motor_pl/hall_calibration
+    chown system system /sys/bus/platform/devices/vendor:motor_pl/in_calibration
+    chown system system /sys/bus/platform/devices/vendor:motor_pl/hall_irq_count
+    chown system system /sys/bus/platform/devices/vendor:motor_pl/move_state
+    chown system system /sys/bus/platform/devices/vendor:motor_pl/sw_switch
+    chown system system /sys/bus/platform/devices/vendor:motor_pl/manual2auto_switch
+    chown system system /sys/bus/platform/devices/vendor:motor_pl/motor_test
+    chown system system /sys/bus/platform/devices/vendor:motor_pl/force_move
+    chown system system /sys/bus/platform/devices/vendor:motor_pl/stop_range
+    chown system system /sys/bus/platform/devices/vendor:motor_pl/distance
+    chown system system /sys/class/leds/led:switch_3/brightness
+
+    chmod 0666 /sys/bus/platform/devices/vendor:motor_pl/direction
+    chmod 0666 /sys/bus/platform/devices/vendor:motor_pl/mode
+    chmod 0666 /sys/bus/platform/devices/vendor:motor_pl/enable
+    chmod 0666 /sys/bus/platform/devices/vendor:motor_pl/speed
+    chmod 0666 /sys/bus/platform/devices/vendor:motor_pl/hall_data
+    chmod 0666 /sys/bus/platform/devices/vendor:motor_pl/hall_max_data
+    chmod 0666 /sys/bus/platform/devices/vendor:motor_pl/hall_calibration
+    chmod 0666 /sys/bus/platform/devices/vendor:motor_pl/in_calibration
+    chmod 0666 /sys/bus/platform/devices/vendor:motor_pl/hall_irq_count
+    chmod 0666 /sys/bus/platform/devices/vendor:motor_pl/move_state
+    chmod 0666 /sys/bus/platform/devices/vendor:motor_pl/sw_switch
+    chmod 0666 /sys/bus/platform/devices/vendor:motor_pl/manual2auto_switch
+    chmod 0666 /sys/bus/platform/devices/vendor:motor_pl/motor_test
+    chmod 0666 /sys/bus/platform/devices/vendor:motor_pl/force_move
+    chmod 0666 /sys/bus/platform/devices/vendor:motor_pl/stop_range
+    chmod 0666 /sys/bus/platform/devices/vendor:motor_pl/distance
+    chmod 0666 /sys/class/leds/led:switch_3/brightness
