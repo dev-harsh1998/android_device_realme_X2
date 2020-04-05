@@ -360,10 +360,6 @@ PRODUCT_PACKAGES += \
 PRODUCT_PACKAGES += \
     lineage.trust@1.0-service
 
-# VNDK-SP
-PRODUCT_PACKAGES += \
-    vndk-sp
-
 # USB
 PRODUCT_PACKAGES += \
     android.hardware.usb@1.0-service.basic
