@@ -170,6 +170,11 @@ PRODUCT_COPY_FILES += \
 PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/configs/msm_irqbalance.conf:$(TARGET_COPY_OUT_VENDOR)/etc/msm_irqbalance.conf
 
+# Lights
+PRODUCT_PACKAGES += \
+    android.hardware.light@2.0-service.x2 \
+    lights.sm6150
+
 # Media
 PRODUCT_PACKAGES += \
     libc2dcolorconvert \
@@ -294,10 +299,6 @@ PRODUCT_BOOT_JARS += \
 # HIDL
 PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/manifest.xml:system/etc/manifest.xml
-
-# Lights
-PRODUCT_PACKAGES += \
-    android.hardware.light@2.0-service.x2
 
 # RCS
 PRODUCT_PACKAGES += \
