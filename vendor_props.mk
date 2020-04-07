@@ -6,6 +6,7 @@ PRODUCT_PROPERTY_OVERRIDES += \
 # Bluetooth
 PRODUCT_PROPERTY_OVERRIDES += \
     bt.max.hfpclient.connections=1 \
+    persist.vendor.btstack.a2dp_offload_cap=sbc-aptx-aptxtws-aptxhd-aptxadaptive-aac-ldac \
     persist.vendor.btstack.enable.splita2dp=true \
     persist.bluetooth.disableabsvol=true \
     persist.bluetooth.disableinbandringing=false \
