@@ -18,6 +18,8 @@
 #include "property_service.h"
 #include "vendor_init.h"
 
+using android::init::property_set;
+
 struct x2_props
 {
     std::string build_description;
@@ -74,6 +76,16 @@ void property_override(char const prop[], char const value[], bool add = true)
         __system_property_add(prop, strlen(prop), value, strlen(value));
 }
 
+// Decommonise nfc properties
+void load_nfc_props()
+{
+    property_set("persist.sys.nfc.disPowerSave", "1");
+    property_set("persist.sys.nfc.default", "on");
+    property_set("persist.sys.nfc.aid_overflow", "true");
+    property_set("ro.product.cuptsm", "OPPO|ESE|01|02");
+    property_set("persist.sys.nfc.antenna_area", "bottom");
+}
+
 void setRMX(unsigned int variant)
 {
     x2_props prop[3] = {};
@@ -122,6 +134,10 @@ void setRMX(unsigned int variant)
         set_ro_product_prop(source, "device", prop[variant].product_device.c_str());
         set_ro_product_prop(source, "model", prop[variant].device_build.c_str());
     }
+
+    // Load NFC properties only on RMX199{1:3}
+    if (variant == 2 || variant == 0)
+        load_nfc_props();
 }
 
 void vendor_load_properties()

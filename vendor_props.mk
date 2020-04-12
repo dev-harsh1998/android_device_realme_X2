@@ -57,14 +57,6 @@ PRODUCT_PROPERTY_OVERRIDES += \
 PRODUCT_PROPERTY_OVERRIDES += \
     ro.netflix.bsp_rev=Q670-14477-1
 
-# NFC
-PRODUCT_PROPERTY_OVERRIDES += \
-    persist.sys.nfc.disPowerSave=1 \
-    persist.sys.nfc.default=on \
-    persist.sys.nfc.aid_overflow=true \
-    ro.product.cuptsm=OPPO|ESE|01|02 \
-    persist.sys.nfc.antenna_area=bottom
-
 # Perf
 PRODUCT_PROPERTY_OVERRIDES += \
     ro.vendor.qti.core_ctl_min_cpu=4 \
