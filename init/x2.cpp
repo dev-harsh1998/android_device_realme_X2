@@ -135,6 +135,9 @@ void setRMX(unsigned int variant)
         set_ro_product_prop(source, "model", prop[variant].device_build.c_str());
     }
 
+    //override again to be sure that it gets set.
+    property_override("ro.buid.fingerprint", prop[variant].build_description.c_str(), false);
+
     // Load NFC properties only on RMX199{1:3}
     if (variant == 2 || variant == 0)
         load_nfc_props();
