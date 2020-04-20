@@ -45,6 +45,11 @@ PRODUCT_PROPERTY_OVERRIDES += \
     ro.camera.attr.detect.enable=1 \
     ro.camera.temperature.limit=470 
 
+
+# Charger
+PRODUCT_PROPERTY_OVERRIDES += \
+    ro.charger.enable_suspend=true
+
 # Data modules
 PRODUCT_PROPERTY_OVERRIDES += \
     persist.data.netmgrd.qos.enable=true \
