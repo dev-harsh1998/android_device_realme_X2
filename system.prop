@@ -40,6 +40,9 @@ ro.camera.relight.enable=0
 ro.camera.attr.detect.enable=1
 ro.camera.temperature.limit=470
 
+# Charger
+ro.charger.enable_suspend=true
+
 # Data modules
 persist.data.netmgrd.qos.enable=true
 persist.vendor.data.profile_update=true
