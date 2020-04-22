@@ -85,3 +85,7 @@ service vendor.imsdatadaemon /vendor/bin/imsdatadaemon
 
 on property:sys.boot_completed=1
     setprop vendor.oppo.biometrics.fingerprint.boot_completed 1
+
+on property:persist.sys.device_provisioned=1
+    setprop dalvik.vm.dex2oat-cpu-set 0,1,2,3,4,7
+    setprop dalvik.vm.dex2oat-threads 6
