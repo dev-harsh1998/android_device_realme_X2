@@ -17,23 +17,59 @@
 
 using namespace std;
 
-namespace android {
-namespace init {
+namespace android
+{
+namespace init
+{
 
-bool isCN(){
+bool isCN()
+{
   // Get region
-  std::ifstream infile("/proc/oppoVersion/region"); std::string region;
+  ifstream infile("/proc/oppoVersion/region");
+  string region;
   bool ret = false;
   getline(infile, region);
-  if(!region.compare("China"))
-      ret = true; 
+  if (!region.compare("China"))
+    ret = true;
   return ret;
 }
 
-void vendor_load_properties() {
-  property_set("ro.product.device", isCN()   ?  "RMX1991CN"   :   "RMX1992");
-  property_set("ro.product.name",   isCN()   ?  "RMX1991"     :   "RMX1992");
-  property_set("ro.build.product",  isCN()   ?  "RMX1991"     :   "RMX1992"); 
+bool hasNFC()
+{
+  // Check NFC
+  ifstream infile("/proc/touchpanel/NFC_CHECK");
+  string check;
+  bool ret = false;
+  getline(infile, check);
+  if (!check.compare("SUPPORTED"))
+    ret = true;
+  return ret;
 }
-}  // namespace init
-}  // namespace android
+
+string setPrjverson()
+{
+  /*
+   * TODO, Dynamically set this via "/proc/oppoVersion/prjVersion"
+   * ifstream infile("/proc/oppoVersion/prjVersion");
+   * string prjversion;
+   * getline(infile, prjversion);
+   * return prjversion;
+   * The soc dts needs to be fixed for this to work properly so let's hold for now
+   */
+  string prjversion = "19771";
+  if (!isCN() && hasNFC())
+    prjversion = "19672";
+  if (!isCN())
+    prjversion = "19671";
+  return prjversion;
+}
+
+void vendor_load_properties()
+{
+  property_set("ro.product.device", isCN() ? "RMX1991CN" : hasNFC() ? "RMX1993" : "RMX1992");
+  property_set("ro.product.name",   isCN() ? "RMX1991"   : hasNFC() ? "RMX1993" : "RMX1992");
+  property_set("ro.build.product",  isCN() ? "RMX1991"   : hasNFC() ? "RMX1993" : "RMX1992");
+  property_set("ro.separate.soft", setPrjverson());
+}
+} // namespace init
+} // namespace android
