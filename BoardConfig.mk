@@ -111,3 +111,28 @@ TW_DEVICE_VERSION := HyperTeam
 # Debug
 TWRP_INCLUDE_LOGCAT := true
 TARGET_USES_LOGD := true
+
+#SHRP
+#BUILD_SHRP_REC := true
+ifeq ($(strip $(BUILD_SHRP_REC)),)
+SHRP_PATH := $(DEVICE_PATH)
+SHRP_MAINTAINER := dev-harsh1998
+SHRP_DEVICE_CODE := x2
+SHRP_FLASH_MAX_BRIGHTNESS := 845
+SHRP_EDL_MODE := 1
+SHRP_EXTERNAL := /external_sd
+SHRP_INTERNAL := /sdcard
+SHRP_OTG := /usb_otg
+SHRP_REC := /dev/block/bootdevice/by-name/recovery
+SHRP_FLASH := 0
+SHRP_REC_TYPE := Treble
+SHRP_DEVICE_TYPE := A_Only
+endif
+
+#PBRP
+#BUILD_PBRP_REC := true
+ifeq ($(strip $(BUILD_PBRP_REC)),)
+# Highly doubt if these flags exist
+TW_USE_QCOM_HAPTICS_VIBRATOR := true
+TW_USE_LEDS_HAPTICS := true
+endif
