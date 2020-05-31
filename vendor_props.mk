@@ -6,8 +6,11 @@ PRODUCT_PROPERTY_OVERRIDES += \
 # Bluetooth
 PRODUCT_PROPERTY_OVERRIDES += \
     vendor.bluetooth.soc=cherokee \
-    ro.bluetooth.wipower=false \
-    ro.bluetooth.emb_wp_mode=false
+    persist.vendor.bt.a2dp.aac_whitelist=false \
+    persist.vendor.btstack.enable.splita2dp=true \
+    persist.vendor.btstack.enable.twsplus=true \
+    persist.vendor.btstack.enable.twsplussho=true \
+    ro.bluetooth.library_name=libbluetooth_qti.so \
 
 # Camera
 PRODUCT_PROPERTY_OVERRIDES += \
