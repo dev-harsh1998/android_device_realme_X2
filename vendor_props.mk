@@ -41,6 +41,10 @@ PRODUCT_PROPERTY_OVERRIDES += \
     ro.vendor.display.ad.sdr_calib_data=/vendor/etc/OPPO_OLED_AD_calib.cfg \
     ro.vendor.display.sensortype=2
 
+# Fingerprint
+PRODUCT_PROPERTY_OVERRIDES += \
+    ro.boot.realme.lockstate=0
+
 # Graphics
 PRODUCT_PROPERTY_OVERRIDES += \
     persist.front.skipdisplay.enable=1
