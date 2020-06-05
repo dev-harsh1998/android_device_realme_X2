@@ -109,6 +109,9 @@ ro.vendor.display.ad.sdr_calib_data=/vendor/etc/OPPO_OLED_AD_calib.cfg
 # DRM
 drm.service.enabled=true
 
+# Fingerprint
+ro.boot.realme.lockstate=0
+
 # FM
 vendor.hw.fm.init=0
 
