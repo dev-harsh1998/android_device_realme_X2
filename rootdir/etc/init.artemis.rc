@@ -139,7 +139,7 @@ on property:sys.boot_completed=1
 
     start affinity
 
-service affinity /vendor/etc/init.affinity.sh
+service affinity /vendor/bin/init.affinity.sh
     class late_start
     user root
     group root system wakelock graphics
