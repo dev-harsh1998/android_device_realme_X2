@@ -32,8 +32,6 @@ import init.oppo.rc
 import /vendor/etc/init/hw/init.qcom.usb.rc
 import /vendor/etc/init/hw/init.msm.usb.configfs.rc
 import /vendor/etc/init/hw/init.target.rc
-import /vendor/etc/init/hw/init.qcom.factory.rc
-import /vendor/etc/init/hw/init.qcom.test.rc
 #ifdef VENDOR_EDIT
 #ZhongWenjie@PSW.BSP.TP 2019/04/23 add for import init.oppo.vendor.touchpress.rc
 import /vendor/etc/init/hw/init.oppo.vendor.touchpress.rc
@@ -343,10 +341,6 @@ on post-fs-data
     mkdir /data/vendor/netmgr 0770 radio radio
     chmod 0770 /data/vendor/netmgr
 
-    #create ipacm log dir
-    mkdir /data/vendor/ipa 0770 radio radio
-    chmod 0770 /data/vendor/ipa
-
     #Create QTI dir for logs
     mkdir /data/vendor/dataqti 0770 radio radio
     chmod 0770 /data/vendor/dataqti
@@ -475,9 +469,6 @@ on post-fs-data
 
     #Create dir for TUI
     mkdir /data/vendor/tui 0700 system system
-
-    #Start move time data to /data/vendor once post-fs-data done
-    start vendor.move_time_data
 
 service nqnfcinfo /system/vendor/bin/nqnfcinfo
     class late_start
