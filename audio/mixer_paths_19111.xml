@@ -217,8 +217,6 @@
     <!-- Incall Recording -->
     <ctl name="MultiMedia9 Mixer VOC_REC_UL" value="0" />
     <ctl name="MultiMedia9 Mixer VOC_REC_DL" value="0" />
-    <ctl name="MultiMedia1 Mixer VOC_REC_UL" value="0" />
-    <ctl name="MultiMedia1 Mixer VOC_REC_DL" value="0" />
     <ctl name="MultiMedia8 Mixer VOC_REC_UL" value="0" />
     <ctl name="MultiMedia8 Mixer VOC_REC_DL" value="0" />
     <!-- Incall Recording End -->
@@ -438,10 +436,11 @@
     <ctl name="TERT_MI2S_RX Audio Mixer MultiMedia5" value="0" />
     <ctl name="TERT_MI2S_RX Audio Mixer MultiMedia7" value="0" />
     <!--#ifdef VENDOR_EDIT -->
-    <!--xiang.fei@PSW.MM.AudioDriver.HAL, 2018/10/29, Add for dbmdx-->
+    <!--Yongzhi.Zhang@PSW.MM.AudioDriver.Codec.2035733, 2019/07/20, add for dbmdx-->
     <ctl name="Load acoustic model" value="0" />
     <ctl name="Backlog size" value="0" />
     <ctl name="Microphone mode" value="0" />
+    <ctl name="Enable Micbias" value="MICBIAS3" />
 
     <ctl name="TERT_MI2S_TX Channels" value="Two" />
     <ctl name="TERT_MI2S_RX Channels" value="Two" />
@@ -472,11 +471,10 @@
     <ctl name="AK4376 Digital Output VolumeL" value="12" />
     <ctl name="AK4376 Digital Output VolumeR" value="12" />
     <ctl name="AK4376 Low Power Mode" value="High Performance" />
-    <!--#endif /* VENDOR_EDIT */-->
 
     <!--Yongzhi.Zhang@PSW.MM.AudioDriver.feature, 2019/07/12, Add for barge_in -->
     <ctl name="MultiMedia1 Mixer AFE_LOOPBACK_TX" value="0" />
-    <ctl name="EC Reference Channels" value="Four" />
+    <ctl name="EC Reference Channels" value="One" />
     <ctl name="EC Reference Bit Format" value="S16_LE" />
     <ctl name="EC Reference SampleRate" value="48000" />
     <ctl name="AFE_LOOPBACK_TX Channels" value="One" />
@@ -530,7 +528,7 @@
     </path>
 
     <!--#ifdef VENDOR_EDIT-->
-    <!--xiang.fei@PSW.MM.AudioDriver.feature, 2018/11/25, Add for barge_in -->
+    <!--Yongzhi.Zhang@PSW.MM.AudioDriver.feature, 2019/07/12, Add for barge_in -->
     <path name="echo-reference barge-in-speaker">
         <ctl name="MultiMedia1 Mixer AFE_LOOPBACK_TX" value="1" />
         <ctl name="MultiMedia1 Mixer TX_CDC_DMA_TX_3" value="1" />
@@ -2618,23 +2616,6 @@
         <ctl name="TX_CDC_DMA_TX_3 Channels" value="Two" />
     </path>
 
-    <path name="a2dp-mic-ef-tmgp">
-        <ctl name="TX DEC0 MUX" value="SWR_MIC" />
-        <ctl name="TX_DEC0 Volume" value="84" />
-        <ctl name="TX SMIC MUX0" value="ADC0" />
-        <ctl name="ADC1 Volume" value="12" />
-        <ctl name="TX_AIF1_CAP Mixer DEC0" value="1" />
-        <ctl name="ADC1_MIXER Switch" value="1" />
-        <ctl name="TX DEC1 MUX" value="SWR_MIC" />
-        <ctl name="TX_DEC1 Volume" value="84" />
-        <ctl name="TX SMIC MUX1" value="ADC2" />
-        <ctl name="ADC2 Volume" value="12" />
-        <ctl name="TX_AIF1_CAP Mixer DEC1" value="1" />
-        <ctl name="ADC2_MIXER Switch" value="1" />
-        <ctl name="ADC2 MUX" value="INP3" />
-        <ctl name="TX_CDC_DMA_TX_3 Channels" value="Two" />
-    </path>
-
     <path name="dmic-endfire">
         <path name="handset-dmic-endfire" />
         <ctl name="IIR0 INP0 MUX" value="DEC0" />
@@ -2820,7 +2801,7 @@
     </path>
 
     <!--#ifdef VENDOR_EDIT-->
-    <!--xiang.fei@PSW.MM.AudioDriver.feature, 2018/11/25, Add for barge_in -->
+    <!--Yongzhi.Zhang@PSW.MM.AudioDriver.feature, 2019/07/12, Add for barge_in -->
     <path name="handset-mic-barge-in">
         <ctl name="TX DEC0 MUX" value="SWR_MIC" />
         <ctl name="TX SMIC MUX0" value="ADC2" />
@@ -2950,6 +2931,7 @@
         <ctl name="ADC2 MUX" value="INP3" />
         <ctl name="TX_CDC_DMA_TX_3 Channels" value="Two" />
     </path>
+
     <!--#ifdef VENDOR_EDIT-->
     <!--//Jianfeng.Qiu@PSW.MM.AudioDriver.HAL, 2017/06/21, Add voicescene -->
     <path name="speaker-stereo-dmic-ef-tmgp">
@@ -3013,119 +2995,4 @@
     <path name="voip-echo-reference speaker">
         <ctl name="AUDIO_REF_EC_UL10 MUX" value="TERT_MI2S_RX" />
     </path>
-
-    <!-- Hefeng.Wu@RM.MM.AudioDriver.HAL, 2019/10/26, dual headset start -->
-    <path name="headphones-and-bt-a2dp">
-        <path name="headphones" />
-        <path name="bt-a2dp" />
-    </path>
-
-    <path name="headphones-and-bt-sco-headset">
-        <path name="headphones" />
-        <path name="bt-sco-headset" />
-    </path>
-
-    <path name="speaker-and-headphones-and-bt-sco-headset">
-        <path name="speaker" />
-        <path name="headphones" />
-        <path name="bt-sco-headset" />
-    </path>
-
-    <path name="speaker-and-headphones-and-bt-sco-headset-wb">
-        <path name="speaker" />
-        <path name="headphones" />
-        <path name="bt-sco-headset-wb" />
-    </path>
-
-    <path name="headphones-and-bt-sco-headset-wb">
-        <path name="headphones" />
-        <path name="bt-sco-headset-wb" />
-    </path>
-    <!-- Hefeng.Wu@RM.MM.AudioDriver.HAL, 2019/10/26, dual headset end -->
-
-    <!-- Hefeng.Wu@RM.MM.AudioDriver.HAL, 2019/10/26, dual headset start -->
-    <path name="deep-buffer-playback headphones-and-bt-a2dp">
-        <path name="deep-buffer-playback headphones" />
-        <path name="deep-buffer-playback bt-a2dp" />
-    </path>
-
-    <path name="compress-offload-playback headphones-and-bt-a2dp">
-        <path name="compress-offload-playback headphones" />
-        <path name="compress-offload-playback bt-a2dp" />
-    </path>
-
-    <path name="low-latency-playback headphones-and-bt-a2dp">
-        <path name="low-latency-playback headphones" />
-        <path name="low-latency-playback bt-a2dp" />
-    </path>
-
-    <path name="audio-ull-playback headphones-and-bt-a2dp">
-        <path name="audio-ull-playback headphones" />
-        <path name="audio-ull-playback bt-a2dp" />
-    </path>
-
-    <path name="deep-buffer-playback headphones-and-bt-sco-headset">
-        <path name="deep-buffer-playback headphones" />
-        <path name="deep-buffer-playback bt-sco" />
-    </path>
-
-    <path name="low-latency-playback headphones-and-bt-sco-headset">
-        <path name="low-latency-playback headphones" />
-        <path name="low-latency-playback bt-sco" />
-    </path>
-
-    <path name="compress-offload-playback headphones-and-bt-sco-headset">
-        <path name="compress-offload-playback headphones" />
-        <path name="compress-offload-playback bt-sco" />
-    </path>
-
-    <path name="audio-ull-playback headphones-and-bt-sco-headset">
-        <path name="audio-ull-playback headphones" />
-        <path name="audio-ull-playback bt-sco" />
-    </path>
-
-    <path name="deep-buffer-playback speaker-and-headphones-and-bt-sco-headset">
-        <path name="deep-buffer-playback speaker" />
-        <path name="deep-buffer-playback headphones" />
-        <path name="deep-buffer-playback bt-sco" />
-    </path>
-
-    <path name="low-latency-playback speaker-and-headphones-and-bt-sco-headset">
-        <path name="low-latency-playback speaker" />
-        <path name="low-latency-playback headphones" />
-        <path name="low-latency-playback bt-sco" />
-    </path>
-
-    <path name="compress-offload-playback speaker-and-headphones-and-bt-sco-headset">
-        <path name="compress-offload-playback speaker" />
-        <path name="compress-offload-playback headphones" />
-        <path name="compress-offload-playback bt-sco" />
-    </path>
-
-    <path name="audio-ull-playback speaker-and-headphones-and-bt-sco-headset">
-        <path name="audio-ull-playback speaker" />
-        <path name="audio-ull-playback headphones" />
-        <path name="audio-ull-playback bt-sco" />
-    </path>
-
-    <path name="deep-buffer-playback headphones-and-bt-sco-headset-wb">
-        <path name="deep-buffer-playback headphones" />
-        <path name="deep-buffer-playback bt-sco-wb" />
-    </path>
-
-    <path name="low-latency-playback headphones-and-bt-sco-headset-wb">
-        <path name="low-latency-playback headphones" />
-        <path name="low-latency-playback bt-sco-wb" />
-    </path>
-
-    <path name="audio-ull-playback headphones-and-bt-sco-headset-wb">
-        <path name="audio-ull-playback headphones" />
-        <path name="audio-ull-playback bt-sco-wb" />
-    </path>
-
-    <path name="compress-offload-playback headphones-and-bt-sco-headset-wb">
-        <path name="compress-offload-playback headphones" />
-        <path name="compress-offload-playback bt-sco-wb" />
-    </path>
-    <!-- Hefeng.Wu@RM.MM.AudioDriver.HAL, 2019/10/26, dual headset end -->
 </mixer>

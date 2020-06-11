@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8" ?>
+
+<Included>
+    <Decoders>
+        <!-- #ifdef VENDOR_EDIT-->
+        <!-- guzhengming@oppo.com, 2018/12/28, add for surround -->
+        <MediaCodec name="OMX.nokia.ozoaudio.decoder" type="audio/ozoaudio">
+            <Limit name="channel-count" max="8" />
+            <Limit name="sample-rate" ranges="48000" />
+            <Limit name="bitrate" range="8000-960000" />
+        </MediaCodec>
+        <!-- #endif VENDOR_EDIT-->
+    </Decoders>
+    <Encoders>
+        <!-- #ifdef VENDOR_EDIT-->
+        <!-- guzhengming@oppo.com, 2018/12/28, add for surround -->
+        <MediaCodec name="OMX.nokia.ozoaudio.encoder" type="audio/ozoaudio">
+            <Limit name="channel-count" max="4" />
+            <Limit name="sample-rate" ranges="48000" />
+            <Limit name="bitrate" range="128000-960000" />
+        </MediaCodec>
+        <!-- #endif VENDOR_EDIT-->
+    </Encoders>
+</Included>
