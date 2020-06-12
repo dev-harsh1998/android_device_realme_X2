@@ -1,16 +1,3 @@
-/************************************************************************************
-** Copyright (C), 2008-2018, OPPO Mobile Comm Corp., Ltd
-** vendor_EDIT
-** File: init.oppo.vendor.touchpress.rc
-**
-** Description:
-**	Definitions for init.oppo.vendor.touchpress.rc.
-**
-** Date created: 2019/05/20
-** Author: ZhongWenjie@PSW.BSP.TP
-** --------------------------- Revision History: ------------------------------------
-* <version>		<date>		<author>		<desc>
-**************************************************************************************/
 on boot
     chown system system /sys/bus/platform/devices/vendor:motor_pl/direction
     chown system system /sys/bus/platform/devices/vendor:motor_pl/enable

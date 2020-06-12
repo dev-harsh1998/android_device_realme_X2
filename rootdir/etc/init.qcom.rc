@@ -29,6 +29,7 @@
 #Jianchao.Shi@BSP.CHG.Basic 2018/03/20, sjc Add for oppo devices
 import /vendor/etc/init/hw/init.oppo.reserve.rc
 import init.oppo.rc
+import /vendor/etc/init/hw/init.oppo.vendor.fingerprint.rc
 import /vendor/etc/init/hw/init.qcom.usb.rc
 import /vendor/etc/init/hw/init.msm.usb.configfs.rc
 import /vendor/etc/init/hw/init.target.rc

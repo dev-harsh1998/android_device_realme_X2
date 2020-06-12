@@ -1,17 +1,3 @@
-/************************************************************************************
-** Copyright (C), 2008-2018, OPPO Mobile Comm Corp., Ltd
-** VENDOR_EDIT
-** File: init.oppo.vendor.touchpress.rc
-**
-** Description:
-**	Definitions for init.oppo.vendor.touchpress.rc.
-**
-** Date created: 2018/11/08
-** Author: Cong.Dai@PSW.BSP.TP
-** --------------------------- Revision History: ------------------------------------
-* <version>		<date>		<author>		<desc>
-**************************************************************************************/
-
 on boot
     chown system system /proc/touchpanel/tp_fw_update
     chown system system /proc/touchpanel/oppo_tp_limit_enable
