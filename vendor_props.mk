@@ -6,22 +6,11 @@ PRODUCT_PROPERTY_OVERRIDES += \
 # Bluetooth
 PRODUCT_PROPERTY_OVERRIDES += \
     bt.max.hfpclient.connections=1 \
-    persist.vendor.btstack.a2dp_offload_cap=sbc-aptx-aptxtws-aptxhd-aptxadaptive-aac-ldac \
     persist.vendor.btstack.enable.splita2dp=true \
-    persist.bluetooth.disableabsvol=true \
-    persist.bluetooth.disableinbandringing=false \
-    persist.vendor.bluetooth.modem_nv_support=true \
-    persist.vendor.btstack.iotinfo.report.enable=true \
-    persist.vendor.service.bdroid.soc.alwayson=true \
-    persist.vendor.service.bt.iot.enablelogging=true
 
 # Camera
 PRODUCT_PROPERTY_OVERRIDES += \
     persist.vendor.camera.light_ae.enable=1 \
-    ro.camera.hfr.enable=1 \
-    ro.camera.relight.enable=0 \
-    ro.camera.notify_nfc=1 \
-    ro.camera.temperature.limit=460 \
     vendor.camera.aux.packagelist=org.codeaurora.snapcam,com.android.camera,org.lineageos.snap
 
 # CNE
@@ -38,8 +27,7 @@ PRODUCT_PROPERTY_OVERRIDES += \
 # Display post-processing
 PRODUCT_PROPERTY_OVERRIDES += \
     ro.vendor.display.ad=1 \
-    ro.vendor.display.ad.sdr_calib_data=/vendor/etc/OPPO_OLED_AD_calib.cfg \
-    ro.vendor.display.sensortype=2
+    ro.vendor.display.ad.sdr_calib_data=/vendor/etc/OPPO_OLED_AD_calib.cfg
 
 # Fingerprint
 PRODUCT_PROPERTY_OVERRIDES += \
@@ -47,11 +35,16 @@ PRODUCT_PROPERTY_OVERRIDES += \
 
 # Graphics
 PRODUCT_PROPERTY_OVERRIDES += \
+    debug.sf.enable_hwc_vds=1 \
+    dev.pm.dyn_samplingrate=1 \
     persist.front.skipdisplay.enable=1
 
 # Media
 PRODUCT_PROPERTY_OVERRIDES += \
-    media.settings.xml=/system/etc/media_profiles_vendor.xml
+    media.settings.xml=/system/etc/media_profiles_vendor.xml \
+    media.stagefright.thumbnail.prefer_hw_codecs=true \
+    persist.mm.enable.prefetch=true \
+    vendor.media.vpp.enable=true
 
 # Memory optimizations
 PRODUCT_PROPERTY_OVERRIDES += \
@@ -68,6 +61,7 @@ PRODUCT_PROPERTY_OVERRIDES += \
 
 # RCS and IMS
 PRODUCT_PROPERTY_OVERRIDES += \
+    persist.dbg.ims_volte_enable=1 \
     persist.dbg.volte_avail_ovr=1 \
     persist.dbg.vt_avail_ovr=1 \
     persist.rcs.supported=1 \
@@ -82,6 +76,7 @@ PRODUCT_PROPERTY_OVERRIDES += \
 PRODUCT_PROPERTY_OVERRIDES += \
     DEVICE_PROVISIONED=1 \
     persist.sys.fflag.override.settings_network_and_internet_v2=true \
+    persist.radio.hvolte.enable=1 \
     persist.vendor.radio.atfwd.start=true \
     persist.vendor.radio.lte_vrte_ltd=1 \
     persist.vendor.radio.cs_srv_type=1 \
@@ -93,12 +88,8 @@ PRODUCT_PROPERTY_OVERRIDES += \
 
 # Sensors
 PRODUCT_PROPERTY_OVERRIDES += \
+    persist.vendor.sensors.enable.mag_filter=true \
     ro.qti.sensors.wu=false
-
-# VoWIFI
-PRODUCT_PROPERTY_OVERRIDES += \
-    persist.data.iwlan.enable=true \
-    persist.data.iwlan.rekey=4294967295
 
 # SSR
 PRODUCT_PROPERTY_OVERRIDES += \
