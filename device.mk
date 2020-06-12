@@ -28,9 +28,6 @@ PRODUCT_ENFORCE_RRO_TARGETS := *
 
 PRODUCT_CHARACTERISTICS := nosdcard
 
-# Properties
--include $(LOCAL_PATH)/vendor_props.mk
-
 # Screen density
 PRODUCT_AAPT_CONFIG := normal
 PRODUCT_AAPT_PREF_CONFIG := xxhdpi
