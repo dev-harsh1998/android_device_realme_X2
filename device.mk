@@ -350,16 +350,12 @@ PRODUCT_PACKAGES += \
     fstab.qcom \
     init.msm.usb.configfs.rc \
     init.oppo.debug.diag.rc \
-    init.oppo.reserve.rc \
     init.oppo.sensor.rc \
-    init.oppo.vendor.fingerprint.rc \
+    init.oppo.vendor.motor.rc \
     init.oppo.vendor.steppermotor.rc \
-    init.oppo.vendor.touchpress.rc \
     init.qcom.rc \
     init.qcom.usb.rc \
     init.target.rc \
-    init.wlan.qcom.rc \
-    init.wlan.target.rc \
     ueventd.rc
 
 # RCS

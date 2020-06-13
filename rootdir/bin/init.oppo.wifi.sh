@@ -73,65 +73,86 @@ if [ "x${relame_prj_version}" == "x0" ];then
 #ifdef VENDOR_EDIT
 #qiulei@PSW.CN.Wifi.Hardware, 2018/06/18,
 #Add for make bin Rom-update.
-if [ -s /vendor/etc/wifi/bin_version ]; then
+if [ -s /mnt/vendor/persist/bin_version -a "x${target}" == "xSAU" ]; then
+    system_version=`cat /mnt/vendor/persist/bin_version`
+    echo "wifisau case 1 is $system_version" >> /data/vendor/wifi/abhishek_SAU_log.txt
+elif [ -s /vendor/etc/wifi/bin_version ]; then
     system_version=`cat /vendor/etc/wifi/bin_version`
+     echo "wifisau case 2 is $system_version">> /data/vendor/wifi/abhishek_SAU_log.txt
 else
     system_version=1
 fi
 
 if [ -s /mnt/vendor/persist/bin_version ]; then
     persist_version=`cat /mnt/vendor/persist/bin_version`
+     echo "wifisau case 3 is $persist_version" >> /data/vendor/wifi/abhishek_SAU_log.txt
 else
     persist_version=1
 fi
 
 if [ ! -s /mnt/vendor/persist/bdwlan.bin  -o $system_version -gt $persist_version ]; then
-    prj_version=`cat /proc/oppoVersion/prjVersion`
+    prj_version=`cat /proc/oppoVersion/prjName`
     # Laixin modify for: use operatorName to distinguish hardware
     operator_name=`cat /proc/oppoVersion/operatorName`
     case $operator_name in
        $OPERATOR_19031 | $OPERATOR_19032)
     cp /vendor/etc/wifi/bdwlan_19031_id1.bin /mnt/vendor/persist/bdwlan_19031_id1.bin
+    echo "wifisau operator 4 $operator_name" >> /data/vendor/wifi/abhishek_SAU_log.txt
     ;;
        $OPERATOR_19331)
     cp /vendor/etc/wifi/bdwlan_19331_id1.bin /mnt/vendor/persist/bdwlan_19331_id1.bin
+    echo "wifisau operator 5 $operator_name" >> /data/vendor/wifi/abhishek_SAU_log.txt
     ;;
        $OPERATOR_19111 | $OPERATOR_19112)
     cp /vendor/etc/wifi/bdwlan_19111_id1.bin /mnt/vendor/persist/bdwlan_19111_id1.bin
+    echo "wifisau operator 6 $operator_name" >> /data/vendor/wifi/abhishek_SAU_log.txt
     ;;
        $OPERATOR_19513_ALL | $OPERATOR_19513_VN)
-    cp /vendor/etc/wifi/bdwlan_19513_id1.bin /mnt/vendor/persist/bdwlan_19513_id1.bin
+    cp /vendor/etc/wifi/bdwlan_19111_id1.bin /mnt/vendor/persist/bdwlan_19111_id1.bin
+    echo "wifisau operator 7 $operator_name" >> /data/vendor/wifi/abhishek_SAU_log.txt
     ;;
        *)
     cp /vendor/etc/wifi/bdwlan_19031_id1.bin /mnt/vendor/persist/bdwlan_19031_id1.bin
+    echo "wifisau operator 8 $operator_name" >> /data/vendor/wifi/abhishek_SAU_log.txt
     ;;
     esac
-    echo "$system_version" > /mnt/vendor/persist/bin_version
+
 fi
 
 #Min.Yi@PSW.CN.Wifi.Hardware.1065227, 2017/11/21,
 #Add for : bin for according project
-prj_version=`cat /proc/oppoVersion/prjVersion`
+prj_version=`cat /proc/oppoVersion/prjName`
 pcb_version=`cat /proc/oppoVersion/pcbVersion`
-
+if [ "x${target}" == "xSAU" -o ! -s /mnt/vendor/persist/bdwlan.bin  -o $system_version -gt $persist_version ] ; then
 operator_name=`cat /proc/oppoVersion/operatorName`
 case $operator_name in
        $OPERATOR_19031 | $OPERATOR_19032)
         cp /mnt/vendor/persist/bdwlan_19031_id1.bin /mnt/vendor/persist/bdwlan.bin
+	echo "wifisau operator $operator_name" >> /data/vendor/wifi/abhishek_SAU_log.txt
        ;;
        $OPERATOR_19331)
        cp /mnt/vendor/persist/bdwlan_19331_id1.bin /mnt/vendor/persist/bdwlan.bin
+       echo "wifisau operator 9 $operator_name" >> /data/vendor/wifi/abhishek_SAU_log.txt
        ;;
        $OPERATOR_19111 | $OPERATOR_19112)
        cp /mnt/vendor/persist/bdwlan_19111_id1.bin /mnt/vendor/persist/bdwlan.bin
+       echo "wifisau operator 12 $operator_name" >> /data/vendor/wifi/abhishek_SAU_log.txt
        ;;
        $OPERATOR_19513_ALL | $OPERATOR_19513_VN)
-       cp /mnt/vendor/persist/bdwlan_19513_id1.bin /mnt/vendor/persist/bdwlan.bin
+       cp /mnt/vendor/persist/bdwlan_19111_id1.bin /mnt/vendor/persist/bdwlan.bin
+       echo "wifisau operator13  $operator_name" >> /data/vendor/wifi/abhishek_SAU_log.txt
        ;;
        *)
        cp /mnt/vendor/persist/bdwlan_19031_id1.bin /mnt/vendor/persist/bdwlan.bin
+       echo "wifisau operator 14 $operator_name" >> /data/vendor/wifi/abhishek_SAU_log.txt
        ;;
 esac
+    if [ "x${target}" != "xSAU" ] ; then
+        echo "$system_version" > /mnt/vendor/persist/bin_version
+	echo "wifisau operator write to bdwlan 15" >> /data/vendor/wifi/abhishek_SAU_log.txt
+    fi
+    sync
+fi
 fi
 
 
@@ -201,6 +222,7 @@ fi
 
 
 
+
 chmod 666 /mnt/vendor/persist/bdwlan.bin
 chown system:wifi /mnt/vendor/persist/bdwlan.bin
 
@@ -238,15 +260,6 @@ if [ ! -s /mnt/vendor/persist/WCNSS_qcom_cfg.ini -o $system_version -gt $persist
     chown system:wifi /mnt/vendor/persist/WCNSS_qcom_cfg.ini
     chmod 666 /mnt/vendor/persist/WCNSS_qcom_cfg.ini
 fi
-
-# add for tw sap 1x1
-if [ -s /vendor/etc/wifi/WCNSS_qcom_cfg_TW.ini ]; then
-    reg_info=`getprop persist.sys.oppo.region`
-    if [ "w${reg_info}" = "wTW" ]; then
-        cp /vendor/etc/wifi/WCNSS_qcom_cfg_TW.ini /mnt/vendor/persist/WCNSS_qcom_cfg.ini
-    fi
-fi
-#
 
 #else /* VENDOR_EDIT */
 if false; then

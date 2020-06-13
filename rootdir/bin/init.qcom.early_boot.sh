@@ -107,7 +107,26 @@ case "$target" in
                 ;;
         esac
         ;;
-
+     "sm6150")
+         case "$soc_hwplatform" in
+             "ADP")
+                 setprop vendor.display.lcd_density 160
+                 ;;
+         esac
+         case "$soc_hwid" in
+             365|366)
+                 sku_ver=`cat /sys/devices/platform/soc/aa00000.qcom,vidc1/sku_version` 2> /dev/null
+                 setprop vendor.media.target.version 1
+                 if [ $sku_ver -eq 1 ]; then
+                     setprop vendor.media.target.version 2
+                 fi
+                 ;;
+             355|369|377|384)
+                 setprop vendor.chre.enabled 0
+                 ;;
+             *)
+         esac
+         ;;
     "msm8660")
         case "$soc_hwplatform" in
             "Fluid")
@@ -119,6 +138,7 @@ case "$target" in
         esac
         ;;
 
+<<<<<<< HEAD
     "sm6150")
         case "$soc_hwplatform" in
             "ADP")
@@ -143,6 +163,8 @@ case "$target" in
         esac
         ;;
 
+=======
+>>>>>>> 74e6139... sm6150-common: Update rootdir to Q
     "msm8960")
         # lcd density is write-once. Hence the separate switch case
         case "$soc_hwplatform" in
@@ -313,6 +335,27 @@ case "$target" in
                 ;;
         esac
         ;;
+    "kona")
+        case "$soc_hwplatform" in
+            *)
+                if [ $fb_width -le 1600 ]; then
+                    setprop vendor.display.lcd_density 560
+                else
+                    setprop vendor.display.lcd_density 640
+                fi
+                ;;
+        esac
+        ;;
+    "lito")
+        case "$soc_hwplatform" in
+            *)
+                sku_ver=`cat /sys/devices/platform/soc/aa00000.qcom,vidc1/sku_version` 2> /dev/null
+                if [ $sku_ver -eq 1 ]; then
+                    setprop vendor.media.target.version 1
+                fi
+                ;;
+        esac
+        ;;
     "sdm710" | "msmpeafowl")
         case "$soc_hwplatform" in
             *)
@@ -375,7 +418,6 @@ case "$product" in
         *)
         ;;
 esac
-
 case "$product" in
         "sm6150_au")
          setprop vendor.display.lcd_density 160
@@ -383,15 +425,23 @@ case "$product" in
         *)
         ;;
 esac
-
 case "$product" in
         "sdmshrike_au")
          setprop vendor.display.lcd_density 160
+         echo 940800000 > /sys/class/devfreq/soc:qcom,cpu0-cpu-l3-lat/min_freq
+         echo 940800000 > /sys/class/devfreq/soc:qcom,cpu4-cpu-l3-lat/min_freq
          ;;
         *)
         ;;
 esac
 
+case "$product" in
+        "msmnile_gvmq")
+         setprop vendor.display.lcd_density 160
+         ;;
+        *)
+        ;;
+esac
 # Setup display nodes & permissions
 # HDMI can be fb1 or fb2
 # Loop through the sysfs nodes and determine
