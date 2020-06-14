@@ -86,7 +86,7 @@ void load_nfc_props()
     property_set("persist.sys.nfc.antenna_area", "bottom");
 }
 
-void setRMX(unsigned int variant)
+void setRMX(const unsigned int variant)
 {
     x2_props prop[3] = {};
 
