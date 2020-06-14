@@ -34,14 +34,9 @@ def AddImage(info, basename, dest):
 def OTA_InstallEnd(info):
   info.script.Print("Patching firmware images...")
   AddImage(info, "vbmeta.img", "/dev/block/bootdevice/by-name/vbmeta")
-  info.script.Print("Mounting System & Vendor")
   info.script.AppendExtra('mount("ext4", "EMMC", "/dev/block/bootdevice/by-name/system", "/system_root");')
-  info.script.AppendExtra('mount("ext4", "EMMC", "/dev/block/bootdevice/by-name/vendor", "/vendor");')
-  info.script.Print("Running remove_nfc script")
   RunCustomScript(info, "remove_nfc.sh", "")
-  info.script.Print("Unmounting System & Vendor")
   info.script.AppendExtra('unmount("/system_root");')
-  info.script.AppendExtra('unmount("/vendor");')
   return
 
 def RunCustomScript(info, name, arg):

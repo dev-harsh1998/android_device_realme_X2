@@ -18,16 +18,6 @@ if [ "$whichRmx" = "RMX1992" ]; then
     rm -rf /system_root/system/lib/*nfc*
     rm -rf /system_root/system/lib64/*nfc*
     rm -rf /system_root/system/priv-app/Tag
-    rm -rf /vendor/bin/*nfc*
-    rm -rf /vendor/bin/hw/*nfc*
-    rm -rf /vendor/etc/*nfc*
-    rm -rf /vendor/etc/init/*nfc*
-    rm -rf /vendor/etc/permissions/*nfc*
-    rm -rf /vendor/lib/*nfc*
-    rm -rf /vendor/lib/hw/*nfc*
-    rm -rf /vendor/lib64/*nfc*
-    rm -rf /vendor/lib64/hw/*nfc*
-    rm -rf /vendor/bin/hw/*nfc*
     echo "Done removing nfc stuff from $whichRmx"
 else
     echo "Cool!, $whichRmx supports NFC, Nothing changed"
