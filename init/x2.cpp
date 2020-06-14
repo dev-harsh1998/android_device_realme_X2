@@ -92,24 +92,24 @@ void setRMX(unsigned int variant)
 
     //RMX1991
     prop[0] = {
-        "realme/RMX1991/RMX1991CN:9/PKQ1.190630.001/1575615457:user/release-keys",
-        "sm6150-user 9 PKQ1.190630.001 eng.root.20191226.143855 release-keys",
+        "realme/RMX1991/RMX1991CN:10/QKQ1.191201.002/1587908485:user/release-keys",
+        "unknown-user 10 QKQ1.191201.002 eng.root.20200518.234025 release-keys",
         "RMX1991",
         "RMX1991CN",
     };
 
     //RMX992
     prop[1] = {
-        "realme/RMX1992/RMX1992L1:9/PKQ1.190630.001/1578551002:user/release-keys",
-        "sm6150-user 9 PKQ1.190630.001 eng.root.20200118.175901 release-keys",
+        "realme/RMX1992/RMX1992L1:10/QKQ1.191201.002/1587908485:user/release-keys",
+        "unknown-user 10 QKQ1.191201.002 eng.root.20200518.233658 release-keys",
         "RMX1992",
         "RMX1992L1",
     };
 
     //RMX1993
     prop[2] = {
-        "realme/RMX1993EEA/RMX1993L1:9/PKQ1.190630.001/1581056768:user/release-keys",
-        "sm6150-user 9 PKQ1.190630.001 eng.root.20200208.185557 release-keys",
+        "realme/RMX1993EEA/RMX1993L1:10/QKQ1.191201.002/1587908485:user/release-keys",
+        "unknown-user 10 QKQ1.191201.002 eng.root.20200518.233251 release-keys",
         "RMX1993",
         "RMX1993L1",
     };
@@ -133,7 +133,13 @@ void setRMX(unsigned int variant)
         set_ro_build_prop(source, "fingerprint", prop[variant].build_description.c_str());
         set_ro_product_prop(source, "device", prop[variant].product_device.c_str());
         set_ro_product_prop(source, "model", prop[variant].device_build.c_str());
+        set_ro_product_prop(source, "name", prop[variant].device_build.c_str());
     }
+
+    // RMX1993 has different ptoduct name due to oversea variants further being divided into spain and europe
+    if (variant == 2)
+        for (const auto &source : ro_props_default_source_order)
+            set_ro_product_prop(source, "name", "RMX1993EEA"); //override name props again
 
     //override again to be sure that it gets set.
     property_override("ro.build.fingerprint", prop[variant].build_description.c_str(), false);
