@@ -5,8 +5,9 @@ PRODUCT_PROPERTY_OVERRIDES += \
 
 # Bluetooth
 PRODUCT_PROPERTY_OVERRIDES += \
-    bt.max.hfpclient.connections=1 \
-    persist.vendor.btstack.enable.splita2dp=true \
+    vendor.bluetooth.soc=cherokee \
+    ro.bluetooth.wipower=false \
+    ro.bluetooth.emb_wp_mode=false
 
 # Camera
 PRODUCT_PROPERTY_OVERRIDES += \
@@ -15,7 +16,8 @@ PRODUCT_PROPERTY_OVERRIDES += \
 
 # CNE
 PRODUCT_PROPERTY_OVERRIDES += \
-    persist.vendor.cne.feature=1
+    persist.vendor.cne.feature=0 \
+    persist.vendor.dpm.feature=0
 
 # Data modules
 PRODUCT_PROPERTY_OVERRIDES += \
@@ -64,7 +66,8 @@ PRODUCT_PROPERTY_OVERRIDES += \
     persist.dbg.ims_volte_enable=1 \
     persist.dbg.volte_avail_ovr=1 \
     persist.dbg.vt_avail_ovr=1 \
-    persist.rcs.supported=1 \
+    persist.dbg.wfc_avail_ovr=1 \
+    persist.rcs.supported=0 \
     persist.vendor.ims.disableQXDMLogs=0 \
     persist.vendor.ims.disableADBLogs=0 \
     persist.vendor.ims.disableDebugLogs=0 \
@@ -83,7 +86,7 @@ PRODUCT_PROPERTY_OVERRIDES += \
     persist.vendor.radio.rat_on=combine \
     ril.subscription.types=NV,RUIM \
     persist.radio.add_power_save=1 \
-    ro.telephony.default_network=22,18 \
+    ro.telephony.default_network=22,20 \
     telephony.lteOnCdmaDevice=1
 
 # Sensors
