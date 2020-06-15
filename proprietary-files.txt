@@ -2,11 +2,14 @@
 vendor/bin/adsprpcd
 vendor/etc/init/vendor.qti.adsprpc-sscrpc-service.rc
 vendor/lib/libadsp_default_listener.so
-vendor/lib/libadsprpc.so
+vendor/lib/libfastcvdsp_stub.so
+vendor/lib/libfastcvopt.so
 vendor/lib/libmdsprpc.so
 vendor/lib/libsdsprpc.so
-vendor/lib64/libadsp_default_listener.so
 vendor/lib64/libadsprpc.so
+vendor/lib64/libadsp_default_listener.so
+vendor/lib64/libfastcvdsp_stub.so
+vendor/lib64/libfastcvopt.so
 vendor/lib64/libmdsprpc.so
 vendor/lib64/libsdsprpc.so
 
@@ -485,6 +488,17 @@ vendor/etc/camera/s5kgd1sp
 vendor/etc/camera/s5kgw1
 vendor/etc/camera/vidhance_calibration
 
+# Camera-Hardware
+vendor/lib/hw/vendor.oppo.hardware.camera.oppoHalAssist@1.0-impl.so
+vendor/lib/vendor.oppo.hardware.camera.oppoHalAssist@1.0.so
+vendor/lib64/hw/vendor.oppo.hardware.camera.oppoHalAssist@1.0-impl.so
+vendor/lib64/vendor.oppo.hardware.camera.oppoHalAssist@1.0.so
+vendor/lib64/libOppoAlgoProcess.so
+vendor/lib64/liboppodarksight.so
+vendor/lib64/liboppoexif.so
+vendor/lib64/liboppojpeg.so
+vendor/lib64/liboppo_frame_registration.so
+
 # Camera-firmware
 vendor/firmware/CAMERA_ICP.elf
 vendor/firmware/ois_bu63169.coeff
@@ -699,6 +713,10 @@ vendor/firmware/widevine.b05
 vendor/firmware/widevine.b06
 vendor/firmware/widevine.b07
 vendor/firmware/widevine.mdt
+
+# ESE-Powermanager
+vendor/lib/vendor.qti.esepowermanager@1.0.so
+vendor/lib64/vendor.qti.esepowermanager@1.0.so
 
 # Fingerprint
 vendor/bin/hw/vendor.oppo.hardware.biometrics.fingerprint@2.1-service
@@ -1089,10 +1107,9 @@ vendor/lib/vendor.qti.hardware.vpp@1.1.so
 vendor/lib/vendor.qti.hardware.vpp@1.2.so
 vendor/lib/vendor.qti.hardware.vpp@1.3.so
 
-# Oppo - Hardware
+# Oppo
 vendor/bin/hw/vendor.oppo.engnative.engineer@1.0-service
 vendor/bin/hw/vendor.oppo.engnative.engsensor@1.0-service
-vendor/bin/hw/vendor.oppo.engnative.messager@1.0-service
 vendor/bin/hw/vendor.oppo.hardware.cryptoeng@1.0-service
 vendor/bin/hw/vendor.oppo.hardware.eid@1.0-service
 vendor/bin/hw/vendor.oppo.hardware.hypnus@1.0-service
@@ -1104,8 +1121,7 @@ vendor/bin/OppoKeybox
 vendor/bin/opposysd
 vendor/etc/init/vendor.oppo.engnative.engineer@1.0-service.rc
 vendor/etc/init/vendor.oppo.engnative.engsensor@1.0-service.rc
-vendor/etc/init/vendor.oppo.engnative.messager@1.0-service.rc
-vendor/etc/init/vendor.oppo.hardware.cryptoeng@1.0-service.rc
+vendor/etc/init/vendor.oppo.hardware.cryptoeng@1.0-service_FDE.rc
 vendor/etc/init/vendor.oppo.hardware.eid@1.0-service.rc
 vendor/etc/init/vendor.oppo.hardware.hypnus@1.0-service.rc
 vendor/etc/init/vendor.oppo.hardware.ktv@1.0-service.rc
@@ -1113,45 +1129,34 @@ vendor/etc/init/vendor.oppo.hardware.mmdisplayfeature@1.0-service.rc
 vendor/etc/init/vendor.oppo.hardware.oiface@1.0-service.rc
 vendor/etc/init/vendor.oppo.wifi.sniffer@1.0-service.rc
 vendor/etc/permissions/vendor-oppo-engnative-engineer.xml
+vendor/etc/permissions/vendor-oppo-engnative-engsensor.xml
 vendor/etc/permissions/vendor-oppo-hardware.cryptoeng.xml
-vendor/lib/hw/vendor.oppo.hardware.camera.oppoHalAssist@1.0-impl.so
 vendor/lib/hw/vendor.oppo.hardware.eid@1.0-impl.so
+vendor/lib/hw/vendor.oppo.hardware.hypnus@1.0-impl.so
 vendor/lib/hw/vendor.oppo.hardware.ktv@1.0-impl.so
 vendor/lib/hw/vendor.oppo.hardware.mmdisplayfeature@1.0-impl.so
 vendor/lib/hw/vendor.oppo.hardware.oiface@1.0-impl.so
-vendor/lib/libclock_adjust.so
 vendor/lib/libcom.oppo.calidatacontainer.so
-vendor/lib/libGPTEE_vendor.so
-vendor/lib/libOPPORectify.so
-vendor/lib/vendor.oppo.hardware.camera.oppoHalAssist@1.0.so
 vendor/lib/vendor.oppo.hardware.commondcs@1.0.so
 vendor/lib/vendor.oppo.hardware.eid@1.0.so
 vendor/lib/vendor.oppo.hardware.hypnus@1.0.so
 vendor/lib/vendor.oppo.hardware.ktv@1.0.so
 vendor/lib/vendor.oppo.hardware.mmdisplayfeature@1.0.so
 vendor/lib/vendor.oppo.hardware.oiface@1.0.so
-vendor/lib64/hw/vendor.oppo.hardware.camera.oppoHalAssist@1.0-impl.so
+vendor/lib/vendor.oppo.hardware.radio.opporadio@1.0.so
 vendor/lib64/hw/vendor.oppo.hardware.eid@1.0-impl.so
+vendor/lib64/hw/vendor.oppo.hardware.hypnus@1.0-impl.so
 vendor/lib64/hw/vendor.oppo.hardware.ktv@1.0-impl.so
 vendor/lib64/hw/vendor.oppo.hardware.mmdisplayfeature@1.0-impl.so
 vendor/lib64/hw/vendor.oppo.hardware.oiface@1.0-impl.so
-vendor/lib64/libclock_adjust.so
 vendor/lib64/libcom.oppo.calidatacontainer.so
-vendor/lib64/libGPTEE_vendor.so
-vendor/lib64/libOppoAlgoProcess.so
-vendor/lib64/liboppodarksight.so
-vendor/lib64/liboppoexif.so
-vendor/lib64/liboppojpeg.so
 vendor/lib64/libOPPORectify.so
 vendor/lib64/liboppo_aisd.so
-vendor/lib64/liboppo_frame_registration.so
 vendor/lib64/liboppo_platform_hwi.so
 vendor/lib64/libqsee_keybox_ca.so
 vendor/lib64/vendor.oppo.engnative.engineer@1.0.so
 vendor/lib64/vendor.oppo.engnative.engsensor@1.0.so
-vendor/lib64/vendor.oppo.engnative.messager@1.0.so
 vendor/lib64/vendor.oppo.engnative.transfer@1.0.so
-vendor/lib64/vendor.oppo.hardware.camera.oppoHalAssist@1.0.so
 vendor/lib64/vendor.oppo.hardware.commondcs@1.0.so
 vendor/lib64/vendor.oppo.hardware.cryptoeng@1.0.so
 vendor/lib64/vendor.oppo.hardware.eid@1.0.so
@@ -1159,15 +1164,45 @@ vendor/lib64/vendor.oppo.hardware.hypnus@1.0.so
 vendor/lib64/vendor.oppo.hardware.ktv@1.0.so
 vendor/lib64/vendor.oppo.hardware.mmdisplayfeature@1.0.so
 vendor/lib64/vendor.oppo.hardware.oiface@1.0.so
+vendor/lib64/vendor.oppo.hardware.radio.opporadio@1.0.so
 vendor/lib64/vendor.oppo.hardware.wifi.sniffer@1.0.so
 vendor/lib64/vendor.oppo.hardware.wifi.supplicant@1.0.so
 
-# Radio - Oppo
-vendor/lib/vendor.oppo.hardware.radio.opporadio@1.0.so
-vendor/lib64/vendor.oppo.hardware.radio.opporadio@1.0.so
+# Pasrmanager
+vendor/lib/vendor.qti.power.pasrmanager@1.0.so
+vendor/lib64/vendor.qti.power.pasrmanager@1.0.so
 
 # Perf
+vendor/bin/hw/vendor.qti.hardware.perf@2.0-service
+vendor/bin/msm_irqbalance
+vendor/etc/init/vendor.qti.hardware.perf@2.0-service.rc
+vendor/etc/lm/AppClassifierFeature.xml
+vendor/etc/perf/commonresourceconfigs.xml
+vendor/etc/perf/perfboostsconfig.xml
+vendor/etc/perf/perfconfigstore.xml
+vendor/etc/perf/targetconfig.xml
+vendor/etc/perf/targetresourceconfigs.xml
+vendor/etc/msm_irqbalance.conf
+vendor/etc/powerhint.xml
+vendor/lib/libperfconfig.so
+vendor/lib/libperfgluelayer.so
+vendor/lib/libqti-perfd-client.so
+vendor/lib/libqti-perfd.so
+vendor/lib/libqti-util.so
+vendor/lib/libqti-utils.so
+vendor/lib/vendor.qti.hardware.perf@2.0.so
+vendor/lib64/libadaptlaunch.so
+vendor/lib64/libappclassifier.so
+vendor/lib64/libgameoptfeature.so
+vendor/lib64/liblearningmodule.so
+vendor/lib64/libmeters-ns.so
+vendor/lib64/libmeters.so
+vendor/lib64/libperfconfig.so
+vendor/lib64/libperfgluelayer.so
 vendor/lib64/libqti-perfd-client.so
+vendor/lib64/libqti-perfd.so
+vendor/lib64/libqti-util.so
+vendor/lib64/libqti-utils.so
 vendor/lib64/vendor.qti.hardware.perf@2.0.so
 
 # Peripheral
@@ -1189,6 +1224,19 @@ vendor/lib64/vendor.display.postproc@1.0.so
 
 # Power-off charging daemon
 bin/charger
+
+# Qdutils
+vendor/bin/hw/vendor.qti.hardware.qdutils_disp@1.0-service-qti
+vendor/etc/init/vendor.qti.hardware.qdutils_disp@1.0-service-qti.rc
+vendor/lib/vendor.qti.hardware.qdutils_disp@1.0.so
+vendor/lib64/vendor.qti.hardware.qdutils_disp@1.0.so
+
+# Qualcomm Hardware Factory
+vendor/bin/hw/vendor.qti.hardware.factory@1.0-service
+vendor/etc/init/vendor.qti.hardware.factory@1.0-service.rc
+vendor/etc/permissions/vendor.qti.hardware.factory.xml
+vendor/lib64/vendor.qti.hardware.factory@1.0.so
+vendor/lib64/vendor.qti.hardware.factory@1.1.so
 
 # Qualcomm MSM Interface
 etc/permissions/qti_libpermissions.xml
@@ -1225,6 +1273,20 @@ vendor/lib/libqmi_common_so.so
 vendor/lib/libqmi_csi.so
 vendor/lib/libqmi_encdec.so
 vendor/lib/libqmiservices.so
+
+# Qualcomm Trusted Execution Environment
+vendor/bin/hw/vendor.qti.hardware.qteeconnector@1.0-service
+vendor/etc/init/vendor.qti.hardware.qteeconnector@1.0-service.rc
+vendor/lib/hw/vendor.qti.hardware.qteeconnector@1.0-impl.so
+vendor/lib/libGPQTEEC_vendor.so
+vendor/lib/libGPTEE_vendor.so
+vendor/lib/libQTEEConnector_vendor.so
+vendor/lib/vendor.qti.hardware.qteeconnector@1.0.so
+vendor/lib64/hw/vendor.qti.hardware.qteeconnector@1.0-impl.so
+vendor/lib64/libGPQTEEC_vendor.so
+vendor/lib64/libGPTEE_vendor.so
+vendor/lib64/libQTEEConnector_vendor.so
+vendor/lib64/vendor.qti.hardware.qteeconnector@1.0.so
 
 # Radio
 -product/app/QtiTelephonyService/QtiTelephonyService.apk
@@ -1441,33 +1503,45 @@ vendor/lib64/vendor.qti.hardware.scve.panorama@1.0.so
 
 # Sensors
 vendor/bin/sensors.qti
-vendor/etc/sensors/hals.conf
 vendor/lib/libsensorcal.so
 vendor/lib/libsensorslog.so
-vendor/lib/libsns_fastRPC_util.so
-vendor/lib/libsns_low_lat_stream_stub.so
-vendor/lib/libsnsdiaglog.so
 vendor/lib/libssc.so
 vendor/lib/libssc_default_listener.so
+vendor/lib/sensors.ap.so
 vendor/lib/sensors.ssc.so
 vendor/lib64/libsensorcal.so
 vendor/lib64/libsensorslog.so
-vendor/lib64/libsns_fastRPC_util.so
-vendor/lib64/libsns_low_lat_stream_stub.so
-vendor/lib64/libsnsdiaglog.so
 vendor/lib64/libssc.so
 vendor/lib64/libssc_default_listener.so
+vendor/lib64/sensors.ap.so
 vendor/lib64/sensors.ssc.so
+
+# Sensor-calibrate
+vendor/bin/hw/vendor.qti.hardware.sensorscalibrate@1.0-service
+vendor/etc/init/vendor.qti.hardware.sensorscalibrate@1.0-service.rc
+vendor/etc/permissions/vendor-qti-hardware-sensorscalibrate.xml
+vendor/lib/hw/vendor.qti.hardware.sensorscalibrate@1.0-impl.so
+vendor/lib/vendor.qti.hardware.sensorscalibrate@1.0.so
+vendor/lib64/hw/vendor.qti.hardware.sensorscalibrate@1.0-impl.so
+vendor/lib64/vendor.qti.hardware.sensorscalibrate@1.0.so
 
 # Sensor-configs
 vendor/etc/sensors/config/ak991x_dri_0.json
 vendor/etc/sensors/config/bmi160_0.json
 vendor/etc/sensors/config/devinfo_0.json
+vendor/etc/sensors/config/lsm6dsm_0.json
+vendor/etc/sensors/config/lsm6dsm_0_16g.json
+vendor/etc/sensors/config/lsm6dsm_0_8g.json
+vendor/etc/sensors/config/sdmmagpie_qrd_tmd2725.json
+vendor/etc/sensors/config/sdmmagpie_tmd2725.json
 vendor/etc/sensors/config/sm7150_ak991x_0.json
 vendor/etc/sensors/config/sm7150_bmi160_0.json
 vendor/etc/sensors/config/sm7150_irq.json
+vendor/etc/sensors/config/sm7150_lsm6dsm.json
 vendor/etc/sensors/config/sm7150_power_0.json
 vendor/etc/sensors/config/sm7150_stk2x2x_0.json
+vendor/etc/sensors/config/sm7150_sx932x.json
+vendor/etc/sensors/config/sm7150_tcs3701.json
 vendor/etc/sensors/config/sns_amd.json
 vendor/etc/sensors/config/sns_amd_sw_disabled.json
 vendor/etc/sensors/config/sns_amd_sw_enabled.json
@@ -1475,6 +1549,7 @@ vendor/etc/sensors/config/sns_aont.json
 vendor/etc/sensors/config/sns_basic_gestures.json
 vendor/etc/sensors/config/sns_bring_to_ear.json
 vendor/etc/sensors/config/sns_ccd.json
+vendor/etc/sensors/config/sns_ccd_v3_walk.json
 vendor/etc/sensors/config/sns_cm.json
 vendor/etc/sensors/config/sns_dae.json
 vendor/etc/sensors/config/sns_device_orient.json
@@ -1498,14 +1573,23 @@ vendor/etc/sensors/config/sns_tilt_sw_enabled.json
 vendor/etc/sensors/config/sns_tilt_to_wake.json
 vendor/etc/sensors/config/sns_wrist_pedo.json
 vendor/etc/sensors/config/stk2x2x_0.json
+vendor/etc/sensors/config/sx932x.json
+vendor/etc/sensors/config/talos_power_0.json
+vendor/etc/sensors/config/talos_tmd2725.json
+vendor/etc/sensors/config/tcs3701.json
 vendor/etc/sensors/sns_reg_config
 
 # Soter
 -app/SoterService/SoterService.apk
+product/framework/vendor.qti.hardware.soter-V1.0-java.jar
+product/lib64/vendor.qti.hardware.soter@1.0.so
 vendor/bin/hw/vendor.qti.hardware.soter@1.0-service
+vendor/bin/vendor.qti.hardware.soter@1.0-provision
 vendor/etc/init/vendor.qti.hardware.soter@1.0-service.rc
-vendor/lib64/vendor.qti.hardware.soter@1.0.so
+vendor/lib/hw/vendor.qti.hardware.soter@1.0-impl.so
+vendor/lib/vendor.qti.hardware.soter@1.0.so
 vendor/lib64/hw/vendor.qti.hardware.soter@1.0-impl.so
+vendor/lib64/vendor.qti.hardware.soter@1.0.so
 
 # Thermal
 -vendor/lib64/libthermalclient.so
@@ -1522,8 +1606,46 @@ vendor/bin/hw/vendor.qti.hardware.tui_comm@1.0-service-qti
 vendor/etc/init/vendor.qti.hardware.tui_comm@1.0-service-qti.rc
 vendor/lib64/vendor.qti.hardware.tui_comm@1.0.so
 
+# Touch-improve
+-vendor/app/com.qualcomm.qti.improvetouch.service/com.qualcomm.qti.improvetouch.service.apk
+vendor/lib/vendor.qti.hardware.improvetouch.touchcompanion@1.0-service.so
+vendor/lib/vendor.qti.hardware.improvetouch.touchcompanion@1.0.so
+vendor/lib64/vendor.qti.hardware.improvetouch.touchcompanion@1.0-service.so
+vendor/lib64/vendor.qti.hardware.improvetouch.touchcompanion@1.0.so
+
+# Touchscreen
+vendor/etc/hbtp/loader.cfg
+vendor/lib/libhbtpclient.so
+vendor/lib/libhbtpdsp.so
+vendor/lib/libhbtpfrmwk.so
+vendor/lib64/libhbtpclient.so
+vendor/lib64/libhbtpdsp.so
+vendor/lib64/libhbtpfrmwk.so
+
 # WiFi
 vendor/bin/cnss-daemon
+vendor/bin/wifilearner
+vendor/etc/configstore/wigig.xml
+vendor/etc/init/vendor.qti.hardware.wifi.wifilearner@1.0-service.rc
+vendor/etc/init/vendor.qti.hardware.wigig.supptunnel@1.0-service.rc
+vendor/etc/wifi/aoa_cldb_falcon.bin
+vendor/etc/wifi/aoa_cldb_swl14.bin
+vendor/etc/wifi/fstman.ini
+vendor/etc/wifi/sar-vendor-cmd.xml
+vendor/etc/wifi/wigig_p2p_supplicant.conf
+vendor/etc/wifi/wigig_supplicant.conf
+vendor/lib/libaoa.so
+vendor/lib/libwigig_flashaccess.so
+vendor/lib/libwigig_pciaccess.so
+vendor/lib/libwigig_utils.so
+vendor/lib64/libaoa.so
+vendor/lib64/libwigig_flashaccess.so
+vendor/lib64/libwigig_pciaccess.so
+vendor/lib64/libwigig_utils.so
+vendor/lib64/vendor.qti.hardware.wifi.keystore@1.0.so
+vendor/lib64/vendor.qti.hardware.wifi.wifilearner@1.0.so
+vendor/lib64/vendor.qti.hardware.wigig.netperftuner@1.0.so
+vendor/lib64/vendor.qti.hardware.wigig.supptunnel@1.0.so
 
 # WiFi Display
 bin/wfdservice
