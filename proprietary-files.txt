@@ -203,7 +203,6 @@ vendor/lib/camera/com.qti.tuned.shine_ov02a1b.bin
 vendor/lib/camera/com.qti.tuned.sunny_hi846.bin
 vendor/lib/camera/com.qti.tuned.sunny_s5kgw1.bin
 vendor/lib/camera/components/com.oppo.node.drawafinfo.so
-vendor/lib/camera/components/com.oppo.node.nightvision.so
 vendor/lib/camera/components/com.oppo.node.oppoengmode.so
 vendor/lib/camera/components/com.qti.camx.chiiqutils.so
 vendor/lib/camera/components/com.qti.eisv2.so
@@ -250,17 +249,21 @@ vendor/lib/camera/fdconfigvideo.bin
 vendor/lib/camera/fdconfigvideolite.bin
 vendor/lib/hw/camera.qcom.so
 vendor/lib/libc++_shared.so
-vendor/lib/libstdc++.so
+vendor/lib/libcamera2ndk_vendor.so
 vendor/lib/libcamera_nn_stub.so
-vendor/lib/libcamhidlsensor.so
 vendor/lib/libcamxfdalgov7.so
 vendor/lib/libcamxfdalgov8.so
 vendor/lib/libcamxfdengine.so
 vendor/lib/libcamxstatscore.so
 vendor/lib/libcamxswprocessalgo.so
+vendor/lib/libcamxtintlessalgo.so
 vendor/lib/libcapiv2svacnn.so
+vendor/lib/libcapiv2svarnn.so
 vendor/lib/libcapiv2vop.so
 vendor/lib/libcom.qti.chinodeutils.so
+vendor/lib/libcvface_api.so
+vendor/lib/libDxHdcp.so
+vendor/lib/libgui_vendor.so
 vendor/lib/libmpbase.so
 vendor/lib/libSNPE.so
 vendor/lib/libsnpe_dsp_domains_v2.so
@@ -275,10 +278,6 @@ vendor/lib/libswregistrationalgo.so
 vendor/lib/libswvdec.so
 vendor/lib/libsymphony-cpu.so
 vendor/lib/libsymphonypower.so
-vendor/lib/libtriplecam_image_optical_zoom.so
-vendor/lib/libtriplecam_optical_zoom_control.so
-vendor/lib/libtriplecam_video_optical_zoom.so
-vendor/lib/libVDBlurlessAPI_v2.so
 vendor/lib/libvideoutils.so
 vendor/lib/libvidhance.so
 vendor/lib/qcom.camera.log.so
@@ -327,11 +326,9 @@ vendor/lib64/camera/com.qti.tuned.shine_ov02a1b.bin
 vendor/lib64/camera/com.qti.tuned.sunny_hi846.bin
 vendor/lib64/camera/com.qti.tuned.sunny_s5kgw1.bin
 vendor/lib64/camera/components/com.oppo.node.drawafinfo.so
-vendor/lib64/camera/components/com.oppo.node.nightvision.so
 vendor/lib64/camera/components/com.oppo.node.oppoengmode.so
 vendor/lib64/camera/components/com.oppo.node.preview.so
 vendor/lib64/camera/components/com.oppo.node.rtb.so
-vendor/lib64/camera/components/com.oppo.node.sat.so
 vendor/lib64/camera/components/com.qti.camx.chiiqutils.so
 vendor/lib64/camera/components/com.qti.eisv2.so
 vendor/lib64/camera/components/com.qti.eisv3.so
@@ -379,7 +376,7 @@ vendor/lib64/camera/fdconfigvideolite.bin
 vendor/lib64/hw/camera.qcom.so
 vendor/lib64/hw/com.qti.chi.override_moorea.so
 vendor/lib64/libc++_shared.so
-vendor/lib64/libstdc++.so
+vendor/lib64/libcamera2ndk_vendor.so
 vendor/lib64/libcamera_core_hwi.so
 vendor/lib64/libcamera_nn_stub.so
 vendor/lib64/libcamxfdalgov7.so
@@ -389,9 +386,11 @@ vendor/lib64/libcamxstatscore.so
 vendor/lib64/libcamxswprocessalgo.so
 vendor/lib64/libcamxtintlessalgo.so
 vendor/lib64/libcapiv2svacnn.so
+vendor/lib64/libcapiv2svarnn.so
 vendor/lib64/libcapiv2vop.so
 vendor/lib64/libcom.qti.chinodeutils.so
 vendor/lib64/libcvface_api.so
+vendor/lib64/libDxHdcp.so
 vendor/lib64/libmegface.so
 vendor/lib64/libMegviiHumBokeh.so
 vendor/lib64/libMegviiHumBokehPost.so
@@ -401,16 +400,15 @@ vendor/lib64/libSNPE.so
 vendor/lib64/libsnpeml.so
 vendor/lib64/libsnpe_dsp_domains_v2.so
 vendor/lib64/libSNPE_G.so
-vendor/lib64/libocam_common.so
 vendor/lib64/libsnpe_loader.so
 vendor/lib64/libsnsapi.so
 vendor/lib64/libsnsdiaglog.so
-vendor/lib64/libSEC.HybridHDR.so
 vendor/lib64/libsns_device_mode_stub.so
 vendor/lib64/libsns_fastRPC_util.so
 vendor/lib64/libsns_low_lat_stream_stub.so
 vendor/lib64/libSonyIMX471RmscLibrary.so
 vendor/lib64/libstblur_capture_api.so
+vendor/lib64/libstdc++.so
 vendor/lib64/libswregistrationalgo.so
 vendor/lib64/libswvdec.so
 vendor/lib64/libsymphony-cpu.so
@@ -428,18 +426,10 @@ vendor/lib64/libVDUpScale.so
 vendor/lib64/libvidhance.so
 
 # Camera-arcsoft
-vendor/lib/libarcsoft_blink_detection_CoupleDis.so
-vendor/lib/libarcsoft_detection_base_CoupleDis.so
-vendor/lib/libarcsoft_distortion_correction.so
 vendor/lib/libarcsoft_dualcam_bokeh_api.so
 vendor/lib/libarcsoft_dualcam_refocus_left.so
 vendor/lib/libarcsoft_dualcam_refocus_preview.so
 vendor/lib/libarcsoft_dualcam_refocus_right.so
-vendor/lib/libarcsoft_hdr_denoise_api.so
-vendor/lib/libarcsoft_high_dynamic_range.so
-vendor/lib/libarcsoft_high_dynamic_range_couple.so
-vendor/lib/libarcsoft_low_light_hdr.so
-vendor/lib/libarcsoft_smart_denoise.so
 vendor/lib64/libarcsoft_beautyshot.so
 vendor/lib64/libarcsoft_distortion_correction.so
 vendor/lib64/libarcsoft_distortion_correction_7150.so
@@ -461,12 +451,12 @@ vendor/lib64/libarcsoft_super_night_raw.so
 vendor/lib64/libarcsoft_time_convert.so
 
 # Camera-configs
+vendor/etc/camera/aps_camera_algo_switch_config
+vendor/etc/camera/aps_camera_config
+vendor/etc/camera/aps_camera_zoom_config
 vendor/etc/camera/arc_golden.bin
-vendor/etc/camera/darksight/darksight_main.bin
-vendor/etc/camera/darksight/darksight_ultrawide.bin
 vendor/etc/camera/distortionParams.bin
 vendor/etc/camera/gasryuv.model
-vendor/etc/camera/hi846
 vendor/etc/camera/imx319
 vendor/etc/camera/imx362
 vendor/etc/camera/imx471
@@ -474,18 +464,26 @@ vendor/etc/camera/imx519
 vendor/etc/camera/imx576
 vendor/etc/camera/imx586
 vendor/etc/camera/megvii/cache
+vendor/etc/camera/megvii/merged_model
 vendor/etc/camera/megvii/merged_model_post
 vendor/etc/camera/megvii/siq_ocl_cache
 vendor/etc/camera/megvii/superiq_model
 vendor/etc/camera/mtStereoParams.bin
 vendor/etc/camera/mwStereoParams.bin
 vendor/etc/camera/M_Attribute_Gender_Age_1.0.model.hardcode
-vendor/etc/camera/oppo_camera_algo_switch_config
-vendor/etc/camera/oppo_camera_config
-vendor/etc/camera/oppo_camera_zoom_config
 vendor/etc/camera/s5k3m5sx
-vendor/etc/camera/s5kgd1sp
-vendor/etc/camera/s5kgw1
+vendor/etc/camera/tonemap/s_curve_lut
+vendor/etc/camera/tonemap/tonemap_lut_0
+vendor/etc/camera/tonemap/tonemap_lut_1
+vendor/etc/camera/tonemap/tonemap_lut_10
+vendor/etc/camera/tonemap/tonemap_lut_2
+vendor/etc/camera/tonemap/tonemap_lut_3
+vendor/etc/camera/tonemap/tonemap_lut_4
+vendor/etc/camera/tonemap/tonemap_lut_5
+vendor/etc/camera/tonemap/tonemap_lut_6
+vendor/etc/camera/tonemap/tonemap_lut_7
+vendor/etc/camera/tonemap/tonemap_lut_8
+vendor/etc/camera/tonemap/tonemap_lut_9
 vendor/etc/camera/vidhance_calibration
 
 # Camera-Hardware
@@ -493,16 +491,15 @@ vendor/lib/hw/vendor.oppo.hardware.camera.oppoHalAssist@1.0-impl.so
 vendor/lib/vendor.oppo.hardware.camera.oppoHalAssist@1.0.so
 vendor/lib64/hw/vendor.oppo.hardware.camera.oppoHalAssist@1.0-impl.so
 vendor/lib64/vendor.oppo.hardware.camera.oppoHalAssist@1.0.so
-vendor/lib64/libOppoAlgoProcess.so
-vendor/lib64/liboppodarksight.so
-vendor/lib64/liboppoexif.so
-vendor/lib64/liboppojpeg.so
-vendor/lib64/liboppo_frame_registration.so
+vendor/lib/libSEC.HybridHDR.so
+vendor/lib64/libSEC.HybridHDR.so
 
 # Camera-firmware
 vendor/firmware/CAMERA_ICP.elf
 vendor/firmware/ois_bu63169.coeff
 vendor/firmware/ois_bu63169.prog
+vendor/firmware/ois_bu63169_sec.coeff
+vendor/firmware/ois_bu63169_sec.prog
 
 # Camera-sensors
 vendor/lib/libmmcamera_faceproc.so
