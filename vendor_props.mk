@@ -1,7 +1,11 @@
 # Audio
 PRODUCT_PROPERTY_OVERRIDES += \
     ro.config.media_vol_steps=25 \
-    ro.config.vc_call_vol_steps=7
+    ro.config.vc_call_vol_steps=7 \
+    ro.qc.sdk.audio.fluencetype=none \
+    persist.audio.fluence.voicecall=true \
+    persist.audio.fluence.voicerec=false \
+    persist.audio.fluence.speaker=true
 
 # Bluetooth
 PRODUCT_PROPERTY_OVERRIDES += \
