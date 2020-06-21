@@ -92,7 +92,7 @@ void setRMX(unsigned int variant)
 
     //RMX1991
     prop[0] = {
-        "realme/RMX1991/RMX1991CN:9/PKQ1.190630.001/1575615457:user/release-keys",
+        "google/coral/coral:10/QQ3A.200605.001/6392402:user/release-keys",
         "sm6150-user 9 PKQ1.190630.001 eng.root.20191226.143855 release-keys",
         "RMX1991",
         "RMX1991CN",
@@ -100,7 +100,7 @@ void setRMX(unsigned int variant)
 
     //RMX992
     prop[1] = {
-        "realme/RMX1992/RMX1992L1:9/PKQ1.190630.001/1578551002:user/release-keys",
+        "google/coral/coral:10/QQ3A.200605.001/6392402:user/release-keys",
         "sm6150-user 9 PKQ1.190630.001 eng.root.20200118.175901 release-keys",
         "RMX1992",
         "RMX1992L1",
@@ -108,7 +108,7 @@ void setRMX(unsigned int variant)
 
     //RMX1993
     prop[2] = {
-        "realme/RMX1993EEA/RMX1993L1:9/PKQ1.190630.001/1581056768:user/release-keys",
+        "google/coral/coral:10/QQ3A.200605.001/6392402:user/release-keys",
         "sm6150-user 9 PKQ1.190630.001 eng.root.20200208.185557 release-keys",
         "RMX1993",
         "RMX1993L1",
