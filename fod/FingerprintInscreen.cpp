@@ -84,29 +84,24 @@ Return<void> FingerprintInscreen::onFinishEnroll() {
 }
 
 Return<void> FingerprintInscreen::onPress() {
-    mFingerPressed = true;
-    set(DIMLAYER_PATH, FP_BEGIN);
-    std::thread([this]() {
-        std::this_thread::sleep_for(std::chrono::milliseconds(39));
-        if (mFingerPressed) {
-            set(FP_PRESS_PATH, FP_BEGIN);
-        }
-    }).detach();
+    set(FP_PRESS_PATH, FP_BEGIN);
     return Void();
 }
 
-Return<void> FingerprintInscreen::onRelease() {
-    mFingerPressed = false;
+Return<void> FingerprintInscreen::onRelease(){
     set(FP_PRESS_PATH, FP_ENDIT);
-    set(DIMLAYER_PATH, FP_ENDIT);
     return Void();
 }
 
 Return<void> FingerprintInscreen::onShowFODView() {
+    mFingerPressed=true;
+    set(DIMLAYER_PATH, FP_BEGIN);
     return Void();
 }
 
 Return<void> FingerprintInscreen::onHideFODView() {
+    mFingerPressed=false;
+    set(DIMLAYER_PATH, FP_ENDIT);
     return Void();
 }
 
