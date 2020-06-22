@@ -22,8 +22,6 @@ using android::init::property_set;
 
 struct x2_props
 {
-    std::string build_description;
-    std::string build_fingerprint;
     std::string device_build;
     std::string product_device;
 };
@@ -92,24 +90,18 @@ void setRMX(unsigned int variant)
 
     //RMX1991
     prop[0] = {
-        "google/coral/coral:10/QQ3A.200605.001/6392402:user/release-keys",
-        "sm6150-user 9 PKQ1.190630.001 eng.root.20191226.143855 release-keys",
         "RMX1991",
         "RMX1991CN",
     };
 
     //RMX992
     prop[1] = {
-        "google/coral/coral:10/QQ3A.200605.001/6392402:user/release-keys",
-        "sm6150-user 9 PKQ1.190630.001 eng.root.20200118.175901 release-keys",
         "RMX1992",
         "RMX1992L1",
     };
 
     //RMX1993
     prop[2] = {
-        "google/coral/coral:10/QQ3A.200605.001/6392402:user/release-keys",
-        "sm6150-user 9 PKQ1.190630.001 eng.root.20200208.185557 release-keys",
         "RMX1993",
         "RMX1993L1",
     };
@@ -126,17 +118,12 @@ void setRMX(unsigned int variant)
         property_override(prop_name.c_str(), value.c_str(), false);
     };
 
-    property_override("ro.build.description", prop[variant].build_fingerprint.c_str());
     property_override("ro.build.product", prop[variant].product_device.c_str());
     for (const auto &source : ro_props_default_source_order)
     {
-        set_ro_build_prop(source, "fingerprint", prop[variant].build_description.c_str());
         set_ro_product_prop(source, "device", prop[variant].product_device.c_str());
         set_ro_product_prop(source, "model", prop[variant].device_build.c_str());
     }
-
-    //override again to be sure that it gets set.
-    property_override("ro.build.fingerprint", prop[variant].build_description.c_str(), false);
 
     // Load NFC properties only on RMX199{1:3}
     if (variant == 2 || variant == 0)
