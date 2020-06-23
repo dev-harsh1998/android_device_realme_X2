@@ -67,6 +67,7 @@ on post-fs-data
     mount none /dev/null vendor/lib/hw/android.hardware.light@2.0-impl.so bind
     mount none /dev/null vendor/lib64/hw/lights.sm6150.so bind
     mount none /dev/null vendor/lib64/hw/android.hardware.light@2.0-impl.so bind
+    mount none /system/bin/hw/hostapd /vendor/bin/hw/hostapd bind
     mount none /system/etc/audio_policy_configuration.xml /vendor/etc/audio/audio_policy_configuration.xml bind
     mount none /system/lib64/hw/power.qcom.so /vendor/lib64/hw/power.qcom.so bind
     mount none /system/lib64/soundfx/libvolumelistener.so /vendor/lib64/soundfx/libvolumelistener.so bind

@@ -99,6 +99,10 @@ PRODUCT_COPY_FILES += \
 PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/configs/privapp-permissions-hotword.xml:system/etc/permissions/privapp-permissions-hotword.xml
 
+# TEMP-HOSTPAD
+PRODUCT_COPY_FILES += \
+    $(LOCAL_PATH)/configs/hostapd:system/bin/hw/hostapd
+
 # IMS
 PRODUCT_PACKAGES += \
     ims-ext-common \
