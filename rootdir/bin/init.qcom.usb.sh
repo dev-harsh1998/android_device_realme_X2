@@ -105,16 +105,11 @@ if [ "$(getprop persist.vendor.usb.config)" == "" -a \
 	              "sdm845" | "sdm710")
 		          setprop persist.vendor.usb.config diag,serial_cdev,rmnet,dpl,adb
 		      ;;
-<<<<<<< HEAD
-	              "msmnile" | "sm6150" | "trinket")
-			  setprop persist.vendor.usb.config diag,serial_cdev,rmnet,dpl,qdss,adb
-=======
 	              "msmnile" | "sm6150" | "trinket" | "lito" | "atoll" | "bengal")
 		          #setprop persist.vendor.usb.config diag,serial_cdev,rmnet,dpl,qdss,adb
                           #change the default usb composition for VTS by yukai.he@CM 20200422 begin
                           setprop persist.vendor.usb.config mtp,adb
                           #change the default usb composition for VTS by yukai.he@CM 20200422 end
->>>>>>> 74e6139... sm6150-common: Update rootdir to Q
 		      ;;
 	              *)
 		          setprop persist.vendor.usb.config diag,adb

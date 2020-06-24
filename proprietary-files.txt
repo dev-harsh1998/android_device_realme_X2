@@ -392,9 +392,6 @@ vendor/lib64/libcom.qti.chinodeutils.so
 vendor/lib64/libcvface_api.so
 vendor/lib64/libDxHdcp.so
 vendor/lib64/libmegface.so
-vendor/lib64/libMegviiHumBokeh.so
-vendor/lib64/libMegviiHumBokehPost.so
-vendor/lib64/libmegvii_superiq.so
 vendor/lib64/libmpbase.so
 vendor/lib64/libSNPE.so
 vendor/lib64/libsnpeml.so
@@ -456,6 +453,60 @@ vendor/etc/camera/aps_camera_config
 vendor/etc/camera/aps_camera_zoom_config
 vendor/etc/camera/arc_golden.bin
 vendor/etc/camera/distortionParams.bin
+vendor/etc/camera/fb_model/000.png
+vendor/etc/camera/fb_model/000_pre.bin
+vendor/etc/camera/fb_model/001.png
+vendor/etc/camera/fb_model/001_pre.bin
+vendor/etc/camera/fb_model/002.png
+vendor/etc/camera/fb_model/002_pre.bin
+vendor/etc/camera/fb_model/003.png
+vendor/etc/camera/fb_model/003_pre.bin
+vendor/etc/camera/fb_model/010.png
+vendor/etc/camera/fb_model/010_pre.bin
+vendor/etc/camera/fb_model/011.png
+vendor/etc/camera/fb_model/011_pre.bin
+vendor/etc/camera/fb_model/012.png
+vendor/etc/camera/fb_model/012_pre.bin
+vendor/etc/camera/fb_model/013.png
+vendor/etc/camera/fb_model/100.png
+vendor/etc/camera/fb_model/100_pre.bin
+vendor/etc/camera/fb_model/101.png
+vendor/etc/camera/fb_model/101_pre.bin
+vendor/etc/camera/fb_model/102.png
+vendor/etc/camera/fb_model/102_pre.bin
+vendor/etc/camera/fb_model/103.png
+vendor/etc/camera/fb_model/103_pre.bin
+vendor/etc/camera/fb_model/110.png
+vendor/etc/camera/fb_model/110_pre.bin
+vendor/etc/camera/fb_model/111.png
+vendor/etc/camera/fb_model/111_pre.bin
+vendor/etc/camera/fb_model/112.png
+vendor/etc/camera/fb_model/112_pre.bin
+vendor/etc/camera/fb_model/113.png
+vendor/etc/camera/fb_model/200.png
+vendor/etc/camera/fb_model/200_pre.bin
+vendor/etc/camera/fb_model/201.png
+vendor/etc/camera/fb_model/201_pre.bin
+vendor/etc/camera/fb_model/202.png
+vendor/etc/camera/fb_model/202_pre.bin
+vendor/etc/camera/fb_model/203.png
+vendor/etc/camera/fb_model/203_pre.bin
+vendor/etc/camera/fb_model/210.png
+vendor/etc/camera/fb_model/210_pre.bin
+vendor/etc/camera/fb_model/211.png
+vendor/etc/camera/fb_model/211_pre.bin
+vendor/etc/camera/fb_model/212.png
+vendor/etc/camera/fb_model/212_pre.bin
+vendor/etc/camera/fb_model/213.png
+vendor/etc/camera/fb_model/PreNoFaceBinary.bin
+vendor/etc/camera/fb_model/PreNormalBinary.bin
+vendor/etc/camera/fb_model/skinmask.bin
+vendor/etc/camera/fb_model/skinmask.png
+vendor/etc/camera/fb_model/skin_back.png
+vendor/etc/camera/fb_model/skin_CCT.png
+vendor/etc/camera/fb_model/skin_dark.png
+vendor/etc/camera/fb_model/skin_indian.png
+vendor/etc/camera/fb_model/skin_normal.png
 vendor/etc/camera/gasryuv.model
 vendor/etc/camera/imx319
 vendor/etc/camera/imx362
@@ -463,11 +514,6 @@ vendor/etc/camera/imx471
 vendor/etc/camera/imx519
 vendor/etc/camera/imx576
 vendor/etc/camera/imx586
-vendor/etc/camera/megvii/cache
-vendor/etc/camera/megvii/merged_model
-vendor/etc/camera/megvii/merged_model_post
-vendor/etc/camera/megvii/siq_ocl_cache
-vendor/etc/camera/megvii/superiq_model
 vendor/etc/camera/mtStereoParams.bin
 vendor/etc/camera/mwStereoParams.bin
 vendor/etc/camera/M_Attribute_Gender_Age_1.0.model.hardcode
@@ -805,6 +851,7 @@ vendor/firmware/facereg.mdt
 
 # fastchg-Firmware
 vendor/firmware/fastchg/19031/oppo_vooc_fw.bin
+vendor/firmware/fastchg/19771/oppo_vooc_fw.bin
 
 # oppoeid-Firmware
 vendor/firmware/image/oppoeid.b00
@@ -1620,6 +1667,10 @@ vendor/lib/libhbtpfrmwk.so
 vendor/lib64/libhbtpclient.so
 vendor/lib64/libhbtpdsp.so
 vendor/lib64/libhbtpfrmwk.so
+
+# Voice
+vendor/lib/vendor.qti.voiceprint@1.0.so
+vendor/lib64/vendor.qti.voiceprint@1.0.so
 
 # WiFi
 vendor/bin/cnss-daemon
