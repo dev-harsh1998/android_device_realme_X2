@@ -15,9 +15,4 @@
 #
 
 PRODUCT_MAKEFILES := \
-        $(LOCAL_DIR)/ancient_x2.mk
-
-COMMON_LUNCH_CHOICES := \
-	ancient_x2-eng \
-        ancient_x2-user \
-        ancient_x2-userdebug
+    $(LOCAL_DIR)/lineage_x2.mk

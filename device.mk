@@ -22,7 +22,7 @@ TARGET_SCREEN_WIDTH := 1080
 # Overlays
 DEVICE_PACKAGE_OVERLAYS += \
     $(LOCAL_PATH)/overlay \
-    $(LOCAL_PATH)/overlay-ancient
+    $(LOCAL_PATH)/overlay-lineage
 
 # Properties
 -include $(LOCAL_PATH)/vendor_props.mk
@@ -83,7 +83,7 @@ PRODUCT_COPY_FILES += \
 
 # Lineage Specific perms
 PRODUCT_COPY_FILES += \
-    vendor/ancient/config/permissions/vendor.lineage.biometrics.fingerprint.inscreen.xml:system/etc/permissions/vendor.lineage.biometrics.fingerprint.inscreen.xml
+    vendor/lineage/config/permissions/vendor.lineage.biometrics.fingerprint.inscreen.xml:system/etc/permissions/vendor.lineage.biometrics.fingerprint.inscreen.xml
 
 # HIDL
 PRODUCT_PACKAGES += \
@@ -180,8 +180,8 @@ PRODUCT_PACKAGES += \
     textclassifier.bundle1
 
 # Trust HAL
-#PRODUCT_PACKAGES += \
-#    lineage.trust@1.0-service
+PRODUCT_PACKAGES += \
+    lineage.trust@1.0-service
 
 # VNDK-SP
 PRODUCT_PACKAGES += \
