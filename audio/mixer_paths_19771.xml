@@ -2465,6 +2465,10 @@
         <path name="handset" />
     </path>
 
+    <path name="voice-handset-tmus">
+         <path name="handset" />
+    </path>
+
     <path name="voice-speaker">
         <ctl name="mono Profile" value="VOICE_48000" />
     </path>
@@ -2665,6 +2669,10 @@
     </path>
 
     <path name="voice-rec-dmic-ef-fluence">
+        <path name="dmic-endfire" />
+    </path>
+
+    <path name="voice-dmic-ef-tmus">
         <path name="dmic-endfire" />
     </path>
 
