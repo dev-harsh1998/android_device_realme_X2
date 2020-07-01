@@ -1,7 +1,7 @@
 Device configuration for Realme X2
 =========================================
 
-The realme X2 (codenamed _"RMX{ 1991, 1991CN, 1992, 1993 }"_) is a mid-range smartphone from realme.
+The realme X2 (codenamed _"RMX{ 1991, 1991CN, 1992, 1992EX, 1992AEX, 1993, 1993EEA, 1993SPN }"_) is a mid-range smartphone from realme.
 
 It was announced & released in September 2019.
 
