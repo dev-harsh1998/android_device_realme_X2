@@ -867,7 +867,7 @@
     <!-- Control whether the always on display mode is available. This should only be enabled on
          devices where the display has been tuned to be power efficient in DOZE and/or DOZE_SUSPEND
          states. -->
-    <bool name="config_dozeAlwaysOnDisplayAvailable">false</bool>
+    <bool name="config_dozeAlwaysOnDisplayAvailable">true</bool>
     <bool name="config_displayBlanksAfterDoze">true</bool>
 
     <!-- Try-again polling interval in milliseconds, in case the network request failed -->
