@@ -15,6 +15,18 @@ PRODUCT_PROPERTY_OVERRIDES += \
     persist.vendor.btstack.enable.twsplus=true \
     persist.vendor.btstack.enable.twsplussho=true \
     ro.bluetooth.library_name=libbluetooth_qti.so \
+    persist.bluetooth.bqr.event_mask=0x8000000E \
+    persist.bluetooth.bqr.min_interval_ms=60000 \
+    persist.bluetooth.bqr.choppy_threshold=9,6 \
+    persist.bluetooth.disableabsvol=false \
+    persist.vendor.service.bt.iot.enablelogging=true \
+    persist.vendor.bluetooth.a2dp.hal.implementation=true \
+    persist.vendor.bt.a2dp.hal.implementation=true \
+    persist.bluetooth.disableinbandringing=false \
+    persist.bluetooth.specificatcmdsenable=true \
+    persist.vendor.bluetooth.modem_nv_support=true \
+    persist.vendor.service.bdroid.soc.alwayson=true \
+    persist.vendor.service.bt.iotinfo.report.enable=true
 
 # Camera
 PRODUCT_PROPERTY_OVERRIDES += \
@@ -26,6 +38,13 @@ PRODUCT_PROPERTY_OVERRIDES += \
     persist.vendor.cne.feature=0 \
     persist.vendor.dpm.feature=0
 
+# Camera
+PRODUCT_PROPERTY_OVERRIDES += \
+    ro.camera.hfr.enable=1 \
+    ro.camera.relight.enable=0 \
+    ro.camera.attr.detect.enable=1 \
+    ro.camera.temperature.limit=470 
+
 # Data modules
 PRODUCT_PROPERTY_OVERRIDES += \
     persist.data.netmgrd.qos.enable=true \
@@ -35,7 +54,10 @@ PRODUCT_PROPERTY_OVERRIDES += \
 
 # Display post-processing
 PRODUCT_PROPERTY_OVERRIDES += \
+    debug.sf.latch_unsignaled=1 \
+    debug.sf.disable_backpressure=1 \
     ro.vendor.display.ad=1 \
+    ro.vendor.display.sensortype=2 \
     ro.vendor.display.ad.sdr_calib_data=/vendor/etc/OPPO_OLED_AD_calib.cfg
 
 # Fingerprint
@@ -93,12 +115,22 @@ PRODUCT_PROPERTY_OVERRIDES += \
     persist.vendor.radio.rat_on=combine \
     ril.subscription.types=NV,RUIM \
     persist.radio.add_power_save=1 \
+    persist.radio.multisim.config=dsds \
+    persist.radio.custom_exp_ecc=1 \
+    persist.vendor.radio.process_sups_ind=1 \
+    persist.vendor.radio.data_con_rprt=1 \
+    persist.data.iwlan.enable=true \
+    persist.data.iwlan.rekey=4294967295 \
     ro.telephony.default_network=22,20 \
     telephony.lteOnCdmaDevice=1
 
 # Sensors
 PRODUCT_PROPERTY_OVERRIDES += \
     persist.vendor.sensors.enable.mag_filter=true \
+    ro.display.underscreen.lightsensor.support=1 \
+    ro.lcd.display.screen.underlightsensor.region=624,28,672,76 \
+    persist.sys.oppo.fusionlight=true \
+    persist.sys.oppo.proximity=true \
     ro.qti.sensors.wu=false
 
 # SSR
