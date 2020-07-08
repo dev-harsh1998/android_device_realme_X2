@@ -55,10 +55,18 @@ PRODUCT_PROPERTY_OVERRIDES += \
 # Display post-processing
 PRODUCT_PROPERTY_OVERRIDES += \
     debug.sf.latch_unsignaled=1 \
-    debug.sf.disable_backpressure=1 \
+    debug.sf.enable_gl_backpressure=1 \
     ro.vendor.display.ad=1 \
     ro.vendor.display.sensortype=2 \
     ro.vendor.display.ad.sdr_calib_data=/vendor/etc/OPPO_OLED_AD_calib.cfg
+
+PRODUCT_DEFAULT_PROPERTY_OVERRIDES += \
+   ro.surface_flinger.vsync_event_phase_offset_ns=2000000 \
+   ro.surface_flinger.vsync_sf_event_phase_offset_ns=6000000 \
+   debug.sf.early_phase_offset_ns=500000 \
+   debug.sf.early_app_phase_offset_ns=500000 \
+   debug.sf.early_gl_phase_offset_ns=3000000 \
+   debug.sf.early_gl_app_phase_offset_ns=15000000
 
 # Fingerprint
 PRODUCT_PROPERTY_OVERRIDES += \
