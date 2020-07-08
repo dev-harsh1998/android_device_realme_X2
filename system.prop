@@ -1,6 +1,4 @@
 # Bluetooth
-persist.bluetooth.bqr.event_mask=14
-persist.bluetooth.bqr.min_interval_ms=500
 vendor.bluetooth.soc=cherokee
 vendor.qcom.bluetooth.soc=cherokee
 
