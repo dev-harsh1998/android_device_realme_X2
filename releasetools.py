@@ -34,11 +34,4 @@ def AddImage(info, basename, dest):
 def OTA_InstallEnd(info):
   info.script.Print("Patching firmware images...")
   AddImage(info, "vbmeta.img", "/dev/block/bootdevice/by-name/vbmeta")
-  info.script.AppendExtra('mount("ext4", "EMMC", "/dev/block/bootdevice/by-name/system", "/system_root");')
-  RunCustomScript(info, "remove_nfc.sh", "")
-  info.script.AppendExtra('unmount("/system_root");')
-  return
-
-def RunCustomScript(info, name, arg):
-  info.script.AppendExtra(('run_program("/tmp/install/bin/%s", "%s");' % (name, arg)))
   return

@@ -122,10 +122,6 @@ PRODUCT_PACKAGES += \
     SecureElement \
     Tag
 
-# NFC remover script
-PRODUCT_COPY_FILES += \
-    $(LOCAL_PATH)/rootdir/bin/remove_nfc.sh:install/bin/remove_nfc.sh
-
 # Net
 PRODUCT_PACKAGES += \
     netutils-wrapper-1.0
