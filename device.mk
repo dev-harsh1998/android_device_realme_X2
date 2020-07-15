@@ -352,6 +352,7 @@ PRODUCT_PACKAGES += \
     init.qti.qseecomd.sh \
     init.insmod.sh \
     fstab.qcom \
+    init.devicesetting.rc \
     init.msm.usb.configfs.rc \
     init.oppo.debug.diag.rc \
     init.oppo.sensor.rc \
