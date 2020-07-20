@@ -101,17 +101,40 @@ vendor/etc/acdbdata/adsp_avs_config.acdb
 # Audio HAL
 vendor/lib64/hw/audio.primary.sm6150.so
 vendor/lib64/libaudioEngineerTest.so
+vendor/lib64/libaudioconfigstore.so
 vendor/lib64/libaudio_log_utils.so
+vendor/lib64/libaudioparsers.so
 vendor/lib64/libtinycompress_vendor.so
 vendor/lib/hw/audio.primary.sm6150.so
 vendor/lib/libaudioEngineerTest.so
+vendor/lib/libaudioconfigstore.so
 vendor/lib/libaudio_log_utils.so
+vendor/lib/libaudioparsers.so
+vendor/lib/libsurround_3mic_proc.so
 vendor/lib/libtinycompress_vendor.so
 
 # Audio firmware
 vendor/firmware/dbmd4_va_fw.bin
 vendor/firmware/tfa98xx.cnt
 vendor/firmware/voice_amodel.bin
+
+# Audio extensions
+vendor/lib64/libbatterylistener.so
+vendor/lib64/libcomprcapture.so
+vendor/lib64/libexthwplugin.so
+vendor/lib64/libhdmiedid.so
+vendor/lib64/libhdmipassthru.so
+vendor/lib64/libhfp.so
+vendor/lib64/libsndmonitor.so
+vendor/lib64/libspkrprot.so
+vendor/lib/libbatterylistener.so
+vendor/lib/libcomprcapture.so
+vendor/lib/libexthwplugin.so
+vendor/lib/libhdmiedid.so
+vendor/lib/libhdmipassthru.so
+vendor/lib/libhfp.so
+vendor/lib/libsndmonitor.so
+vendor/lib/libspkrprot.so
 
 # Bluetooth (aptX) - from crosshatch-user 10 QP1A.190711.020 5800535 release-keys
 product/lib64/libaptX_encoder.so|df1c89d7af1bb35808d5fe3496b04ba066c10cbc
@@ -1101,20 +1124,30 @@ vendor/lib64/libkeymasterutils.so
 vendor/lib64/libqtikeymaster4.so
 
 # Listen
-vendor/lib/hw/sound_trigger.primary.sm6150.so
-vendor/lib/libadpcmdec.so
-vendor/lib/libgcs-calwrapper.so
-vendor/lib/libgcs-ipc.so
-vendor/lib/libgcs-osal.so
-vendor/lib/libgcs.so
-vendor/lib/liblistensoundmodel2.so
-vendor/lib/libsmwrapper.so
 vendor/lib64/hw/sound_trigger.primary.sm6150.so
+vendor/lib64/libcapiv2svacnn.so
+vendor/lib64/libcapiv2vop.so
 vendor/lib64/libgcs-calwrapper.so
 vendor/lib64/libgcs-ipc.so
 vendor/lib64/libgcs-osal.so
 vendor/lib64/libgcs.so
+vendor/lib64/libjnihelper.so
+vendor/lib64/liblistenjni.so
 vendor/lib64/liblistensoundmodel2.so
+vendor/lib64/libmulawdec.so
+vendor/lib/hw/sound_trigger.primary.sm6150.so
+vendor/lib/libadpcmdec.so
+vendor/lib/libcapiv2svacnn.so
+vendor/lib/libcapiv2vop.so
+vendor/lib/libgcs-calwrapper.so
+vendor/lib/libgcs-ipc.so
+vendor/lib/libgcs-osal.so
+vendor/lib/libgcs.so
+vendor/lib/libjnihelper.so
+vendor/lib/liblistenjni.so
+vendor/lib/liblistensoundmodel2.so
+vendor/lib/libmulawdec.so
+vendor/lib/libsmwrapper.so
 
 # Media
 product/lib/vendor.qti.hardware.vpp@1.1.so
