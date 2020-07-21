@@ -31,12 +31,10 @@ import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 import java.util.concurrent.Future;
 
-public class TiltSensor implements SensorEventListener {
+public class PickupSensor implements SensorEventListener {
 
     private static final boolean DEBUG = false;
-    private static final String TAG = "TiltSensor";
-
-    private static final String TILT_SENSOR = "android.sensor.tilt_detector";
+    private static final String TAG = "PickupSensor";
 
     private static final int MIN_PULSE_INTERVAL_MS = 2500;
     private static final int MIN_WAKEUP_INTERVAL_MS = 1000;
@@ -54,14 +52,18 @@ public class TiltSensor implements SensorEventListener {
 
     private long mEntryTimestamp;
 
-    public TiltSensor(Context context) {
+    public PickupSensor(Context context) {
         mContext = context;
         mSensorManager = mContext.getSystemService(SensorManager.class);
-        mSensor = DozeUtils.getSensor(mSensorManager, TILT_SENSOR);
         mProximitySensor = mSensorManager.getDefaultSensor(Sensor.TYPE_PROXIMITY, false);
         mPowerManager = (PowerManager) mContext.getSystemService(Context.POWER_SERVICE);
         mWakeLock = mPowerManager.newWakeLock(PowerManager.PARTIAL_WAKE_LOCK, TAG);
-        mExecutorService = Executors.newSingleThreadExecutor();
+        mSensor = DozeUtils.getSensor(mSensorManager, "qti.sensor.amd");
+        if (mSensor == null) {
+            Log.i(TAG, "Pickup sensor is not detected");
+        } else {
+            mExecutorService = Executors.newSingleThreadExecutor();
+        }
     }
 
     private Future<?> submit(Runnable runnable) {
@@ -84,14 +86,18 @@ public class TiltSensor implements SensorEventListener {
             mInsidePocket = false;
         }
 
-        if (event.values[0] == 0 && !mInsidePocket) {
+        if (event.values[0] == 2 && !mInsidePocket) {
             if (isRaiseToWake) {
                 mWakeLock.acquire(WAKELOCK_TIMEOUT_MS);
                 mPowerManager.wakeUp(SystemClock.uptimeMillis(),
                     PowerManager.WAKE_REASON_GESTURE, TAG);
             } else {
                 DozeUtils.launchDozePulse(mContext);
+            if (DEBUG) Log.d(TAG, "Motion detected");
             }
+        } else if (event.values[0] == 1)
+        {
+            if (DEBUG) Log.d(TAG, "Waiting for motion detection");
         }
     }
 
