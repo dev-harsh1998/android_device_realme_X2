@@ -61,7 +61,6 @@ namespace V1_0 {
 namespace implementation {
 
 FingerprintInscreen::FingerprintInscreen():mFingerPressed{false} {
-    this->mFodCircleVisible = false;
 }
 
 Return<int32_t> FingerprintInscreen::getPositionX() {
@@ -104,18 +103,10 @@ Return<void> FingerprintInscreen::onRelease() {
 }
 
 Return<void> FingerprintInscreen::onShowFODView() {
-    this->mFodCircleVisible = true;
-    set(FP_PRESS_PATH, FP_ENDIT);
-    set(DIMLAYER_PATH, FP_ENDIT);
-
     return Void();
 }
 
 Return<void> FingerprintInscreen::onHideFODView() {
-    this->mFodCircleVisible = false;
-    set(FP_PRESS_PATH, FP_ENDIT);
-    set(DIMLAYER_PATH, FP_ENDIT);
-
     return Void();
 }
 
