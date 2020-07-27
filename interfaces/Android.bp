@@ -1,4 +1,4 @@
 hidl_package_root {
     name: "vendor.oppo.hardware",
-    path: "device/realme/x2/interfaces",
+    path: "device/realme/X2/interfaces",
 }
