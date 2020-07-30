@@ -271,6 +271,7 @@ vendor/lib/camera/fdconfigpreviewlite.bin
 vendor/lib/camera/fdconfigvideo.bin
 vendor/lib/camera/fdconfigvideolite.bin
 vendor/lib/hw/camera.qcom.so
+vendor/lib/hw/com.qti.chi.override_moorea.so
 vendor/lib/libc++_shared.so
 vendor/lib/libcamera2ndk_vendor.so
 vendor/lib/libcamera_nn_stub.so
@@ -923,6 +924,8 @@ vendor/firmware/tp/19771/LIMIT_S3706_SAMSUNG.img
 
 # ufs-Firmware
 vendor/firmware/ufs/move_target_ufs_fw_to_opporeserve1.sh
+vendor/firmware/ufs/SKhynix-H9HQ53ACPMMDAR.bin
+vendor/firmware/ufs/SKhynix-H9HQ53AECMMDAR.bin
 
 # FM
 lib/fm_helium.so
@@ -1448,6 +1451,14 @@ vendor/lib64/se_nq_extn_client.so
 vendor/lib64/vendor.nxp.hardware.nfc@1.0.so
 vendor/lib64/vendor.nxp.hardware.nfc@1.1.so
 vendor/lib64/vendor.oppo.hardware.nfc@1.0.so
+
+# Neural networks
+vendor/bin/hw/android.hardware.neuralnetworks@1.2-service-qti
+vendor/etc/init/android.hardware.neuralnetworks@1.2-service-qti.rc
+vendor/lib64/libhexagon_nn_stub.so
+vendor/lib64/unnhal-acc-adreno.so
+vendor/lib64/unnhal-acc-common.so
+vendor/lib64/unnhal-acc-hvx.so
 
 # Oppo
 vendor/bin/hw/vendor.oppo.engnative.engineer@1.0-service
@@ -2150,6 +2161,7 @@ vendor/lib/vendor.qti.hardware.wifidisplaysessionl@1.0-halimpl.so
 
 # WiFi Display - HDCP
 vendor/bin/wfdhdcphalservice
+vendor/etc/DxHDCP.cfg
 vendor/etc/init/android.hardware.drm@1.1-service.wfdhdcp.rc
 vendor/lib64/libhdcp1prov.so
 vendor/lib64/libhdcp2p2prov.so
