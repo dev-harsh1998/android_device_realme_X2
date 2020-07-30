@@ -206,8 +206,8 @@ TARGET_SEPOLICY_DIR := msmsteppe
 include device/qcom/sepolicy-legacy-um/sepolicy.mk
 BOARD_PLAT_PRIVATE_SEPOLICY_DIR += $(DEVICE_PATH)/sepolicy/private
 
-# Treble
-VENDOR_SECURITY_PATCH := 2020-01-05
+# Security patch level
+VENDOR_SECURITY_PATCH := 2020-05-01
 
 # Verified Boot
 BOARD_AVB_ENABLE := true
