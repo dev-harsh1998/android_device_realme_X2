@@ -199,10 +199,6 @@ PRODUCT_PACKAGES += \
 PRODUCT_COPY_FILES += \
     frameworks/native/data/etc/android.hardware.fingerprint.xml:$(TARGET_COPY_OUT_SYSTEM)/etc/permissions/android.hardware.fingerprint.xml
 
-# Lineage Specific perms
-PRODUCT_COPY_FILES += \
-    vendor/lineage/config/permissions/vendor.lineage.biometrics.fingerprint.inscreen.xml:$(TARGET_COPY_OUT_SYSTEM)/etc/permissions/vendor.lineage.biometrics.fingerprint.inscreen.xml
-
 # Framework detect
 PRODUCT_PACKAGES += \
     libqti_vndfwk_detect \
@@ -408,10 +404,6 @@ PRODUCT_PACKAGES += \
 PRODUCT_PACKAGES += \
     lineage.touch@1.0-service.x2
 
-# Trust HAL
-PRODUCT_PACKAGES += \
-    lineage.trust@1.0-service
-
 # USB
 PRODUCT_PACKAGES += \
     android.hardware.usb@1.0-service
@@ -446,3 +438,7 @@ PRODUCT_PACKAGES += \
 
 PRODUCT_BOOT_JARS += \
     WfdCommon
+    
+# Wallpapers
+PRODUCT_PACKAGES += \
+    PixelLiveWallpaperPrebuilt
