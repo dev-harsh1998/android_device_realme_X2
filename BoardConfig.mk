@@ -161,7 +161,6 @@ BOARD_BUILD_SYSTEM_ROOT_IMAGE := true
 # Treble
 BOARD_VNDK_VERSION := current
 PRODUCT_FULL_TREBLE_OVERRIDE := true
-VENDOR_SECURITY_PATCH := 2020-01-05
 
 TARGET_TAP_TO_WAKE_NODE := "/proc/touchpanel/double_tap_enable"
 
