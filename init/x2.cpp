@@ -93,11 +93,11 @@ void setRMX(const unsigned int variant)
 
     //RMX1991
     prop[0] = {
-        "realme/RMX1991/RMX1991CN:10/QKQ1.191201.002/1587908485:user/release-keys",
-        "unknown-user 10 QKQ1.191201.002 eng.root.20200518.234025 release-keys",
+        "realme/RMX1991/RMX1991CN:10/QKQ1.191201.002/1592194586:user/release-keys",
+        "unknown-user 10 QKQ1.191201.002 eng.root.20200716.002633 release-keys",
         "RMX1991",
         "RMX1991CN",
-        "2020-06-05",
+        "2020-07-05",
     };
 
     //RMX992
