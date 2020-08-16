@@ -21,6 +21,7 @@
 #include <android-base/macros.h>
 #include <android/hardware/sensors/1.0/ISensors.h>
 #include <hardware/sensors.h>
+#include "ProximityService.h"
 #include <mutex>
 
 namespace android {
@@ -72,7 +73,7 @@ private:
     int32_t mSensorHandleProximity;
 
     int getHalDeviceVersion() const;
-
+    int get(const std::string& path, const int def);
     void convertFromSensorEvents(
             size_t count, const sensors_event_t *src, hidl_vec<Event> *dst);
 

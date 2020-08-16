@@ -336,6 +336,13 @@ Return<void> Sensors::configDirectReport(
     return Void();
 }
 
+int Sensors::get(const std::string& path, const int def) {
+    std::ifstream file(path);
+    int result;
+    file >> result;
+    return file.fail() ? def : result;
+}
+
 // static
 void Sensors::convertFromSensorEvents(
         size_t count,
@@ -346,6 +353,15 @@ void Sensors::convertFromSensorEvents(
         Event *dst = &(*dstVec)[i];
 
         convertFromSensorEvent(src, dst);
+
+        if(mSensorHandleProximity == dst->sensorHandle && dst->u.scalar == 0){
+            int panel = get(PANEL_INCALL, 0);
+            if (panel) {
+            LOG(INFO) << "Incall and panel suspended";
+            panel = get_fake_prox_event() ? 5 : 0;
+            if(panel) dst->u.scalar = panel;  
+            }
+        }
     }
 }
 

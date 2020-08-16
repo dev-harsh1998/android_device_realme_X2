@@ -2,7 +2,10 @@ cc_library_shared {
     name: "android.hardware.sensors@1.0-impl.x2",
     defaults: ["hidl_defaults"],
     relative_install_path: "hw",
-    srcs: ["Sensors.cpp"],
+    srcs: [
+        "Sensors.cpp",
+        "ProximityService.cpp",
+    ],
     shared_libs: [
         "liblog",
         "libcutils",
