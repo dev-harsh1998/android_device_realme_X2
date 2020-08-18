@@ -71,6 +71,7 @@ private:
     std::mutex mPollLock;
 
     int32_t mSensorHandleProximity;
+    long mTimeProximityEnabled;
 
     int getHalDeviceVersion() const;
     int get(const std::string& path, const int def);

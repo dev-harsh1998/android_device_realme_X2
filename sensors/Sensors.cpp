@@ -19,7 +19,6 @@
 #include "multihal.h"
 
 #include <time.h>
-#include <android-base/logging.h>
 
 #include <sys/stat.h>
 
@@ -52,6 +51,12 @@ static Result ResultFromStatus(status_t err) {
         default:
             return Result::INVALID_OPERATION;
     }
+}
+
+static long millisec() {
+    timespec the_time;
+    clock_gettime(CLOCK_MONOTONIC, &the_time);
+    return the_time.tv_sec * 1000 + the_time.tv_nsec / 1000000;
 }
 
 Sensors::Sensors()
@@ -158,6 +163,10 @@ Return<Result> Sensors::setOperationMode(OperationMode mode) {
 
 Return<Result> Sensors::activate(
         int32_t sensor_handle, bool enabled) {
+
+    if (mSensorHandleProximity == sensor_handle && enabled)
+        mTimeProximityEnabled = millisec();
+
     return ResultFromStatus(
             mSensorDevice->activate(
                 reinterpret_cast<sensors_poll_device_t *>(mSensorDevice),
@@ -354,12 +363,21 @@ void Sensors::convertFromSensorEvents(
 
         convertFromSensorEvent(src, dst);
 
+        // KEEP CHECKIG EVERY 1s
         if(mSensorHandleProximity == dst->sensorHandle && dst->u.scalar == 0){
-            int panel = get(PANEL_INCALL, 0);
-            if (panel) {
-            LOG(INFO) << "Incall and panel suspended";
-            panel = get_fake_prox_event() ? 5 : 0;
-            if(panel) dst->u.scalar = panel;  
+            LOG(INFO) << "QTIPROX : Entering the Proximity checks";
+            long cur_t = millisec() - mTimeProximityEnabled;
+            if (cur_t < 1000) {
+                int panel = get(PANEL_INCALL, 0);
+                LOG(INFO) << "QTIPROX : Panel suspend status: " << panel;
+                if (panel) {
+                    dst->u.scalar = get_fake_prox_event() ? 5 : 0;
+                    LOG(INFO) << "QTIPROX : Final Proximity event was: " << dst->u.scalar;
+                } else {
+                    mTimeProximityEnabled += 1000 - cur_t;
+                    LOG(INFO) << "QTIPROX : NOT IN CALL UPDATING TIME: " << mTimeProximityEnabled; 
+                    mTimeProximityEnabled = 1000;
+                }
             }
         }
     }

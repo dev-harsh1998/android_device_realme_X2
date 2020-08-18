@@ -11,15 +11,15 @@
 #include <unistd.h>
 #include <linux/input.h>
 #include <linux/uinput.h>
-#include <android/looper.h>
 #include <android/sensor.h>
 #include "ProximityService.h"
 
 #define SENSOR_TYPE     33171005
-#define RETRY_LIMIT     120
-#define RETRY_PERIOD    30          // 30 seconds
-#define WARN_PERIOD     (time_t)300 // 5 minutes
+#define RETRY_LIMIT     25
+#define RETRY_PERIOD    5          // 5 seconds
+#define WARN_PERIOD     (time_t)10 // 5 minutes
 
+bool is_proximity_far();
 bool get_fake_prox_event()
 {
     return is_proximity_far();
@@ -36,6 +36,8 @@ bool is_proximity_far()
     int attemptCount = 0;
     bool is_far = false;
     int err = 0;
+    int tries = 10;
+    int evcnt = 0;
 
     /* Prepare stuffs */
     sensorManager = ASensorManager_getInstanceForPackage(nullptr);
@@ -57,26 +59,28 @@ bool is_proximity_far()
             goto out;
         } else if (now > lastWarn + WARN_PERIOD) {
             lastWarn = now;
+            LOG(INFO) << "QTIPROX  delay still = " << ProxMinDelay;
         }
         sleep(RETRY_PERIOD);
     }
 
     /* Real deal starts here */
-    ProxMinDelay = ProxMinDelay ? ProxMinDelay : 200000; //Sensor.DELAY_NORMAL
+    ProxMinDelay = (ProxMinDelay > 0) ? ProxMinDelay : 200000; //Sensor.DELAY_NORMAL
+    LOG(INFO) << "HOLY SHIT WE HAVE QTIPROX SENSOR" << ProxMinDelay;
     err = ASensorEventQueue_registerSensor(eventQueue, ProxSensor,
-                                           ProxMinDelay, 10000);
+                                      ProxMinDelay, 10000);
     if (err < 0) {
+        LOG(INFO) << "QTIPROX: RIP";
         goto out;
     }
 
-    /* poll and get data */
-    int tries = 10;
-    int evcnt = 0;
     while (ALooper_pollAll(-1, NULL, NULL, NULL) == 0) {
         ASensorEvent sensorEvent;
+        LOG(INFO) << "QTIPROX : PISIDETHE POLLER";
         while (ASensorEventQueue_getEvents(eventQueue, &sensorEvent, 1) > 0) {
+            LOG(INFO) << "QTIPROX : GETTING EVENTS";
             is_far = sensorEvent.data[0] > 0.0f ? true : false;
-            if(is_far) return is_far;
+            if(is_far) goto out;
             evcnt++;
             --tries;
             if(!tries) goto out;
@@ -86,7 +90,9 @@ bool is_proximity_far()
 
 out:
     if (sensorManager != nullptr && eventQueue != nullptr) {
+        LOG(INFO) << "QTIPROX : CLEANUP";
         ASensorManager_destroyEventQueue(sensorManager, eventQueue);
     }
-    return false;
+    LOG(INFO) << "QTIPROX : FAR 1 NEAR 0: ?" << is_far;
+    return is_far;
 }
