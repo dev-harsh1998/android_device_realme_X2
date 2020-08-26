@@ -39,7 +39,7 @@ public class InfraredSensor implements SensorEventListener {
     private static final String PS_MASK = "/proc/touchpanel/prox_mask";
 
     // Store last status
-    private static boolean sensor_alive = false;
+    private static boolean sensorAlive = false;
 
     private Context mContext;
     private SensorManager mSensorManager;
@@ -55,7 +55,7 @@ public class InfraredSensor implements SensorEventListener {
     @Override
     public void onSensorChanged(SensorEvent event) {
         /* if we are here this means sensor live and is being used */
-        sensor_alive = true;
+        sensorAlive = true;
         if (event.values[0] == 0.0f) {
             /* We don't need to do anything since the sensor is near */
             if (DEBUG) Log.d(TAG, "Exiting since near the sensor");    
@@ -74,7 +74,7 @@ public class InfraredSensor implements SensorEventListener {
     void enable() {
         if (FileHelper.getFileValueAsBoolean(PS_STATUS, false)) {
             if (DEBUG) Log.d(TAG, "Enabling QTI Proximity Sensor fd_enable was 1");
-            sensor_alive = true;
+            sensorAlive = true;
             mSensorManager.registerListener(this, mSensor, SensorManager.SENSOR_DELAY_NORMAL);
         } else {
             if (DEBUG) Log.d(TAG, "Not a touchpanel proximity event");
@@ -83,9 +83,10 @@ public class InfraredSensor implements SensorEventListener {
     }
 
     void disable() {
-        if(sensor_alive == true) {
+        if(sensorAlive == true) {
             if (DEBUG) Log.d(TAG, "Disabling QTI Proximity");
-                mSensorManager.unregisterListener(this, mSensor);
+            sensorAlive = false;
+            mSensorManager.unregisterListener(this, mSensor);
         } else {
             if (DEBUG) Log.d(TAG, "Sensor wasn't registered no need of killing");
             return;
