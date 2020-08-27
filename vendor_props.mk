@@ -84,6 +84,14 @@ PRODUCT_PROPERTY_OVERRIDES += \
     dev.pm.dyn_samplingrate=1 \
     persist.front.skipdisplay.enable=1
 
+#lmkd options
+PRODUCT_PRODUCT_PROPERTIES += \
+	ro.config.low_ram=false \
+	ro.lmk.kill_heaviest_task=true \
+	ro.lmk.kill_timeout_ms=100 \
+	ro.lmk.use_minfree_levels=true \
+	ro.lmk.log_stats=true
+
 # Media
 PRODUCT_PROPERTY_OVERRIDES += \
     media.settings.xml=/system/etc/media_profiles_vendor.xml \
