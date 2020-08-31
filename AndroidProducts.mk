@@ -15,4 +15,8 @@
 #
 
 PRODUCT_MAKEFILES := \
-    $(LOCAL_DIR)/lineage_x2.mk
+   $(LOCAL_DIR)/bootleg_x2.mk
+COMMON_LUNCH_CHOICES := \
+	bootleg_x2-eng \
+        bootleg_x2-user \
+	bootleg_x2-userdebug
