@@ -74,7 +74,6 @@ debug.sf.earlyGl.app.duration=21000000
 ro.boot.realme.lockstate=0
 
 # Graphics
-debug.sf.enable_hwc_vds=1
 dev.pm.dyn_samplingrate=1
 persist.front.skipdisplay.enable=1
 
