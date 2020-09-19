@@ -16,3 +16,7 @@ endif
 # Priv-app permission
 PRODUCT_PRODUCT_PROPERTIES += \
     ro.control_privapp_permissions=log
+
+# Use Vulkan backend for Skia UI rendering
+PRODUCT_PRODUCT_PROPERTIES += \
+    debug.hwui.renderer=skiavk
