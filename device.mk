@@ -215,6 +215,9 @@ PRODUCT_COPY_FILES += \
     $(PREBUILT_DVC_PATH)/Hals/lib64/android.hardware.sensors@1.0-impl.x2.so:system/lib64/hw/android.hardware.sensors@1.0-impl.x2.so \
     $(PREBUILT_DVC_PATH)/Hals/lib64/power.qcom.so:system/lib64/hw/power.qcom.so
 
+PRODUCT_PACKAGES += \
+    multihal_x2
+
 # RCS
 PRODUCT_PACKAGES += \
     com.android.ims.rcsmanager \
