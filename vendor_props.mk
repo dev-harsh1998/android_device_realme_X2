@@ -45,7 +45,6 @@ PRODUCT_PROPERTY_OVERRIDES += \
     ro.camera.attr.detect.enable=1 \
     ro.camera.temperature.limit=470 
 
-
 # Charger
 PRODUCT_PROPERTY_OVERRIDES += \
     ro.charger.enable_suspend=true
@@ -86,7 +85,6 @@ PRODUCT_PROPERTY_OVERRIDES += \
 
 # Graphics
 PRODUCT_PROPERTY_OVERRIDES += \
-    debug.sf.enable_hwc_vds=1 \
     dev.pm.dyn_samplingrate=1 \
     persist.front.skipdisplay.enable=1
 
