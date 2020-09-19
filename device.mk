@@ -184,10 +184,6 @@ PRODUCT_BOOT_JARS += \
 PRODUCT_PACKAGES += \
     textclassifier.bundle1
 
-# Trust HAL
-PRODUCT_PACKAGES += \
-    lineage.trust@1.0-service
-
 # VNDK-SP
 PRODUCT_PACKAGES += \
     vndk-sp
@@ -208,7 +204,3 @@ PRODUCT_PACKAGES += \
     com.android.ims.rcsmanager \
     PresencePolling \
     RcsService
-
-# Touch
-PRODUCT_PACKAGES += \
-    lineage.touch@1.0-service.x2
