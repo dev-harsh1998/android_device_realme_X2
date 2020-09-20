@@ -18,8 +18,6 @@
 #include "property_service.h"
 #include "vendor_init.h"
 
-using android::init::property_set;
-
 struct x2_props
 {
     std::string build_description;
@@ -80,11 +78,11 @@ void property_override(char const prop[], char const value[], bool add = true)
 // Decommonise nfc properties
 void load_nfc_props()
 {
-    property_set("persist.sys.nfc.disPowerSave", "1");
-    property_set("persist.sys.nfc.default", "on");
-    property_set("persist.sys.nfc.aid_overflow", "true");
-    property_set("ro.product.cuptsm", "OPPO|ESE|01|02");
-    property_set("persist.sys.nfc.antenna_area", "bottom");
+    property_override("persist.sys.nfc.disPowerSave", "1");
+    property_override("persist.sys.nfc.default", "on");
+    property_override("persist.sys.nfc.aid_overflow", "true");
+    property_override("ro.product.cuptsm", "OPPO|ESE|01|02");
+    property_override("persist.sys.nfc.antenna_area", "bottom");
 }
 
 void setRMX(const unsigned int variant)
