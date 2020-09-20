@@ -52,7 +52,8 @@ PRODUCT_PACKAGES += \
     tinymix
 
 PRODUCT_COPY_FILES += \
-    $(LOCAL_PATH)/audio/audio_policy_configuration.xml:system/etc/audio_policy_configuration.xml
+    $(LOCAL_PATH)/audio/audio_policy_configuration.xml:system/etc/audio_policy_configuration.xml \
+    $(LOCAL_PATH)/audio/audio_platform_info_oppo_19771.xml:system/etc/audio_platform_info_oppo_19771.xml
 
 # Bluetooth
 PRODUCT_PACKAGES += \
