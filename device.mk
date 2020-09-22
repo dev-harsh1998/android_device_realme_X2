@@ -367,7 +367,7 @@ PRODUCT_SOONG_NAMESPACES += \
 
 # Power
 PRODUCT_PACKAGES += \
-    android.hardware.power@1.1-service-qti
+    android.hardware.power-service-qti
 
 # Preopt SystemUI
 PRODUCT_DEXPREOPT_SPEED_APPS += \
