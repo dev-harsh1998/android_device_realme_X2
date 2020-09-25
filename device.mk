@@ -106,10 +106,6 @@ PRODUCT_COPY_FILES += \
 PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/configs/privapp-permissions-hotword.xml:system/etc/permissions/privapp-permissions-hotword.xml
 
-# TEMP-HOSTPAD
-PRODUCT_COPY_FILES += \
-    $(LOCAL_PATH)/configs/hostapd:$(TARGET_COPY_OUT_PRODUCT)/vendor_overlay/$(PRODUCT_TARGET_VNDK_VERSION)/bin/hw/hostapd
-
 # IMS
 PRODUCT_PACKAGES += \
     ims-ext-common \

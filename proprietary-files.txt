@@ -181,3 +181,6 @@ lib/libwfduibcsrcinterface.so
 -priv-app/WfdService/WfdService.apk
 product/lib/vendor.qti.hardware.wifidisplaysession@1.0.so
 product/lib64/vendor.qti.hardware.wifidisplaysession@1.0.so
+
+# WIFI (Hostapd) - from RMX1931L1 - C.32
+vendor/bin/hw/hostapd:product/vendor_overlay/29/bin/hw/hostapd|63b136c73fc8c35b47c236023699df616a3d5606
