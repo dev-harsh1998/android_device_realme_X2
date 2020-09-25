@@ -183,10 +183,6 @@ PRODUCT_PACKAGES += \
 PRODUCT_PACKAGES += \
     lineage.trust@1.0-service
 
-# VNDK-SP
-PRODUCT_PACKAGES += \
-    vndk-sp
-
 # WiFi Display
 PRODUCT_PACKAGES += \
     libnl
