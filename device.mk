@@ -197,10 +197,6 @@ PRODUCT_BOOT_JARS += \
 PRODUCT_PACKAGES += \
     textclassifier.bundle1
 
-# VNDK-SP
-PRODUCT_PACKAGES += \
-    vndk-sp
-
 # WiFi Display
 PRODUCT_PACKAGES += \
     libnl
