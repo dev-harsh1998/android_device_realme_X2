@@ -46,6 +46,10 @@
     <!-- Pickup sensor -->
     <string name="pickup_sensor_title">Pickup sensor</string>
 
+    <!-- Smart wake strings-->
+    <string name="smart_wake_gesture_title">Smart Wake</string>
+    <string name="smart_wake_gesture_summary">Pulse notifications on slight motion of device and wake screen when picked up</string>
+
     <!-- Proximity sensor -->
     <string name="proximity_sensor_title">Proximity sensor</string>
 
