@@ -69,6 +69,7 @@ on post-fs-data
     mount none /vendor/lost+found /vendor/euclid bind
     mount none /system/bin/hw/hostapd /vendor/bin/hw/hostapd bind
     mount none /system/etc/audio_policy_configuration.xml /vendor/etc/audio/audio_policy_configuration.xml bind
+    mount none /system/etc/audio_policy_configuration.xml /vendor/etc/audio_policy_configuration.xml bind
     mount none /system/etc/audio_platform_info_oppo_19771.xml /vendor/etc/audio_platform_info_oppo_19771.xml bind
     mount none /system/etc/mixer_paths_19771.xml /vendor/etc/mixer_paths_19771.xml bind
     mount none /system/lib64/hw/power.qcom.so /vendor/lib64/hw/power.qcom.so bind
