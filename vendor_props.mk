@@ -43,7 +43,7 @@ PRODUCT_PROPERTY_OVERRIDES += \
     ro.camera.hfr.enable=1 \
     ro.camera.relight.enable=0 \
     ro.camera.attr.detect.enable=1 \
-    ro.camera.temperature.limit=470 
+    ro.camera.temperature.limit=470
 
 # Charger
 PRODUCT_PROPERTY_OVERRIDES += \
@@ -71,11 +71,13 @@ PRODUCT_PRODUCT_PROPERTIES += \
 
 # Display post-processing
 PRODUCT_PROPERTY_OVERRIDES += \
+    debug.sf.hw=1 \
     debug.sf.latch_unsignaled=1 \
     debug.sf.enable_gl_backpressure=1 \
     ro.surface_flinger.has_wide_color_display=true \
     ro.surface_flinger.use_color_management=true \
     ro.surface_flinger.has_HDR_display=true \
+    ro.surface_flinger.wcg_composition_dataspace=143261696 \
     ro.surface_flinger.max_frame_buffer_acquired_buffers=3 \
     ro.surface_flinger.protected_contents=true \
     ro.vendor.display.ad=1 \
@@ -174,6 +176,12 @@ PRODUCT_PROPERTY_OVERRIDES += \
 PRODUCT_PROPERTY_OVERRIDES += \
     persist.vendor.ssr.enable_ramdumps=0 \
     persist.vendor.ssr.restart_level=ALL_ENABLE
+
+# Zram
+PRODUCT_PROPERTY_OVERRIDES += \
+    ro.zram.mark_idle_delay_mins=60\
+    ro.zram.first_wb_delay_mins=180\
+    ro.zram.periodic_wb_delay_hours=24
 
 # Zygote
 PRODUCT_PROPERTY_OVERRIDES += \
