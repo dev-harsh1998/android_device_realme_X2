@@ -32,8 +32,12 @@
     <string name="otg_mode_summary">Enable USB-OTG power supply for external headphones and flash drives</string>
     <string name="otg_mode_title">Enable USB-OTG</string>
     <string name="tile_otg_mode">Enable USB-OTG</string>
+    <!-- Over Night Charging-->
+    <string name="onc_mode_summary">Enable this toggle after connecting charger to slowdown charging speeds for lesser battery wearing overtime</string>
+    <string name="onc_mode_title">Smart Overnight Charging</string>
+    <string name="tile_onc_mode">Smart Overnight Charging</string>
     <!-- game mode -->
     <string name="game_mode_summary">Boost Touch Sampling Rate</string>
-    <string name="game_mode_title">Game mode</string>
-    <string name="tile_game_mode">game mode</string>
+    <string name="game_mode_title">Game Mode</string>
+    <string name="tile_game_mode">Game Mode</string>
 </resources>

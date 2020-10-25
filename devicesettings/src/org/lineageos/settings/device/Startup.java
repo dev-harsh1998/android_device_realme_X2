@@ -58,6 +58,8 @@ public class Startup extends BroadcastReceiver {
         restore(SRGBModeSwitch.getFile(), enabled);
         enabled = sharedPrefs.getBoolean(DeviceSettings.KEY_OTG_SWITCH, false);
         restore(OTGModeSwitch.getFile(), enabled);
+        enabled = sharedPrefs.getBoolean(DeviceSettings.KEY_ONC_SWITCH, false);
+        restore(NightChargeSwitch.getFile(), enabled);
         enabled = sharedPrefs.getBoolean(DeviceSettings.KEY_GAME_SWITCH, false);
         restore(GameModeSwitch.getFile(), enabled);
     }

@@ -45,5 +45,10 @@
             android:key="otg"
             android:summary="@string/otg_mode_summary"
             android:title="@string/otg_mode_title" />
+
+        <SwitchPreference
+            android:key="onc"
+            android:summary="@string/onc_mode_summary"
+            android:title="@string/onc_mode_title" />
     </PreferenceCategory>
 </PreferenceScreen>
