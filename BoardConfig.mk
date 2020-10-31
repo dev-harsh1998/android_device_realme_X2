@@ -5,14 +5,14 @@
 #
 
 BOARD_VENDOR := realme
-DEVICE_PATH := device/realme/X2
-PREBUILT_DEVICE_PATH := device/realme/X2-prebuilts
+DEVICE_PATH := device/realme/realme_trinket
+PREBUILT_DEVICE_PATH := device/realme/realme_trinket-prebuilts
 
 #Broken Rules
 BUILD_BROKEN_DUP_RULES := true
 
 # Assert
-TARGET_OTA_ASSERT_DEVICE := RMX1991,RMX1991CN,RMX1992,RMX1993
+TARGET_OTA_ASSERT_DEVICE := RMX1911,RMX1925,RMX2030
 
 # Architecture
 TARGET_ARCH := arm64
@@ -32,7 +32,7 @@ TARGET_2ND_CPU_VARIANT_RUNTIME := cortex-a76
 TARGET_USES_64_BIT_BINDER := true
 
 # Bootloader
-TARGET_BOOTLOADER_BOARD_NAME := sm6150
+TARGET_BOOTLOADER_BOARD_NAME := trinket
 TARGET_NO_BOOTLOADER := true
 
 # Kernel
@@ -52,22 +52,22 @@ TARGET_PREBUILT_KERNEL := $(PREBUILT_DEVICE_PATH)/Kernel/kernel
 ifeq ($(TARGET_PREBUILT_KERNEL),)
 TARGET_KERNEL_CLANG_COMPILE := true
 BOARD_KERNEL_SEPARATED_DTBO := true
-TARGET_KERNEL_SOURCE := kernel/realme/sm6150
-TARGET_KERNEL_CONFIG := vendor/x2_defconfig
+TARGET_KERNEL_SOURCE := kernel/realme/trinket
+TARGET_KERNEL_CONFIG := vendor/realme_trinket_defconfig
 endif
 BOARD_MKBOOTIMG_ARGS := --ramdisk_offset $(BOARD_RAMDISK_OFFSET)
 BOARD_MKBOOTIMG_ARGS += --tags_offset $(BOARD_KERNEL_TAGS_OFFSET)
 BOARD_MKBOOTIMG_ARGS += --kernel_offset $(BOARD_KERNEL_OFFSET)
 
 # Platform
-TARGET_BOARD_PLATFORM := sm6150
-TARGET_BOARD_PLATFORM_GPU := qcom-adreno618
+TARGET_BOARD_PLATFORM := trinket
+TARGET_BOARD_PLATFORM_GPU := qcom-adreno610
 BOARD_USES_QCOM_HARDWARE := true
 TARGET_SYSTEM_PROP += $(DEVICE_PATH)/system.prop
 
 #Board init
-TARGET_INIT_VENDOR_LIB := //$(DEVICE_PATH):libinit_x2
-TARGET_RECOVERY_DEVICE_MODULES := libinit_x2
+TARGET_INIT_VENDOR_LIB := //$(DEVICE_PATH):libinit_realme_trinket
+TARGET_RECOVERY_DEVICE_MODULES := libinit_realme_trinket
 
 # APEX image
 DEXPREOPT_GENERATE_APEX_IMAGE := true
@@ -101,9 +101,6 @@ TARGET_ENABLE_MEDIADRM_64 := true
 
 # Filesystem
 TARGET_FS_CONFIG_GEN := $(DEVICE_PATH)/config.fs
-
-# FOD
-TARGET_SURFACEFLINGER_FOD_LIB := //$(DEVICE_PATH):libfod_extension.x2
 
 # Graphics
 TARGET_USES_DRM_PP := true
@@ -168,4 +165,4 @@ BOARD_AVB_RECOVERY_ROLLBACK_INDEX := 1
 BOARD_AVB_RECOVERY_ROLLBACK_INDEX_LOCATION := 1
 
 # Inherit from the proprietary version
--include vendor/realme/X2/BoardConfigVendor.mk
+-include vendor/realme/realme_trinket/BoardConfigVendor.mk
