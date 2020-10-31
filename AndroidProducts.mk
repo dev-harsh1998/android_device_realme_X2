@@ -15,4 +15,4 @@
 #
 
 PRODUCT_MAKEFILES := \
-    $(LOCAL_DIR)/aosp_X2.mk
+    $(LOCAL_DIR)/aosp_realme_trinket.mk
