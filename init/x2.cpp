@@ -91,17 +91,17 @@ void setRMX(const unsigned int variant)
 
     //RMX1991
     prop[0] = {
-        "realme/RMX1991/RMX1991CN:10/QKQ1.191201.002/1594368018:user/release-keys",
-        "unknown-user 10 QKQ1.191201.002 eng.root.20200902.174625 release-keys",
+        "realme/RMX1991/RMX1991CN:10/QKQ1.191201.002/1599815101:user/release-keys",
+        "unknown-user 10 QKQ1.191201.002 eng.root.20201028.204016 release-keys",
         "RMX1991",
         "RMX1991CN",
-        "2020-08-05",
+        "2020-10-05",
     };
 
     //RMX992
     prop[1] = {
         "realme/RMX1992/RMX1992L1:10/QKQ1.191201.002/1597316082:user/release-keys",
-        "unknown-user 10 QKQ1.191201.002 eng.root.20200907.215416 release-keys",
+        "unknown-user 10 QKQ1.191201.002 eng.root.20201012.094803 release-keys",
         "RMX1992",
         "RMX1992L1",
         "2020-09-05",
@@ -109,11 +109,11 @@ void setRMX(const unsigned int variant)
 
     //RMX1993
     prop[2] = {
-        "realme/RMX1993EEA/RMX1993L1:10/QKQ1.191201.002/1594368018:user/release-keys",
-        "unknown-user 10 QKQ1.191201.002 eng.root.20200820.184008 release-keys",
+        "realme/RMX1993EEA/RMX1993L1:10/QKQ1.191201.002/1597316082:user/release-keys",
+        "unknown-user 10 QKQ1.191201.002 eng.root.20201012.094557 release-keys",
         "RMX1993",
         "RMX1993L1",
-        "2020-08-05",
+        "2020-09-05",
     };
 
     const auto set_ro_build_prop = [](const std::string &source,
