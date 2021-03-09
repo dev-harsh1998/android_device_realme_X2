@@ -14,7 +14,7 @@ $(call inherit-product, vendor/realme/X2/X2-vendor.mk)
 
 # VNDK
 PRODUCT_TARGET_VNDK_VERSION := 29
-PRODUCT_EXTRA_VNDK_VERSIONS := 29
+PRODUCT_EXTRA_VNDK_VERSIONS := 28 29 30
 
 # Boot animation
 TARGET_SCREEN_HEIGHT := 2340
