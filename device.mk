@@ -314,6 +314,11 @@ PRODUCT_COPY_FILES += \
     frameworks/native/data/etc/android.hardware.nfc.hcef.xml:$(TARGET_COPY_OUT_VENDOR)/etc/permissions/android.hardware.nfc.hcef.xml \
     frameworks/native/data/etc/android.hardware.nfc.uicc.xml:$(TARGET_COPY_OUT_VENDOR)/etc/permissions/android.hardware.nfc.uicc.xml
 
+# NQ
+PRODUCT_PACKAGES += \
+    ls_nq_client:64 \
+    jcos_nq_client:64
+
 # NFC namespaces
 PRODUCT_BOARD_PLATFORM := sm6150
 PRODUCT_USES_QCOM_HARDWARE := true
