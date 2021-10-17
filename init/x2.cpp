@@ -149,6 +149,9 @@ void setRMX(const unsigned int variant)
     //override again to be sure that it gets set.
     property_override("ro.build.fingerprint", prop[variant].build_description.c_str(), false);
 
+    // Disable apex updatable
+    property_override("ro.apex.updatable", "false");
+
     // Load NFC properties only on RMX199{1:3}
     if (variant == 2 || variant == 0)
         load_nfc_props();
