@@ -82,8 +82,7 @@ PRODUCT_PACKAGES += \
 
 # Fingerprint
 PRODUCT_PACKAGES += \
-    android.hardware.biometrics.fingerprint@2.1-service.x2 \
-    lineage.biometrics.fingerprint.inscreen@1.0-service.x2 \
+    android.hardware.biometrics.fingerprint@2.3-service.x2 \
     vendor.oppo.hardware.biometrics.fingerprint@2.1
 
 # Fingerprint
