@@ -28,7 +28,7 @@
 #define STATUS_ON 1
 #define STATUS_OFF 0
 
-#define DEBUG_ADAPTOR 1
+#define DEBUG_ADAPTOR 0
 
 namespace android {
 namespace hardware {
@@ -104,7 +104,7 @@ public:
         return mClientCallback->onEnumerate(deviceId, fingerId, groupId, remaining);
     }
 
-    Return<void> onTouchUp(uint64_t deviceId) { return Void(); }
+    Return<void> onTouchUp(uint64_t deviceId) { set(DIMLAYER_PATH, STATUS_ON); return Void(); }
     Return<void> onTouchDown(uint64_t deviceId) { return Void(); }
     Return<void> onSyncTemplates(uint64_t deviceId, const hidl_vec<uint32_t>& fingerId, uint32_t remaining) { return Void(); }
     Return<void> onFingerprintCmd(int32_t deviceId, const hidl_vec<uint32_t>& groupId, uint32_t remaining) { return Void(); }
@@ -215,17 +215,10 @@ Return<bool> BiometricsFingerprint::isUdfps(uint32_t) {
 }
 
 Return<void> BiometricsFingerprint::onFingerDown(uint32_t, uint32_t, float, float) {
-    if (DEBUG_ADAPTOR) {
-        LOG (INFO) << "onFingerDown(): Finger press detected moving forward with instructions.";
-    }
-    set(DIMLAYER_PATH, STATUS_ON);
-    std::thread([]() {
-        std::this_thread::sleep_for(std::chrono::milliseconds(60));
-            if (DEBUG_ADAPTOR) {
-                LOG (INFO) << "onFingerDown(): Completed the delay for FOD path.";
-            }
-            set(FOD_STATUS_PATH, STATUS_ON);
-    }).detach();
+     if (DEBUG_ADAPTOR) {
+         LOG (INFO) << "onFingerDown(): Finger press detected moving forward with method instructions.";
+     }
+    set(FOD_STATUS_PATH, STATUS_ON);
     return Void();
 }
 
