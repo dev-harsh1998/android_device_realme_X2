@@ -36,6 +36,10 @@ PRODUCT_COMPATIBLE_PROPERTY_OVERRIDE := true
 PRODUCT_AAPT_CONFIG := normal
 PRODUCT_AAPT_PREF_CONFIG := xxhdpi
 
+# Copy the kernel from the prebuilts directory.
+PRODUCT_COPY_FILES += \
+    $(LOCAL_PATH)/prebuilts/kernel:kernel
+
 # AID/fs configs
 PRODUCT_PACKAGES += \
     fs_config_files
