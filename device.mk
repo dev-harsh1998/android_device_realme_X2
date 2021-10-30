@@ -12,6 +12,10 @@ $(call inherit-product, $(SRC_TARGET_DIR)/product/product_launched_with_p.mk)
 # Get non-open-source specific aspects
 $(call inherit-product, vendor/realme/X2/X2-vendor.mk)
 
+# Build with GMS
+WITH_GMS := true
+$(call inherit-product, vendor/gms/products/gms.mk)
+
 # VNDK
 PRODUCT_TARGET_VNDK_VERSION := 29
 PRODUCT_EXTRA_VNDK_VERSIONS := 29
