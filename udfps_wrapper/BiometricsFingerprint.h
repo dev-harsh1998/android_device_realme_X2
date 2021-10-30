@@ -59,7 +59,6 @@ struct BiometricsFingerprint : public IBiometricsFingerprint {
     Return<void> onFingerUp() override;
 
 private:
-    sp<IBiometricsFingerprint_2_1> biometrics_2_1_service;
     sp<vendor::oppo::hardware::biometrics::fingerprint::V2_1::IBiometricsFingerprint> mOppoBiometricsFingerprint;
     sp<vendor::oppo::hardware::biometrics::fingerprint::V2_1::IBiometricsFingerprintClientCallback> mOppoClientCallback;
     static Return<RequestStatus> OppoToAOSPRequestStatus(vendor::oppo::hardware::biometrics::fingerprint::V2_1::RequestStatus req);
