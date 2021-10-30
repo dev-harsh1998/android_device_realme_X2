@@ -40,6 +40,10 @@ PRODUCT_AAPT_PREF_CONFIG := xxhdpi
 PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/prebuilts/kernel:kernel
 
+# Boot animation
+PRODUCT_COPY_FILES += \
+    $(LOCAL_PATH)/prebuilts/bootanimation.zip:product/media/bootanimation.zip
+
 # AID/fs configs
 PRODUCT_PACKAGES += \
     fs_config_files
