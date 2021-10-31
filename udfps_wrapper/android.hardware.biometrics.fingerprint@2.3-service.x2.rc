@@ -37,6 +37,10 @@ on post-fs-data
     chmod 0660 /sys/bus/platform/devices/fpc_interrupt/irq_unexpected
 
 service fps_hal.x2 /system/bin/hw/android.hardware.biometrics.fingerprint@2.3-service.x2
+    interface android.hardware.biometrics.fingerprint@2.1::IBiometricsFingerprint default
+    interface android.hardware.biometrics.fingerprint@2.2::IBiometricsFingerprint default
+    interface android.hardware.biometrics.fingerprint@2.3::IBiometricsFingerprint default
+    interface vendor.oppo.hardware.biometrics.fingerprint@2.1::IBiometricsFingerprint default
     class late_start
     user system
     group system input uhid
