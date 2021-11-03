@@ -39,8 +39,6 @@ using ::android::hardware::Return;
 using ::android::hardware::Void;
 using ::android::sp;
 
-static bool isAuthComplete;
-
 struct BiometricsFingerprint : public IBiometricsFingerprint {
     BiometricsFingerprint();
     // Methods from ::V2_1::IBiometricsFingerprint follow.
