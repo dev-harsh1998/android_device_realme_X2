@@ -43,7 +43,9 @@ public class FodKeyguardAssistService extends Service {
             if(intent.getAction().equals(Intent.ACTION_USER_PRESENT)) {
                 if (DEBUG) Log.d(TAG, "Device Unlocked");
 
-                if (FileHelper.getFileValue(STATUS, "1") != "0")
+                final boolean requireDimDead = (FileHelper.getFileValue(STATUS, "1") != "0");
+
+                if (requireDimDead) {
                     FileHelper.writeValue(STATUS, "0");
 
                 // Also attempt to set screen state if the service status is not null.
@@ -54,6 +56,7 @@ public class FodKeyguardAssistService extends Service {
                     } catch (RemoteException e) {
                         if (DEBUG) Log.d(TAG, "Failed to set screen state");
                     }
+                }
             }
         }
     };
