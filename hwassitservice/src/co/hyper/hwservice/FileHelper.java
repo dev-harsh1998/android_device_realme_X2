@@ -18,7 +18,7 @@
  *
  */
 
-package co.hyper.proximityservice;
+package co.hyper.hwservice;
 
 import android.util.Log;
 

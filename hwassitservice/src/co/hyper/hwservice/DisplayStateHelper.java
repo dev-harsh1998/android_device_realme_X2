@@ -20,8 +20,7 @@
  * its now time to trigger the infrared proximity and take events from it.
  * 
  */
-
- package co.hyper.proximityservice;
+package co.hyper.hwservice;
 
 import android.content.Context;
 import android.hardware.display.DisplayManager;
