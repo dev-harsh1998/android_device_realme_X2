@@ -25,12 +25,17 @@ import android.content.Context;
 import android.content.Intent;
 import android.content.IntentFilter;
 import android.os.IBinder;
+import android.os.RemoteException;
 import android.util.Log;
+
+// Import and use the oppo biometric hal
+import vendor.oppo.hardware.biometrics.fingerprint.V2_1.IBiometricsFingerprint;
 
 public class FodKeyguardAssistService extends Service {
     private static final String TAG = "FodKeyguardAssistService";
-    private static final boolean DEBUG = true;
+    private static final boolean DEBUG = false;
     private static final String STATUS = "/sys/kernel/oppo_display/dimlayer_hbm";
+    private static IBiometricsFingerprint mOppoFingerprint;
 
     private BroadcastReceiver mIntentReceiver = new BroadcastReceiver() {
         @Override
@@ -40,6 +45,15 @@ public class FodKeyguardAssistService extends Service {
 
                 if (FileHelper.getFileValue(STATUS, "1") != "0")
                     FileHelper.writeValue(STATUS, "0");
+
+                // Also attempt to set screen state if the service status is not null.
+                if (mOppoFingerprint != null)
+                    try {
+                        mOppoFingerprint.setScreenState(0);
+                        if (DEBUG) Log.d(TAG, "Screen state set to 0");
+                    } catch (RemoteException e) {
+                        if (DEBUG) Log.d(TAG, "Failed to set screen state");
+                    }
             }
         }
     };
@@ -50,6 +64,15 @@ public class FodKeyguardAssistService extends Service {
         IntentFilter filter = new IntentFilter();
         filter.addAction(Intent.ACTION_USER_PRESENT);
         registerReceiver(mIntentReceiver, filter);
+        // Attempt to get the oppo biometric hal as service to use SetScreenState.
+        try {
+            mOppoFingerprint = IBiometricsFingerprint.getService();
+            if (mOppoFingerprint == null) {
+                Log.d(TAG, "Unable to get oppo biometric hal service.");
+            }
+        } catch (RemoteException e) {
+            if (DEBUG) Log.d(TAG, "Failed to get the oppo biometric hal.");
+        }
     }
 
     @Override
