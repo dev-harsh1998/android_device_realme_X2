@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="co.hyper.proximityservice"
+    package="co.hyper.hwservice"
     android:versionCode="1"
     android:versionName="1.0"
     android:sharedUserId="android.uid.system">
@@ -12,17 +12,17 @@
         android:targetSdkVersion="30"/>
 
     <application
-        android:label="RealmeProximityHelper"
+        android:label="RealmeHardwareAssist"
         android:persistent="true">
 
-        <receiver android:name="co.hyper.proximityservice.BootCompletedReceiver">
+        <receiver android:name="co.hyper.hwservice.BootCompletedReceiver">
             <intent-filter>
                 <action android:name="android.intent.action.BOOT_COMPLETED" />
                 <category android:name="android.intent.category.DEFAULT" />
             </intent-filter>
         </receiver>
 
-        <service android:name="co.hyper.proximityservice.RealmeProximityHelperService"
+        <service android:name="co.hyper.hwservice.RealmeProximityHelperService"
                  android:permission="RealmeProximityHelperService">
         </service>
 

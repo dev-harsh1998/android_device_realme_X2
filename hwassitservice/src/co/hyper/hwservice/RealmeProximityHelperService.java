@@ -18,7 +18,7 @@
  * 
  */
 
-package co.hyper.proximityservice;
+package co.hyper.hwservice;
 
 import android.app.Service;
 import android.content.BroadcastReceiver;
