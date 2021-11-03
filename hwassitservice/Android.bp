@@ -25,6 +25,10 @@ android_app {
     certificate: "platform",
     privileged: true,
 
+    static_libs: [
+        "vendor.oppo.hardware.biometrics.fingerprint-V2.1-java"
+    ],
+
     optimize: {
         proguard_flags_files: ["proguard.flags"],
     },
