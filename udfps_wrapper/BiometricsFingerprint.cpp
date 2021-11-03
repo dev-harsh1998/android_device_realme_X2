@@ -85,8 +85,34 @@ public:
 
     Return<void> onAcquired(uint64_t deviceId, vendor::oppo::hardware::biometrics::fingerprint::V2_1::FingerprintAcquiredInfo acquiredInfo,
         int32_t vendorCode) {
+        std::string acquiredInfoString = "UNKNOWN";
+        switch (acquiredInfo) {
+            case vendor::oppo::hardware::biometrics::fingerprint::V2_1::FingerprintAcquiredInfo::ACQUIRED_GOOD:
+                acquiredInfoString = "ACQUIRED_GOOD";
+                break;
+            case vendor::oppo::hardware::biometrics::fingerprint::V2_1::FingerprintAcquiredInfo::ACQUIRED_PARTIAL:
+                acquiredInfoString = "ACQUIRED_PARTIAL";
+                break;
+            case vendor::oppo::hardware::biometrics::fingerprint::V2_1::FingerprintAcquiredInfo::ACQUIRED_INSUFFICIENT:
+                acquiredInfoString = "ACQUIRED_INSUFFICIENT";
+                break;
+            case vendor::oppo::hardware::biometrics::fingerprint::V2_1::FingerprintAcquiredInfo::ACQUIRED_IMAGER_DIRTY:
+                acquiredInfoString = "ACQUIRED_IMAGER_DIRTY";
+                break;
+            case vendor::oppo::hardware::biometrics::fingerprint::V2_1::FingerprintAcquiredInfo::ACQUIRED_TOO_SLOW:
+                acquiredInfoString = "ACQUIRED_TOO_SLOW";
+                break;
+            case vendor::oppo::hardware::biometrics::fingerprint::V2_1::FingerprintAcquiredInfo::ACQUIRED_TOO_FAST:
+                acquiredInfoString = "ACQUIRED_TOO_FAST";
+                break;
+            case vendor::oppo::hardware::biometrics::fingerprint::V2_1::FingerprintAcquiredInfo::ACQUIRED_VENDOR:
+                acquiredInfoString = "ACQUIRED_VENDOR";
+                break;
+            default:
+                break;
+        }
         if (DEBUG_ADAPTOR) {
-            LOG (INFO) << "OppoClientCallback(): onAcquired(): called";
+            LOG (INFO) << "OppoClientCallback(): onAcquired(): called with acquiredInfo: " << acquiredInfoString << " vendorCode: " << vendorCode << " deviceID: " << deviceId;
         }
         return mClientCallback->onAcquired(deviceId, OppoToAOSPFingerprintAcquiredInfo(acquiredInfo), vendorCode);
     }
@@ -279,6 +305,10 @@ Return<RequestStatus> BiometricsFingerprint::cancel() {
     }
     if (isEnrolling)
         isEnrolling = false;
+    else {
+        LOG (INFO) << "BiometricsFingerprint(): cancel(): called was not Enrolling: " << isEnrolling << " setting screenstate to false"; 
+        setFingerprintScreenState(false);
+    }
     return OppoToAOSPRequestStatus(mOppoBiometricsFingerprint->cancel());
 }
 
@@ -298,9 +328,8 @@ Return<RequestStatus> BiometricsFingerprint::remove(uint32_t gid, uint32_t fid) 
 
 Return<RequestStatus> BiometricsFingerprint::setActiveGroup(uint32_t gid, const hidl_string& storePath) {
     if (DEBUG_ADAPTOR) {
-        LOG (INFO) << "BiometricsFingerprint(): setActiveGroup(): setting set setFingerprintScreenState() to true";
+        LOG (INFO) << "BiometricsFingerprint(): setActiveGroup(): called.";
     }
-    setFingerprintScreenState(true);
     return OppoToAOSPRequestStatus(mOppoBiometricsFingerprint->setActiveGroup(gid, storePath));
 }
 
@@ -311,11 +340,11 @@ Return<RequestStatus> BiometricsFingerprint::authenticate(uint64_t operationId, 
     RequestStatus status = OppoToAOSPRequestStatus(mOppoBiometricsFingerprint->authenticate(operationId, gid));
     if (status == RequestStatus::SYS_OK) {
         if (DEBUG_ADAPTOR) {
-            LOG (INFO) << "BiometricsFingerprint(): authenticate(): called. setting setFingerprintScreenState() to false.";
+            LOG (INFO) << "BiometricsFingerprint(): authenticate(): called. setting setFingerprintScreenState() to true";
         }
-        setFingerprintScreenState(false);
+        setFingerprintScreenState(true);
     }
-    return status;
+    return OppoToAOSPRequestStatus(mOppoBiometricsFingerprint->authenticate(operationId, gid));
 }
 
 Return<bool> BiometricsFingerprint::isUdfps(uint32_t) {
@@ -334,12 +363,6 @@ Return<void> BiometricsFingerprint::onFingerUp() {
         LOG (INFO) << "BiometricsFingerprint(): onFingerUp(): Finger removal detected isEnrolling: " << isEnrolling << " isAuthComplete: " << isAuthComplete;
     }
     set(FOD_STATUS_PATH, STATUS_OFF);
-    if (!isEnrolling && isAuthComplete) {
-        if (DEBUG_ADAPTOR) {
-            LOG (INFO) << "onFingerUp(): called set setFingerprintScreenState() to false.";
-        }
-        setFingerprintScreenState(false);
-    }
     return Void();
 }
 
