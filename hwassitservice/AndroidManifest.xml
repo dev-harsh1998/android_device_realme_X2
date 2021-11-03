@@ -23,7 +23,11 @@
         </receiver>
 
         <service android:name="co.hyper.hwservice.RealmeProximityHelperService"
-                 android:permission="RealmeProximityHelperService">
+                 android:permission="RealmeHardwareAssist">
+        </service>
+
+        <service android:name="co.hyper.hwservice.FodKeyguardAssistService"
+                 android:permission="RealmeHardwareAssist">
         </service>
 
     </application>
