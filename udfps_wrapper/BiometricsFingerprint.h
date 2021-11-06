@@ -60,6 +60,7 @@ struct BiometricsFingerprint : public IBiometricsFingerprint {
 
     // our own functions
     void setFingerprintScreenState(const bool on);
+    void setFingerprintScreenStateOff();
 
 private:
     bool isEnrolling;

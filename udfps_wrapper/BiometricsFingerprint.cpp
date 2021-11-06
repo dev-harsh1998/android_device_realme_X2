@@ -20,6 +20,7 @@
 #include <android-base/logging.h>
 #include <inttypes.h>
 #include <unistd.h>
+#include <functional>
 #include <fstream>
 #include <thread>
 
@@ -27,6 +28,7 @@
 #define DIMLAYER_PATH "/sys/kernel/oppo_display/dimlayer_hbm"
 #define STATUS_ON 1
 #define STATUS_OFF 0
+#define BIND(fn) [this](auto&&... args) -> decltype(auto) { return this->fn(std::forward<decltype(args)>(args)...); }
 
 namespace android {
 namespace hardware {
@@ -63,7 +65,7 @@ BiometricsFingerprint::BiometricsFingerprint() : isEnrolling(false) {
 
 class OppoClientCallback : public vendor::oppo::hardware::biometrics::fingerprint::V2_1::IBiometricsFingerprintClientCallback {
 public:
-    OppoClientCallback(sp<android::hardware::biometrics::fingerprint::V2_1::IBiometricsFingerprintClientCallback> clientCallback) : mClientCallback(clientCallback) {}
+    OppoClientCallback(sp<android::hardware::biometrics::fingerprint::V2_1::IBiometricsFingerprintClientCallback> clientCallback) : mClientCallback(clientCallback), onAuthenticationSuccess(nullptr) {}
     Return<void> onEnrollResult(uint64_t deviceId, uint32_t fingerId,
         uint32_t groupId, uint32_t remaining) {
         return mClientCallback->onEnrollResult(deviceId, fingerId, groupId, remaining);
@@ -76,6 +78,12 @@ public:
 
     Return<void> onAuthenticated(uint64_t deviceId, uint32_t fingerId, uint32_t groupId,
         const hidl_vec<uint8_t>& token) {
+        // FingerID = 0 means authentication failure.
+        if (fingerId != 0) {
+            if (onAuthenticationSuccess != nullptr) {
+                onAuthenticationSuccess();
+            }
+        }
         return mClientCallback->onAuthenticated(deviceId, fingerId, groupId, token);
     }
 
@@ -108,9 +116,11 @@ public:
     Return<void> onImageInfoAcquired(uint32_t type, uint32_t quality, uint32_t match_score) { return Void(); }
     Return<void> onMonitorEventTriggered(uint32_t type, const hidl_string& data) { return Void(); }
     Return<void> onEngineeringInfoUpdated(uint32_t length, const hidl_vec<uint32_t>& keys, const hidl_vec<hidl_string>& values) { return Void(); }
+    void setOnAuthenticationSuccess(const std::function<void()>& callback) { onAuthenticationSuccess = callback; }
 
 private:
     sp<android::hardware::biometrics::fingerprint::V2_1::IBiometricsFingerprintClientCallback> mClientCallback;
+    std::function<void()> onAuthenticationSuccess;
 
     Return<android::hardware::biometrics::fingerprint::V2_1::FingerprintAcquiredInfo> OppoToAOSPFingerprintAcquiredInfo(vendor::oppo::hardware::biometrics::fingerprint::V2_1::FingerprintAcquiredInfo info) {
         switch(info) {
@@ -144,7 +154,9 @@ private:
 };
 
 Return<uint64_t> BiometricsFingerprint::setNotify(const sp<IBiometricsFingerprintClientCallback>& clientCallback) {
-    mOppoClientCallback = new OppoClientCallback(clientCallback);
+    OppoClientCallback* oppoClientCallback = new OppoClientCallback(clientCallback);
+    oppoClientCallback->setOnAuthenticationSuccess(BIND(setFingerprintScreenStateOff));
+    mOppoClientCallback = oppoClientCallback;
     return mOppoBiometricsFingerprint->setNotify(mOppoClientCallback);
 }
 
@@ -174,6 +186,10 @@ void BiometricsFingerprint::setFingerprintScreenState(const bool on) {
             vendor::oppo::hardware::biometrics::fingerprint::V2_1::FingerprintScreenState::FINGERPRINT_SCREEN_OFF
         );
     set(DIMLAYER_PATH, on ? STATUS_ON: STATUS_OFF);
+}
+
+void BiometricsFingerprint::setFingerprintScreenStateOff() {
+    setFingerprintScreenState(false);
 }
 
 Return<uint64_t> BiometricsFingerprint::preEnroll() {
