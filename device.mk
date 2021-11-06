@@ -14,7 +14,9 @@ $(call inherit-product, vendor/realme/X2/X2-vendor.mk)
 
 # Build with GMS
 WITH_GMS := true
-$(call inherit-product, vendor/gms/products/gms.mk)
+$(call inherit-product, vendor/google/gms/config.mk)
+$(call inherit-product, vendor/google-pixel/config.mk)
+$(call inherit-product, vendor/partner_modules/build/mainline_modules_s_flatten_apex.mk)
 
 # VNDK
 PRODUCT_TARGET_VNDK_VERSION := 29
