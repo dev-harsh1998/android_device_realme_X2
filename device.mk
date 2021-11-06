@@ -170,7 +170,7 @@ PRODUCT_PACKAGES += \
 
 # Parts
 PRODUCT_PACKAGES += \
-    RealmeHardwareAssist
+    RealmeProximityHelper
 
 # Fingerprint
 PRODUCT_PACKAGES += \

@@ -15,7 +15,7 @@
  */
 
 android_app {
-    name: "RealmeHardwareAssist",
+    name: "RealmeProximityHelper",
 
     srcs: ["src/**/*.java"],
 
@@ -24,10 +24,6 @@ android_app {
     platform_apis: true,
     certificate: "platform",
     privileged: true,
-
-    static_libs: [
-        "vendor.oppo.hardware.biometrics.fingerprint-V2.1-java"
-    ],
 
     optimize: {
         proguard_flags_files: ["proguard.flags"],

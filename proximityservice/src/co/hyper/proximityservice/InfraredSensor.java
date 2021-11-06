@@ -20,7 +20,7 @@
  * 
  */
 
-package co.hyper.hwservice;
+package co.hyper.proximityservice;
 
 import android.content.Context;
 import android.hardware.Sensor;
