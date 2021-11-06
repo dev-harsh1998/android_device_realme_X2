@@ -48,7 +48,7 @@ PRODUCT_COPY_FILES += \
 
 # Boot animation
 PRODUCT_COPY_FILES += \
-    $(LOCAL_PATH)/prebuilts/bootanimation.zip:product/media/bootanimation.zip
+    $(LOCAL_PATH)/prebuilts/bootanimation.zip:$(TARGET_COPY_OUT_PRODUCT)/media/bootanimation.zip
 
 # AID/fs configs
 PRODUCT_PACKAGES += \
