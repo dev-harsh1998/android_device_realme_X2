@@ -141,6 +141,11 @@ PRODUCT_COPY_FILES += \
 PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/configs/media_profiles_vendor.xml:system/etc/media_profiles_vendor.xml
 
+# Misc
+PRODUCT_PACKAGES += \
+    charger_res_images \
+    ThemePicker
+
 # NFC
 PRODUCT_PACKAGES += \
     com.android.nfc_extras \
