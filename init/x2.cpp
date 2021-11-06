@@ -35,6 +35,38 @@ std::vector<std::string> ro_props_default_source_order = {
     "vendor.",
 };
 
+static const char *snet_prop_key[] = {
+    "ro.boot.vbmeta.device_state",
+    "ro.boot.verifiedbootstate",
+    "ro.boot.flash.locked",
+    "ro.boot.selinux",
+    "ro.boot.veritymode",
+    "ro.boot.warranty_bit",
+    "ro.warranty_bit",
+    "ro.debuggable",
+    "ro.secure",
+    "ro.build.type",
+    "ro.build.tags",
+    "ro.build.selinux",
+    NULL
+};
+
+static const char *snet_prop_value[] = {
+    "locked",
+    "green",
+    "1",
+    "enforcing",
+    "enforcing",
+    "0",
+    "0",
+    "0",
+    "1",
+    "user",
+    "release-keys",
+    "0",
+    NULL
+};
+
 bool isCN()
 {
     // Get region
@@ -73,6 +105,11 @@ void property_override(char const prop[], char const value[], bool add = true)
         __system_property_update(pi, value, strlen(value));
     else if (add)
         __system_property_add(prop, strlen(prop), value, strlen(value));
+}
+
+static void workaround_snet_properties() {
+    for (int i = 0; snet_prop_key[i]; ++i)
+        property_override(snet_prop_key[i], snet_prop_value[i]);
 }
 
 // Decommonise nfc properties
@@ -158,6 +195,7 @@ void setRMX(const unsigned int variant)
 
 void vendor_load_properties()
 {
+    workaround_snet_properties();
     if (isRMX1993())
     {
         setRMX(2); //RMX1993
