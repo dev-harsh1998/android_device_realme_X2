@@ -90,7 +90,7 @@ PRODUCT_PACKAGES += \
 
 # Doze
 PRODUCT_PACKAGES += \
-    RealmeHardwareAssist
+    RealmeProximityHelper
 
 # Fingerprint
 PRODUCT_PACKAGES += \
