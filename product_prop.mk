@@ -7,15 +7,6 @@ PRODUCT_PRODUCT_PROPERTIES += \
     ro.adb.secure=0
 endif
 
-# Disable Rescue Party on userdebug & eng build
-ifneq (,$(filter eng, $(TARGET_BUILD_VARIANT)))
-PRODUCT_PRODUCT_PROPERTIES += \
-    persist.sys.disable_rescue=true
-endif
-
-# Priv-app permission
-PRODUCT_PRODUCT_PROPERTIES += \
-    ro.control_privapp_permissions=log
 
 # Override Display Density
 PRODUCT_PRODUCT_PROPERTIES += \
@@ -26,7 +17,6 @@ ifeq ($(WITH_GMS),true)
 # SetupWizard and Google Assistant properties
 PRODUCT_PRODUCT_PROPERTIES += \
     ro.setupwizard.rotation_locked=true \
-    setupwizard.theme=glif_v3_light \
     ro.opa.eligible_device=true \
     ro.com.google.ime.kb_pad_port_b=1
 endif
