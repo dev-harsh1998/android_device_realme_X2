@@ -50,6 +50,10 @@ PRODUCT_COPY_FILES += \
 PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/prebuilts/bootanimation.zip:$(TARGET_COPY_OUT_PRODUCT)/media/bootanimation.zip
 
+#Apn file from prebuilts
+PRODUCT_COPY_FILES += \
+    $(LOCAL_PATH)/prebuilts/apns-conf.xml:system/etc/apns-conf.xml
+
 # AID/fs configs
 PRODUCT_PACKAGES += \
     fs_config_files
