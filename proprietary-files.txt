@@ -2032,10 +2032,10 @@ vendor/lib64/libSubSystemShutdown.so
 vendor/lib64/libsubsystem_control.so
 
 # Thermal
+-vendor/lib64/libthermalclient.so
+-vendor/lib/libthermalclient.so
 vendor/bin/thermal-engine
 vendor/etc/thermal-engine.conf
-vendor/lib/libthermalclient.so
-vendor/lib64/libthermalclient.so
 
 # Time
 -vendor/app/TimeService/TimeService.apk;:timeservice_app_cert
