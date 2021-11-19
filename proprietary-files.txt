@@ -772,13 +772,13 @@ vendor/bin/hw/android.hardware.drm@1.2-service.widevine
 vendor/etc/init/android.hardware.drm@1.2-service.widevine.rc
 vendor/lib64/libbase64.so
 vendor/lib64/libcpion.so
-vendor/lib64/liboemcrypto.so
+vendor/lib64/liboemcrypto.so|252479cc9952ffdb3fe77e044b7a6cc91e48e488
 vendor/lib64/librmp.so
 vendor/lib64/mediadrm/libwvdrmengine.so
 vendor/lib/libbase64.so
 vendor/lib/libcppf.so
 vendor/lib/libdrmfs.so
-vendor/lib/liboemcrypto.so
+vendor/lib/liboemcrypto.so|6f12eff0ea54c8d3dcbbe90396e2494528706cf1
 vendor/lib/librmp.so
 vendor/lib/libwvhidl.so
 vendor/lib/mediadrm/libwvdrmengine.so
