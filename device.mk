@@ -169,17 +169,12 @@ PRODUCT_PACKAGES += \
 # Fingerprint
 PRODUCT_PACKAGES += \
     android.hardware.biometrics.fingerprint@2.1-service.x2 \
-    vendor.lineage.biometrics.fingerprint.inscreen@1.0-service.x2 \
     vendor.oppo.hardware.biometrics.fingerprint@2.1
 
 # Fingerprint
 PRODUCT_COPY_FILES += \
     frameworks/native/data/etc/android.hardware.fingerprint.xml:$(TARGET_COPY_OUT_SYSTEM)/etc/permissions/android.hardware.fingerprint.xml
-
-# Lineage Specific perms
-PRODUCT_COPY_FILES += \
-    vendor/bootleggers/config/permissions/vendor.lineage.biometrics.fingerprint.inscreen.xml:$(TARGET_COPY_OUT_SYSTEM)/etc/permissions/vendor.lineage.biometrics.fingerprint.inscreen.xml
-
+    
 # Framework detect
 PRODUCT_PACKAGES += \
     libqti_vndfwk_detect \
