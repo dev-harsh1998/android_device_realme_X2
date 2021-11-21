@@ -203,6 +203,8 @@ TARGET_USES_PRE_UPLINK_FEATURES_NETMGRD := true
 TARGET_SEPOLICY_DIR := msmsteppe
 include device/qcom/sepolicy-legacy-um/SEPolicy.mk
 BOARD_PLAT_PRIVATE_SEPOLICY_DIR += $(DEVICE_PATH)/sepolicy/private
+BOARD_PLAT_PRIVATE_SEPOLICY_DIR += device/qcom/sepolicy/private
+BOARD_PLAT_PUBLIC_SEPOLICY_DIR += device/qcom/sepolicy/public
 
 # Security patch level
 VENDOR_SECURITY_PATCH := 2020-05-01
