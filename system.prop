@@ -31,6 +31,9 @@ ro.surface_flinger.wcg_composition_dataspace=143261696
 persist.demo.hdmirotationlock=false
 persist.hwc.enable_vds=1
 
+# Override Display Density
+ro.sf.lcd_density=440
+
 # Media
 media.settings.xml=/vendor/etc/media_profiles_vendor.xml
 audio.offload.video=true
