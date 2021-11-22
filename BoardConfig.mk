@@ -203,7 +203,7 @@ TARGET_USES_PRE_UPLINK_FEATURES_NETMGRD := true
 # Sepolicy
 #TARGET_SEPOLICY_DIR := msmsteppe
 #include device/qcom/sepolicy-legacy-um/SEPolicy.mk
-BOARD_PLAT_PRIVATE_SEPOLICY_DIR += $(DEVICE_PATH)/sepolicy/private
+SYSTEM_EXT_PRIVATE_SEPOLICY_DIRS += $(DEVICE_PATH)/sepolicy/private
 BOARD_PLAT_PRIVATE_SEPOLICY_DIR += device/qcom/sepolicy/private
 BOARD_PLAT_PUBLIC_SEPOLICY_DIR += device/qcom/sepolicy/public
 SELINUX_IGNORE_NEVERALLOWS := true
