@@ -927,6 +927,9 @@ vendor/firmware/ufs/move_target_ufs_fw_to_opporeserve1.sh
 vendor/firmware/ufs/SKhynix-H9HQ53ACPMMDAR.bin
 vendor/firmware/ufs/SKhynix-H9HQ53AECMMDAR.bin
 
+# DPM - from oneplus8 - qssi-user-11-RP1A.201005.001-2009051300-release-keys
+system_ext/lib64/libdpmframework.so|67ebd736333ae7158632735e3db06a4f9664f6a6
+
 # FM
 lib/fm_helium.so
 lib/libfm-hci.so
