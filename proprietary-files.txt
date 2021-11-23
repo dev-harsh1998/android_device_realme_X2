@@ -794,6 +794,10 @@ vendor/firmware/widevine.b06
 vendor/firmware/widevine.b07
 vendor/firmware/widevine.mdt
 
+# Libops - from RMX1991 - F.05
+vendor/lib/libops.so|a033226c24abbecb034557395f60ac76c903879f
+vendor/lib64/libops.so|9b33ca1cf66aaf879dc6e9386fcc35f08324b234
+
 # ESE-Powermanager
 vendor/bin/hw/vendor.qti.esepowermanager@1.0-service
 vendor/etc/init/vendor.qti.esepowermanager@1.0-service.rc
