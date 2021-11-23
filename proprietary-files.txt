@@ -1053,8 +1053,8 @@ vendor/lib/libsdmextension.so
 vendor/lib/libtinyxml2_1.so
 
 # Graphics (Vulkan) - from LA.UM.8.9.r1-07700-SM6xx.0
-vendor/lib64/hw/vulkan.sm6150.so
-vendor/lib/hw/vulkan.sm6150.so
+vendor/lib64/hw/vulkan.sm6150.so|505de08ab79c6cde197ee641c72e98f95cb87603
+vendor/lib/hw/vulkan.sm6150.so|90e8b1a7520b6b2f3348ca37913815b446067356
 
 # Graphics-Firmware
 vendor/firmware/a225p5_pm4.fw
