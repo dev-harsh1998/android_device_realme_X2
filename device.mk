@@ -148,24 +148,9 @@ PRODUCT_PACKAGES += \
 
 # Display
 PRODUCT_PACKAGES += \
-    android.hardware.graphics.composer@2.3-service \
-    android.hardware.graphics.mapper@2.0-impl-qti-display \
-    android.hardware.memtrack@1.0-impl \
-    android.hardware.memtrack@1.0-service \
-    gralloc.sm6150 \
     libdisplayconfig \
     libtinyxml \
-    libvulkan \
-    memtrack.sm6150 \
-    vendor.display.config@1.9 \
-    vendor.display.config@1.11.vendor \
-    vendor.qti.hardware.display.allocator-service
-
-# Display interfaces
-PRODUCT_PACKAGES += \
-    vendor.qti.hardware.display.composer@1.0.vendor \
-    vendor.qti.hardware.display.composer@2.0.vendor \
-    vendor.qti.hardware.display.mapper@1.1.vendor
+    libvulkan
 
 # DRM
 PRODUCT_PACKAGES += \
