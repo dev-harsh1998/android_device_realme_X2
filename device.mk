@@ -13,7 +13,7 @@ $(call inherit-product, $(SRC_TARGET_DIR)/product/product_launched_with_p.mk)
 $(call inherit-product, $(SRC_TARGET_DIR)/product/updatable_apex.mk)
 
 # Get non-open-source specific aspects
-$(call inherit-product, vendor/realme/x2/x2-vendor.mk)
+$(call inherit-product, vendor/realme/X2/X2-vendor.mk)
 
 # Boot animation
 TARGET_SCREEN_HEIGHT := 2340

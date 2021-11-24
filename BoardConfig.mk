@@ -5,7 +5,7 @@
 #
 
 BOARD_VENDOR := realme
-DEVICE_PATH := device/realme/x2
+DEVICE_PATH := device/realme/X2
 
 # Display density
 TARGET_SCREEN_DENSITY := 480
@@ -221,4 +221,4 @@ WIFI_HIDL_FEATURE_DUAL_INTERFACE := true
 WPA_SUPPLICANT_VERSION := VER_0_8_X
 
 # Inherit from the proprietary version
--include vendor/realme/x2/BoardConfigVendor.mk
+-include vendor/realme/X2/BoardConfigVendor.mk

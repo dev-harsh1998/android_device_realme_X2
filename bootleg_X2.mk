@@ -4,14 +4,14 @@
 # SPDX-License-Identifier: Apache-2.0
 #
 
-$(call inherit-product, device/realme/x2/device.mk)
+$(call inherit-product, device/realme/X2/device.mk)
 
 # Inherit some common Lineage stuff.
 $(call inherit-product, vendor/bootleggers/config/common_full_phone.mk)
 
 # Device identifier. This must come after all inclusions.
-PRODUCT_NAME := bootleg_x2
-PRODUCT_DEVICE := x2
+PRODUCT_NAME := bootleg_X2
+PRODUCT_DEVICE := X2
 PRODUCT_BRAND := realme
 PRODUCT_MODEL := realme X2
 PRODUCT_MANUFACTURER := realme
