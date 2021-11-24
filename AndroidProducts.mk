@@ -15,8 +15,4 @@
 #
 
 PRODUCT_MAKEFILES := \
-   $(LOCAL_DIR)/bootleg_X2.mk
-COMMON_LUNCH_CHOICES := \
-	bootleg_X2-eng \
-        bootleg_X2-user \
-	bootleg_X2-userdebug
+   $(LOCAL_DIR)/potato_X2.mk
