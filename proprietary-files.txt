@@ -861,6 +861,10 @@ vendor/lib/libQSEEComAPI.so
 vendor/lib/libcpion.so
 vendor/lib/libdrmfs.so
 
+# LS/JCOS NQ - from RMX1991 - C.28
+vendor/lib64/ls_nq_client.so|da662d989d6adfb5ec7ad115d727164db3318d03
+vendor/lib64/jcos_nq_client.so|07722230edb6f57347c7dfd25db094159be98b9f
+
 # DRM - Widevine
 vendor/bin/hw/android.hardware.drm@1.2-service.widevine
 vendor/etc/init/android.hardware.drm@1.2-service.widevine.rc
@@ -1552,7 +1556,6 @@ vendor/lib/libpn557_fw.so
 vendor/lib/nfc_nci.nqx.default.hw.so
 vendor/lib64/android.hardware.secure_element@1.0-impl.so
 vendor/lib64/nfc_nci.nqx.default.hw.so
-vendor/lib64/ls_nq_client.so
 vendor/lib64/se_nq_extn_client.so
 vendor/lib64/vendor.nxp.hardware.nfc@1.0.so
 vendor/lib64/vendor.nxp.hardware.nfc@1.1.so
