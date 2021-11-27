@@ -308,12 +308,13 @@ PRODUCT_PACKAGES += \
 
 # NFC
 PRODUCT_PACKAGES += \
-    com.android.nfc_extras \
+    android.hardware.nfc@1.1 \
+    android.hardware.nfc@1.1.vendor \
+    android.hardware.nfc@1.2-service \
     com.gsma.services.nfc \
     NfcNci \
-    SecureElement \
     Tag
-
+    
 # Permissions
 PRODUCT_COPY_FILES += \
     frameworks/native/data/etc/android.hardware.nfc.xml:$(TARGET_COPY_OUT_VENDOR)/etc/permissions/android.hardware.nfc.xml \
