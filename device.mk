@@ -125,6 +125,7 @@ PRODUCT_COPY_FILES += \
 # Bluetooth
 PRODUCT_PACKAGES += \
     android.hardware.bluetooth.a2dp@1.0-impl \
+    vendor.qti.hardware.btconfigstore@1.0.vendor \
     libldacBT_bco \
     libbthost_if
 
