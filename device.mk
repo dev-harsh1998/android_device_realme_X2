@@ -302,6 +302,10 @@ PRODUCT_PACKAGES += \
     android.system.net.netd@1.1.vendor \
     netutils-wrapper-1.0
 
+# NQ Client
+PRODUCT_PACKAGES += \
+    libchrome.vendor
+
 # NFC
 PRODUCT_PACKAGES += \
     com.android.nfc_extras \
