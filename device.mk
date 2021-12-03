@@ -168,6 +168,10 @@ PRODUCT_PACKAGES += \
     android.hardware.drm@1.2 \
     android.hardware.drm@1.2.vendor
 
+# Parts
+PRODUCT_PACKAGES += \
+    RealmeProximityHelper
+
 # Fingerprint
 PRODUCT_PACKAGES += \
     android.hardware.biometrics.fingerprint@2.1-service.x2 \
