@@ -708,6 +708,9 @@ on property:vendor.wifi.sar.idx=*
     start wifisar_realme
 #endif /* VENDOT_EDIT */
 
+on property:init.svc.face_hal=restarting
+    stop face_hal
+
 on property:sys.boot_completed=1
     write /dev/kmsg "Boot completed "
     #Reset read ahead for dm-0, dm-1 and dm-2 to 512kb
