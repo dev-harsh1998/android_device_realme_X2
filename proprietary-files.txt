@@ -1752,7 +1752,6 @@ vendor/lib64/vendor.qti.hardware.qteeconnector@1.0.so
 
 # Radio
 -product/app/QtiTelephonyService/QtiTelephonyService.apk
--product/app/datastatusnotification/datastatusnotification.apk
 -product/app/embms/embms.apk
 product/etc/permissions/embms.xml
 product/etc/permissions/qcrilhook.xml
