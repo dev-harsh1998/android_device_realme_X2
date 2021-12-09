@@ -861,6 +861,9 @@ vendor/lib/libQSEEComAPI.so
 vendor/lib/libcpion.so
 vendor/lib/libdrmfs.so
 
+# DRM - from Redmi/lmi/lmi:11/RKQ1.200826.002/20.10.19:user/release-keys
+vendor/lib64/libspl.so|0fa8c0711f72fc8a914dce044cf8dddd79ee62e1
+
 # LS/JCOS NQ - from RMX1991 - C.28
 vendor/lib64/ls_nq_client.so|da662d989d6adfb5ec7ad115d727164db3318d03
 vendor/lib64/jcos_nq_client.so|07722230edb6f57347c7dfd25db094159be98b9f
