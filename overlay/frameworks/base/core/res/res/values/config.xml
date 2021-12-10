@@ -656,9 +656,6 @@
         <item>2</item> <!-- COLOR_MODE_SATURATED -->
     </integer-array>
 
-    <!-- Whether to show a custom view for FOD --> 
-    <bool name="config_needCustomFODView">true</bool>
-
     <!-- List of biometric sensors on the device, in decreasing strength. Consumed by AuthService
          when registering authenticators with BiometricService. Format must be ID:Modality:Strength,
          where: IDs are unique per device, Modality as defined in BiometricAuthenticator.java,
