@@ -1164,6 +1164,10 @@ vendor/lib/libtinyxml2_1.so
 vendor/lib64/hw/vulkan.sm6150.so|505de08ab79c6cde197ee641c72e98f95cb87603
 vendor/lib/hw/vulkan.sm6150.so|90e8b1a7520b6b2f3348ca37913815b446067356
 
+# Health - from RUI 2.0 - qssi-user 11 RKQ1.201112.002 eng.root.20210716.172808 release-keys
+vendor/bin/hw/android.hardware.health@2.1-service|977491e82ca92e267e88f4f8ed655dad0c9fbd83
+vendor/etc/init/android.hardware.health@2.1-service.rc|07814dfd61ba11205f1ad730828a9d8d3b7df509
+
 # Graphics-Firmware
 vendor/firmware/a225p5_pm4.fw
 vendor/firmware/a225_pfp.fw
