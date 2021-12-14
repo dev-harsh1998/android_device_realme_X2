@@ -322,11 +322,13 @@ PRODUCT_PACKAGES += \
 
 # NFC
 PRODUCT_PACKAGES += \
-    android.hardware.nfc@1.1 \
-    android.hardware.nfc@1.1.vendor \
+    com.android.nfc_extras \
+    android.hardware.nfc@1.2 \
+    android.hardware.nfc@1.2.vendor \
     android.hardware.nfc@1.2-service \
     com.gsma.services.nfc \
     NfcNci \
+    SecureElement \
     Tag
 
 # Permissions
