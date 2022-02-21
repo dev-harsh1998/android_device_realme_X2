@@ -159,14 +159,34 @@ PRODUCT_PACKAGES += \
     com.android.media.swcodec \
     libsfplugin_ccodec
 
-# Display
+# Display/Graphics
 PRODUCT_PACKAGES += \
+    android.hardware.graphics.composer@2.4-impl \
+    android.hardware.graphics.composer@2.4-service \
+    vendor.qti.hardware.display.allocator-service \
+    android.hardware.graphics.mapper@3.0-impl-qti-display \
+    android.hardware.graphics.mapper@4.0-impl-qti-display \
+    android.hardware.memtrack@1.0-impl \
+    android.hardware.memtrack@1.0-service \
+    vendor.display.config@2.0 \
+    gralloc.sm6150 \
+    hwcomposer.sm6150 \
+    memtrack.sm6150 \
     libdisplayconfig \
     libdisplayconfig.vendor \
     libdisplayconfig.qti \
     libdisplayconfig.qti.vendor \
+    disable_configstore \
+    libqdMetaData \
     libtinyxml \
     libvulkan
+
+# Display interfaces
+PRODUCT_PACKAGES += \
+    vendor.qti.hardware.display.mapper@1.1.vendor \
+    vendor.qti.hardware.display.mapper@2.0.vendor \
+    vendor.qti.hardware.display.mapper@3.0.vendor \
+    vendor.qti.hardware.display.mapper@4.0.vendor
 
 # DRM
 PRODUCT_PACKAGES += \
