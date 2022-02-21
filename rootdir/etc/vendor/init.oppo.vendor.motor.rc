@@ -47,3 +47,4 @@ on boot
     chmod 0666 /sys/bus/platform/devices/vendor:motor_pl/mode
     chmod 0666 /sys/bus/platform/devices/vendor:motor_pl/stop_range
 
+

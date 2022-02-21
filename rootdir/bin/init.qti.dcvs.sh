@@ -1,6 +1,6 @@
 #! /vendor/bin/sh
-
-# Copyright (c) 2019, The Linux Foundation. All rights reserved.
+#
+# Copyright (c) 2020, The Linux Foundation. All rights reserved.
 #
 # Redistribution and use in source and binary forms, with or without
 # modification, are permitted provided that the following conditions are
@@ -26,12 +26,30 @@
 # WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE
 # OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN
 # IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+#
+    for device in /sys/devices/platform/soc
+    do
+        #Enable mem_latency governor for L3, LLCC, and DDR scaling
+        for memlat in $device/*cpu*-lat/devfreq/*cpu*-lat
+        do
+            echo "mem_latency" > $memlat/governor
+            echo 10 > $memlat/polling_interval
+            echo 400 > $memlat/mem_latency/ratio_ceil
+         done
 
+         #Gold L3 ratio ceil
+         echo 4000 > /sys/class/devfreq/soc:qcom,cpu6-cpu-l3-lat/mem_latency/ratio_ceil
 
-if [ -f /sys/devices/soc0/soc_id ]; then
-    soc_id=`cat /sys/devices/soc0/soc_id`
-else
-    soc_id=`cat /sys/devices/system/soc/soc0/id`
-fi
-log -t MANIFEST_SKU -p i "setting ro.boot.product.hardware.sku to "$soc_id
-setprop ro.boot.product.hardware.sku $soc_id
+         #Enable cdspl3 governor for L3 cdsp nodes
+         for l3cdsp in $device/*cdsp-cdsp-l3-lat/devfreq/*cdsp-cdsp-l3-lat
+         do
+             echo "cdspl3" > $l3cdsp/governor
+         done
+
+        #Enable compute governor for gold latfloor
+        for latfloor in $device/*cpu*-ddr-latfloor*/devfreq/*cpu-ddr-latfloor*
+        do
+            echo "compute" > $latfloor/governor
+            echo 10 > $latfloor/polling_interval
+        done
+    done;

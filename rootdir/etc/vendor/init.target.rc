@@ -1,4 +1,4 @@
-# Copyright (c) 2013-2018, The Linux Foundation. All rights reserved.
+# Copyright (c) 2013-2018,2020, The Linux Foundation. All rights reserved.
 #
 # Redistribution and use in source and binary forms, with or without
 # modification, are permitted provided that the following conditions are
@@ -28,14 +28,14 @@
 #
 
 on early-init
-    #ifndef VENDOR_EDIT
-    #Jianfeng.Qiu@PSW.MM.AudioDriver.Codec, 2018/04/20, Modify for audio config
-    #xiang.fei@PSW.MM.AudioDriver.Codec, 2018/10/29, Add for dbmdx
+    #ifndef OPLUS_ARCH_EXTENDS
+    #Jianfeng.Qiu@MULTIMEDIA.AUDIODRIVER.CODEC, 2018/04/20, Modify for audio config
+    #xiang.fei@MULTIMEDIA.AUDIODRIVER.CODEC, 2018/10/29, Add for dbmdx
     #exec u:r:vendor_modprobe:s0 -- /vendor/bin/modprobe -a -d /vendor/lib/modules audio_wglink audio_q6_pdr audio_q6_notifier audio_snd_event audio_apr audio_adsp_loader audio_q6 audio_native audio_usf audio_pinctrl_wcd audio_pinctrl_lpi audio_swr audio_platform audio_hdmi audio_wcd_spi audio_stub audio_wcd_core audio_wsa881x audio_hdmi audio_bolero_cdc audio_wsa_macro audio_va_macro audio_rx_macro audio_tx_macro audio_machine_talos audio_wcd937x audio_wcd937x_slave
-    #else /*VENDOR_EDIT*/
+    #else /*OPLUS_ARCH_EXTENDS*/
     exec u:r:vendor_modprobe:s0 -- /vendor/bin/modprobe -a -d /vendor/lib/modules audio_wglink audio_q6_pdr audio_q6_notifier audio_snd_event audio_apr audio_adsp_loader audio_q6 audio_native audio_usf audio_pinctrl_wcd audio_pinctrl_lpi audio_swr audio_platform audio_hdmi audio_wcd_spi audio_stub audio_wcd_core audio_wsa881x audio_hdmi audio_bolero_cdc audio_wsa_macro audio_va_macro audio_rx_macro audio_tx_macro audio_machine_talos audio_wcd937x audio_wcd937x_slave \
-    audio_tfa98xx-v6 audio_ak4376 audio_audience audio_dspg_dbmdx
-    #endif /*VENDOR_EDIT*/
+    audio_tfa98xx-v6 audio_ak4376 audio_dspg_dbmdx
+    #endif /*OPLUS_ARCH_EXTENDS*/
     write /proc/sys/kernel/sched_boost 1
     mkdir /dsp 0771 media media
     mkdir /firmware 0771 system system
@@ -58,13 +58,16 @@ on early-fs
     start vold
 
 on fs
-    mount_all /vendor/etc/fstab.qcom --early
+    mount_all --early
     chown root system /mnt/vendor/persist
     chmod 0771 /mnt/vendor/persist
-    chmod 0666 /dev/block/sdf6
     restorecon_recursive /mnt/vendor/persist
     mkdir /mnt/vendor/persist/data 0700 system system
-    restorecon --recursive /mnt/vendor/persist/sensors
+
+    mkdir /mnt/vendor/persist/sensors
+    mkdir /mnt/vendor/persist/sensors/registry
+    mkdir /mnt/vendor/persist/sensors/registry/registry
+
 
 on post-fs
     # set RLIMIT_MEMLOCK to 64MB
@@ -74,7 +77,7 @@ on post-fs
 on late-fs
     wait_for_prop hwservicemanager.ready true
     exec_start wait_for_keymaster
-    mount_all /vendor/etc/fstab.qcom --late
+    mount_all --late
 
 service sec_nvm /vendor/bin/sec_nvm
     class core
@@ -87,24 +90,14 @@ on post-fs-data
     mkdir /tombstones/lpass 0771 system system
     mkdir /tombstones/wcnss 0771 system system
     mkdir /tombstones/dsps 0771 system system
-#ifndef VENDOR_EDIT
-#ZhongWenjie@psw.bsp.tp 2019/04/24 del for closing hbtp
-#    mkdir /data/vendor/hbtp 0750 system system
-#endif
-    mkdir /data/vendor/tloc 0700 system drmrpc
     mkdir /data/vendor/hbtp 0750 system system
     mkdir /persist/qti_fp 0700 system system
     mkdir /data/vendor/nnhal 0700 system system
-    #ifdef VENDOR_EDIT
-    mkdir /data/vendor/dolby 0770 media media
-    #endif /*VENDOR_EDIT*/
+
 # For cpusets initialize for Silver Only first and then Silver + Gold
 # Silver Only configuration cannot work with 0-7
 on boot
-#ifndef VENDOR_EDIT
-#ZhongWenjie@psw.bsp.tp 2019/04/24 del for closing hbtp
-#    chown system system /sys/kernel/hbtp/display_pwr
-#endif
+    chown system system /sys/kernel/hbtp/display_pwr
     start rmt_storage
     start rfs_access
     write /dev/cpuset/top-app/cpus 0-3
@@ -115,12 +108,7 @@ on boot
     write /dev/cpuset/top-app/cpus 0-7
     write /dev/cpuset/foreground/cpus 0-7
     write /dev/cpuset/foreground/boost/cpus 0-7
-    #ifndef VENDOR_EDIT
-    #Jiaquan.He@RM.AD.Performance , 2019/12/17, Add for boost boot time
-    #write /dev/cpuset/background/cpus 0-7
-    #else /*VENDOR_EDIT*/
     write /dev/cpuset/background/cpus 0-5
-    #endif /*VENDOR_EDIT*/
     write /dev/cpuset/system-background/cpus 0-7
 
 # Add a cpuset for the camera daemon
@@ -291,21 +279,6 @@ service thermal-engine /system/vendor/bin/thermal-engine
 #
 #
 #
-## imsqmidaemon starts with root and UID will be downgraded to RADIO.
-service vendor.imsqmidaemon /system/vendor/bin/imsqmidaemon
-    class main
-    user radio
-    socket ims_qmid stream 0660 system radio
-    group radio log diag
-
-# imsdatadaemon starts with root and UID will be downgraded to RADIO.
-service vendor.imsdatadaemon /system/vendor/bin/imsdatadaemon
-    class main
-    user radio
-    socket ims_datad stream 0660 system radio
-    group radio wifi inet log diag
-    disabled
-
 #service mdm_helper /system/bin/mdm_helper
 #    class core
 #    onrestart setprop ro.service.mdm_helper_restarted "true"
@@ -367,55 +340,17 @@ service vendor.imsrcsservice /system/vendor/bin/imsrcsd
 on property:vendor.ims.QMI_DAEMON_STATUS=1
     start vendor.imsdatadaemon
 
-#ifndef VENDOR_EDIT
-#Pan.Zhang@PSW.CN.WiFi.Basic.Log.1072015, 2016/08/03,
-#Remove for wifi log enhance function
+#ifndef OPLUS_BUG_COMPATIBILITY
+#//ZhangPan@CONNECTIVITY.WIFI.BASIC.LOG.1072015,2016/08/03, Remove for wifi log enhance function
 #on property:vold.decrypt=trigger_restart_framework
-#   start cnss_diag
-#endif
+#   start vendor.cnss_diag
 
-#service vendor.cnss_diag /system/vendor/bin/cnss_diag -q -f -t HELIUM
+#service vendor.cnss_diag /system/vendor/bin/cnss_diag -q -f -b 128 -t HELIUM
 #   class main
- #  user system
- #  group system wifi inet sdcard_rw media_rw diag
-#ifdef VENDOR_EDIT
-#Pan.Zhang@PSW.CN.WiFi.Basic.Log.1072015, 2016/08/03,
-#Add for wifi log enhance function
-    #oneshot
-#else
- #   disabled
-#Yuan.Huang@PSW.CN.WiFi.Network.internet.1140781, 2017/12/21,
-#Modify for data stall enable log by default
-#on property:persist.sys.assert.panic=true
- #   stop cnss_diag_b
- #   start cnss_diag
-
-#on property:persist.sys.assert.panic=false
- #   stop cnss_diag
- #   start cnss_diag_b
-
-#on property:oppo.wifi.ftm=1
- #   stop cnss_diag
- #   stop cnss_diag_b
-
-#service cnss_diag_b /system/vendor/bin/cnss_diag -q -u -w -b 4096
- #   class main
- #   user system
- #   group system wifi inet net_admin sdcard_rw media_rw diag
- #   disabled
-#endif
-
-#on property:vold.decrypt=trigger_restart_framework && property:persist.sys.assert.panic=true
- #   start cnss_diag
-#endif /* VENDOR_EDIT */
-
-service vendor.ims_rtp_daemon /system/vendor/bin/ims_rtp_daemon
-   class main
-   user radio
-   group radio vendor_qti_diag inet log
-
-on property:vendor.ims.DATA_DAEMON_STATUS=1
-    restart vendor.ims_rtp_daemon
+#   user system
+#   group system wifi inet sdcard_rw media_rw diag
+#   oneshot
+#endif /* OPLUS_BUG_COMPATIBILITY */
 
 service ppd /vendor/bin/mm-pp-dpps
     class late_start
@@ -433,18 +368,6 @@ on property:init.svc.hwcomposer-2-1=running
 on property:init.svc.hwcomposer-2-1=restarting
     stop ppd
 
-#ifndef VENDOR_EDIT
-#Guoqiang.Jiang@PSW.AD.Storage.DiskEncryption.1368973, 2019/04/19, Add for restart ppd aftern FDE
-on property:init.svc.zygote=stopped
-    stop ppd
-
-on property:init.svc.zygote=running
-    start ppd
-
-on property:init.svc.zygote=restarting
-    stop ppd
-
-#endif/*VENDOR_EDIT*/
 #service nqs /system/bin/nqs
 #    class late_start
 #    socket nqs_qsb_comm stream 660 system system
@@ -463,14 +386,11 @@ on property:init.svc.zygote=restarting
 #    user system
 #    group system
 
-#ifndef VENDOR_EDIT
-#ZhongWenjie@psw.bsp.tp 2019/04/24 del for closing hbtp
-#service hbtp /system/vendor/bin/hbtp_daemon
-#     class main
-#     user system
-#     group system
-#     disabled
-#endif
+service hbtp /system/vendor/bin/hbtp_daemon
+     class main
+     user system
+     group system
+     disabled
 
 service qfp-daemon /vendor/bin/qfp-daemon
     class late_start
@@ -482,3 +402,21 @@ service energy-awareness /system/vendor/bin/energy-awareness
     user system
     group system
     oneshot
+
+service dcvs-sh /vendor/bin/init.qti.dcvs.sh
+    class late_start
+    user root
+    group root system
+    disabled
+    oneshot
+
+on property:vendor.dcvs.prop=1
+   start dcvs-sh
+
+service vendor.contexthub-hal-1-0 /vendor/bin/hw/android.hardware.contexthub@1.0-service
+    override
+    class hal
+    interface android.hardware.contexthub@1.0::IContexthub default
+    user system
+    group system
+    disabled

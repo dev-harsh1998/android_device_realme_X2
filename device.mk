@@ -405,44 +405,16 @@ PRODUCT_PACKAGES += \
     libprotobuf-cpp-full
 
 # Ramdisk
-PRODUCT_PACKAGES += \
-    init.affinity.sh \
-    init.class_late.sh \
-    init.class_main.sh \
-    init.crda.sh \
-    init.mdm.sh \
-    init.oppo.face.sh \
-    init.oppo.fingerprints.sh \
-    init.oppo.wifi.sh \
-    init.qcom.class_core.sh \
-    init.qcom.coex.sh \
-    init.qcom.crashdata.sh \
-    init.qcom.early_boot.sh \
-    init.qcom.efs.sync.sh \
-    init.qcom.post_boot.sh \
-    init.qcom.sdio.sh \
-    init.qcom.sensors.sh \
-    init.qcom.sh \
-    init.qcom.usb.sh \
-    init.qti.can.sh \
-    init.qti.charger.sh \
-    init.qti.fm.sh \
-    init.qti.ims.sh \
-    init.qti.manifest_sku.sh \
-    init.qti.qseecomd.sh \
-    init.insmod.sh \
-    fstab.qcom \
-    init.devicesetting.rc \
-    init.msm.usb.configfs.rc \
-    init.oppo.debug.diag.rc \
-    init.oppo.sensor.rc \
-    init.oppo.vendor.motor.rc \
-    init.oppo.vendor.steppermotor.rc \
-    init.qcom.rc \
-    init.qcom.usb.rc \
-    init.target.rc \
-    ueventd.qcom.rc
+PRODUCT_COPY_FILES += \
+    $(call find-copy-subdir-files,*,$(LOCAL_PATH)/rootdir/etc/odm/,$(TARGET_COPY_OUT_ODM)/etc/init/hw) \
+    $(call find-copy-subdir-files,*,$(LOCAL_PATH)/rootdir/etc/vendor/,$(TARGET_COPY_OUT_VENDOR)/etc/init/hw) \
+    $(call find-copy-subdir-files,*,$(LOCAL_PATH)/rootdir/bin/,$(TARGET_COPY_OUT_VENDOR)/bin)
  
+PRODUCT_COPY_FILES += \
+    $(LOCAL_PATH)/rootdir/etc/fstab.qcom:$(TARGET_COPY_OUT_RAMDISK)/fstab.qcom \
+    $(LOCAL_PATH)/rootdir/etc/fstab.qcom:$(TARGET_COPY_OUT_VENDOR)/etc/fstab.qcom \
+    $(LOCAL_PATH)/rootdir/ueventd.rc:$(TARGET_COPY_OUT_VENDOR)/ueventd.rc
+
 # RCS
 PRODUCT_PACKAGES += \
     com.android.ims.rcsmanager \
