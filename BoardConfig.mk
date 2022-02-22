@@ -185,11 +185,9 @@ TARGET_PROVIDES_QTI_TELEPHONY_JAR := true
 TARGET_USES_PRE_UPLINK_FEATURES_NETMGRD := true
 
 # Sepolicy
-#TARGET_SEPOLICY_DIR := msmsteppe
-#include device/qcom/sepolicy-legacy-um/SEPolicy.mk
-SYSTEM_EXT_PRIVATE_SEPOLICY_DIRS += $(DEVICE_PATH)/sepolicy/private
-BOARD_PLAT_PRIVATE_SEPOLICY_DIR += device/qcom/sepolicy/private
-BOARD_PLAT_PUBLIC_SEPOLICY_DIR += device/qcom/sepolicy/public
+TARGET_SEPOLICY_DIR := msmsteppe
+include device/qcom/sepolicy_vndr/SEPolicy.mk
+BOARD_VENDOR_SEPOLICY_DIRS += $(DEVICE_PATH)/sepolicy/vendor
 SELINUX_IGNORE_NEVERALLOWS := true
 
 # Security patch level
