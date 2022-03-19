@@ -56,8 +56,8 @@ public class DeviceSettings extends PreferenceFragment
     public static final String CABC_SYSTEM_PROPERTY = "persist.cabc_profile";
     public static final String KEY_FPS_INFO = "fps_info";
     public static final String KEY_SETTINGS_PREFIX = "device_setting_";
-    public static final String TP_LIMIT_ENABLE = "/proc/touchpanel/oppo_tp_limit_enable";
-    public static final String TP_DIRECTION = "/proc/touchpanel/oppo_tp_direction";
+    public static final String TP_LIMIT_ENABLE = "/proc/touchpanel/oplus_tp_limit_enable";
+    public static final String TP_DIRECTION = "/proc/touchpanel/oplus_tp_direction";
     private static final String ProductName = Utils.ProductName();
     private static final String KEY_CATEGORY_CHARGING = "charging";
     private static final String KEY_CATEGORY_GRAPHICS = "graphics";
