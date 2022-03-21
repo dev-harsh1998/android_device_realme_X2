@@ -16,7 +16,7 @@
 
 set -e
 
-DEVICE=x2
+DEVICE=X2
 VENDOR=realme
 
 # Load extract_utils and do some sanity checks
