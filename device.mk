@@ -344,12 +344,18 @@ PRODUCT_PACKAGES += \
     android.hardware.nfc@1.2 \
     android.hardware.nfc@1.2.vendor \
     android.hardware.nfc@1.2-service \
+    android.hardware.secure_element@1.0-service \
     com.gsma.services.nfc \
     NfcNci \
     SecureElement \
     Tag
 
-# Permissions
+PRODUCT_COPY_FILES += \
+    $(LOCAL_PATH)/configs/nfc/libese-nxp.conf:$(TARGET_COPY_OUT_VENDOR)/etc/libese-nxp.conf \
+    $(LOCAL_PATH)/configs/nfc/libnfc-nci.conf:$(TARGET_COPY_OUT_VENDOR)/etc/libnfc-nci.conf \
+    $(LOCAL_PATH)/configs/nfc/nfc_feature.xml:$(TARGET_COPY_OUT_ODM)/etc/permissions/nfc_feature.xml
+
+# NFC Permissions
 PRODUCT_COPY_FILES += \
     frameworks/native/data/etc/android.hardware.nfc.xml:$(TARGET_COPY_OUT_VENDOR)/etc/permissions/android.hardware.nfc.xml \
     frameworks/native/data/etc/android.hardware.nfc.ese.xml:$(TARGET_COPY_OUT_VENDOR)/etc/permissions/android.hardware.nfc.ese.xml \
