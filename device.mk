@@ -88,10 +88,6 @@ PRODUCT_PACKAGES += \
     com.dsi.ant.antradio_library \
     com.dsi.ant@1.0.vendor
 
-# ATRACE_HAL
-PRODUCT_PACKAGES += \
-    android.hardware.atrace@1.0-service
-
 # Audio
 PRODUCT_PACKAGES += \
     android.hardware.audio.service \
