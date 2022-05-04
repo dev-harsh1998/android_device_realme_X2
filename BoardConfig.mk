@@ -111,7 +111,7 @@ TARGET_USES_DISPLAY_RENDER_INTENTS := true
 TARGET_USES_COLOR_METADATA := true
 
 # Filesystem
-TARGET_FS_CONFIG_GEN := $(DEVICE_PATH)/config.fs
+TARGET_FS_CONFIG_GEN := $(DEVICE_PATH)/configs/config.fs
 
 # FOD
 TARGET_SURFACEFLINGER_UDFPS_LIB := //$(DEVICE_PATH):libudfps_extension.x2
@@ -127,15 +127,15 @@ LOC_HIDL_VERSION := 4.0
 USE_DEVICE_SPECIFIC_GPS := true
 
 # HIDL
-DEVICE_MANIFEST_FILE := $(DEVICE_PATH)/manifest.xml
-DEVICE_FRAMEWORK_MANIFEST_FILE := $(DEVICE_PATH)/framework_manifest.xml
-DEVICE_MATRIX_FILE := $(DEVICE_PATH)/compatibility_matrix.xml
+DEVICE_MANIFEST_FILE := $(DEVICE_PATH)/configs/hidl/manifest.xml
+DEVICE_FRAMEWORK_MANIFEST_FILE := $(DEVICE_PATH)/configs/hidl/framework_manifest.xml
+DEVICE_MATRIX_FILE := $(DEVICE_PATH)/configs/hidl/compatibility_matrix.xml
 ODM_MANIFEST_SKUS += \
 	365 \
 	366
 
-ODM_MANIFEST_365_FILES := $(DEVICE_PATH)/manifest_sdmmagpie.xml
-ODM_MANIFEST_366_FILES := $(DEVICE_PATH)/manifest_sdmmagpie.xml
+ODM_MANIFEST_365_FILES := $(DEVICE_PATH)/configs/hidl/manifest_sdmmagpie.xml
+ODM_MANIFEST_366_FILES := $(DEVICE_PATH)/configs/hidl/manifest_sdmmagpie.xml
 
 # LMKD
 TARGET_LMKD_STATS_LOG := true
