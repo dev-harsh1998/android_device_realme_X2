@@ -728,6 +728,10 @@ vendor/lib64/libdisp-aba.so
 vendor/lib64/libdisplayqos.so
 vendor/lib64/libhdr_tm.so
 
+# Graphics (hwcomposer)
+vendor/lib/hw/hwcomposer.sm6150.so
+vendor/lib64/hw/hwcomposer.sm6150.so
+
 # Graphics firmware
 vendor/firmware/a612_rgmu.bin
 vendor/firmware/a612_zap.b00
