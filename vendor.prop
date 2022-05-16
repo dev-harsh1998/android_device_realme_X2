@@ -190,6 +190,9 @@ vendor.media.target.version=2
 persist.vendor.data.iwlan.enable=true
 ro.telephony.iwlan_operation_mode=legacy
 
+# NFC
+ro.hardware.nfc_nci=nqx.default
+
 # Perf
 ro.vendor.extension_library=libqti-perfd-client.so
     
